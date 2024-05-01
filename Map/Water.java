@@ -3,9 +3,14 @@ package Map;
 public class Water extends Plot {
     boolean placeholder = true;
     boolean adalilipad = false;
+    //Lilipad lilipad = null;
 
+    public Water(){
+        super();
+        //lilipad = null;
+    }
     @Override
-    public void tanam(/*Plant plant*/){
+    public void tanam(/*Plant plant*/)throws NotPlantableException{
         
         if (adalilipad /*&& plant.isaquatic == false */){
             super.tanam();
@@ -27,8 +32,12 @@ public class Water extends Plot {
             adalilipad = false;
         }
         else{
-            
+
         }
+    }
+
+    public boolean isAdaLilipad(){
+        return adalilipad;
     }
     
 
