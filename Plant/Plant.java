@@ -1,9 +1,13 @@
 package Plant;
 
-public class Plant {
-    private String name;
-    private int cost;
-    private int health;
-    private int attack_damage;
-    private int attack_damage;
+public  interface Plant {
+    String getName();
+    int getCost();
+    int getHealth();
+    int getAttackDamage();
+    int getAttackSpeed();
+    int getRange();
+    int getCooldown();
+    boolean isJumpable();
+    void attack();
 }
