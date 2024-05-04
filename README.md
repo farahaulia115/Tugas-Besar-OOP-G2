@@ -2,6 +2,8 @@
 Tugas Besar OOP Kelompok 02
 | NIM | Nama Anggota |
 | --- | --- |
-| `git status` | List all *new or modified* files |
-| `git diff` | Show file differences that **haven't been** staged |
+| 18222004 | Muhammad Rifa Ansyari |
+| 18222022 | Louis Ferdyo Gunawan |
+| 18222060 | Taufiq Ramadhan Ahmad |
+| 18222096 | Farah Aulia |
 
