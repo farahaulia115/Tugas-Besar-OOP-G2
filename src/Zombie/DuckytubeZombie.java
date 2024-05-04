@@ -1,4 +1,4 @@
-
+package Zombie;
 
 public class DuckytubeZombie extends Zombie{
     public DuckytubeZombie() {

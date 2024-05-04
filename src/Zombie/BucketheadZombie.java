@@ -1,4 +1,4 @@
-
+package Zombie;
 
 public class BucketheadZombie extends Zombie {
     public BucketheadZombie() {
