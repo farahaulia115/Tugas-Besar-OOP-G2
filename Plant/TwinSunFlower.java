@@ -1,4 +1,5 @@
 package Plant;
+import Main.Sun;
 
 public class TwinSunFlower implements Plant, ProduceSun{
     private String name = "TwinSunFlower";
@@ -49,6 +50,12 @@ public class TwinSunFlower implements Plant, ProduceSun{
     }
 
     public void ProduceSun(Sun sun){
+        // setiap berapa detik dia produce sun
+    }
 
+    @Override
+    public void ProduceSun() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'ProduceSun'");
     }
 }
