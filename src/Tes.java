@@ -4,6 +4,8 @@ public class Tes {
         Inventory inventory = new Inventory();
 
         inventory.showInventory();
+
+        
   
     }
 }
