@@ -1,8 +1,8 @@
 package Plant;
 
-public class SunFlower implements Plant, ProduceSun{
-    private String name = "SunFlower";
-    private int cost = 50;
+public class Lilypad implements Plant {
+    private String name = "Lilypad";
+    private int cost = 25;
     private int health = 100;
     private int attackDamage = 0;
     private int attackSpeed = 0;
@@ -45,12 +45,6 @@ public class SunFlower implements Plant, ProduceSun{
     }
 
     public void attack() {
-        // Implementasi serangan untuk Sunflower
-    }
-
-    public void ProduceSun(){
 
     }
-
 }
-

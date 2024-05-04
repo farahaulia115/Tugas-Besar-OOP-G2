@@ -1,13 +1,13 @@
 package Plant;
 
-public class SunFlower implements Plant, ProduceSun{
-    private String name = "SunFlower";
+public class Wallnut implements Plant {
+    private String name = "Wall nut";
     private int cost = 50;
-    private int health = 100;
+    private int health = 1000;
     private int attackDamage = 0;
     private int attackSpeed = 0;
     private int range = 0;
-    private int cooldown = 10;
+    private int cooldown = 20;
     private boolean jumpable = true;
 
 
@@ -45,12 +45,7 @@ public class SunFlower implements Plant, ProduceSun{
     }
 
     public void attack() {
-        // Implementasi serangan untuk Sunflower
-    }
-
-    public void ProduceSun(){
 
     }
 
 }
-

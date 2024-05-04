@@ -8,7 +8,7 @@ public class TwinSunFlower implements Plant, ProduceSun{
     private int attackSpeed = 0;
     private int range = 0;
     private int cooldown = 10;
-    private boolean jumpable = false;
+    private boolean jumpable = true;
 
 
 
