@@ -13,8 +13,8 @@ public class Inventory {
         deck = new Deck();
         PlantFactory pabrik = new PlantFactory();
         inventory.add(pabrik.createPlant("SunFlower"));
+        inventory.add(pabrik.createPlant("SunFlower"));
 
-        // plants[1] = create plant tanaman 1 dst
     }
 
     public ArrayList<Plant> getInventory(){
@@ -37,16 +37,15 @@ public class Inventory {
         deck.getDeck().set(y, temp);
     }
 
-    public void deletePlant (int index){
+    public void deletePlantFromDeck (int index){
         deck.getDeck().remove(index);
     }
 
-    // public void deletePlant (Plant plant){
-    //     deck.getDeck().equals()
-    //     for (Plant p: deck.getDeck()){
-    //         if (deck.getDeck().equals(p))
-    //     }
-    // }
+    
+
+    public void deletePlant (Plant plant){
+        deck.getDeck().remove(plant);
+    }
 
     public void addPlantToDeck (int i){
         deck.getDeck().add(inventory.get(i));
