@@ -1,7 +1,7 @@
 package Plant;
 
 public class SunFlower implements Plant, ProduceSun{
-    private String name = "SunFlower";
+    private String name = "Sunflower";
     private int cost = 50;
     private int health = 100;
     private int attackDamage = 0;

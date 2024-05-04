@@ -2,7 +2,7 @@ package Plant;
 import Main.Sun;
 
 public class TwinSunFlower implements Plant, ProduceSun{
-    private String name = "TwinSunFlower";
+    private String name = "Twinsunflower";
     private int cost = 150;
     private int health = 120;
     private int attackDamage = 0;

@@ -6,11 +6,6 @@ import java.util.List;
 import Plant.Plant;
 
 public class Deck {
-    // private Plant[] deck;
-
-    // public Deck(){
-    //     deck = new Plant[6];
-    // }
 
     private ArrayList<Plant> deck;
     public Deck(){
