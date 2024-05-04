@@ -1,43 +1,44 @@
 package Map;
+import Plant.*;
 
-public class Water extends Plot {
-    boolean placeholder = true;
-    boolean adalilipad = false;
-    //Lilipad lilipad = null;
+public class Water extends Tile {
+    private Lilypad lilypadInPool;
 
     public Water(){
         super();
-        //lilipad = null;
+        lilypadInPool = null;
     }
     @Override
-    public void tanam(/*Plant plant*/)throws NotPlantableException{
-        
-        if (adalilipad /*&& plant.isaquatic == false */){
-            super.tanam();
+    public void tanam(Plant plant) throws NotPlantableException{
+        if (plant instanceof Lilypad && lilypadInPool == null ){
+            lilypadInPool = (Lilypad) plant;
         }
-        else if (/*plant instanceof lilipad && adalilipad == false*/ placeholder){
-            adalilipad = true;
+        else if (plant instanceof TangleKelp && lilypadInPool == null){
+            super.tanam(plant);
+        }
+        else if ( lilypadInPool != null && !(plant instanceof Lilypad) && !(plant instanceof TangleKelp)){
+            super.tanam(plant);
         }
         else{
-
+            throw new NotPlantableException();
         }
     } 
 
     @Override
-    public void gali(){
+    public void gali() throws NotShovelableException{
         if (isAdaTanaman()){
             super.gali();
         }
-        if (!isAdaTanaman() && adalilipad){
-            adalilipad = false;
+        else if (!isAdaTanaman() && lilypadInPool != null){
+            lilypadInPool = null;
         }
         else{
-
+            throw new NotShovelableException();
         }
     }
 
-    public boolean isAdaLilipad(){
-        return adalilipad;
+    public Lilypad getLilypad(){
+        return lilypadInPool;
     }
     
 

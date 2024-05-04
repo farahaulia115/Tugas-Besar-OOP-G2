@@ -2,9 +2,8 @@ package Map;
 
 public class Map{
 
-    private Plot[][] map = new Plot[6][11];
-
-    public Map(){
+    private static Tile[][] map = new Tile[6][11];
+    private Map(){
         for (int i = 0;i<=1;i++){
             for (int j = 1;j<=9;j++){
                 map[i][j] = new Land();
@@ -26,7 +25,7 @@ public class Map{
         }
     }
 
-    public void printMap(){
-
+    public static Map getMapInstance(){
+        return new Map();
     }
 }
