@@ -2,20 +2,22 @@ package Main;
 
 import java.util.ArrayList;
 
-import Plant.Plant;
+import Plant.*;
 
 public class Inventory {
-    private Plant[] inventory;
+    private ArrayList<Plant> inventory;
     private Deck deck;
  
     public Inventory() {
-        this.inventory = new Plant[10];
+        this.inventory = new ArrayList<>();
         deck = new Deck();
+        PlantFactory pabrik = new PlantFactory();
+        inventory.add(pabrik.createPlant("SunFlower"));
 
         // plants[1] = create plant tanaman 1 dst
     }
 
-    public Plant[] getInventory(){
+    public ArrayList<Plant> getInventory(){
         return inventory;
     }
 
@@ -24,10 +26,9 @@ public class Inventory {
     }
 
     public void swapInventory (int x, int y){
-        Plant temp = inventory[x];
-        inventory[x] = inventory [y];
-        inventory[y] = temp;
-
+        Plant temp = inventory.get(x);
+        inventory.set(x, inventory.get(y));
+        inventory.set(y, temp);
     }
 
     public void swapDeck (int x, int y){
@@ -48,7 +49,7 @@ public class Inventory {
     // }
 
     public void addPlantToDeck (int i){
-        deck.getDeck().add(inventory[i]);
+        deck.getDeck().add(inventory.get(i));
     }
 
     public void addPlantToDeck (Plant plant){
@@ -56,8 +57,10 @@ public class Inventory {
     }
 
     public void showInventory (){
-        for (int i = 0; i < 10; i++){
-            System.out.println((i+1) + " ." + inventory[i].getName());
+        int i = 1;
+        for (Plant p : inventory){
+            System.out.println(i + " ." + inventory.get(i-1).getName());
+            i++;
         }
     }
 

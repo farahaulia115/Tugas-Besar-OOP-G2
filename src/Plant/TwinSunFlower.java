@@ -54,7 +54,7 @@ public class TwinSunFlower implements Plant, ProduceSun{
     }
 
     @Override
-    public void ProduceSun() {
+    public void produceSun() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'ProduceSun'");
     }

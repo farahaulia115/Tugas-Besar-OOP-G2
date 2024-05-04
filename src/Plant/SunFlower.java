@@ -48,7 +48,7 @@ public class SunFlower implements Plant, ProduceSun{
         // Implementasi serangan untuk Sunflower
     }
 
-    public void ProduceSun(){
+    public void produceSun(){
 
     }
 
