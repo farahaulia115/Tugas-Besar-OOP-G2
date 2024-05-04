@@ -32,4 +32,8 @@ public class Map{
         }
         return map;
     }
+
+    public Tile[][] getMapDetail(){
+        return mapdetail;
+    }
 }
