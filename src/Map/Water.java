@@ -40,6 +40,5 @@ public class Water extends Tile {
     public Lilypad getLilypad(){
         return lilypadInPool;
     }
-    
 
 }
