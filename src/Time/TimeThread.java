@@ -1,21 +1,20 @@
+// TimeThread.java
 package Time;
 
-public class TimeThread extends Thread{
+public class TimeThread extends Thread {
     private Time time;
     private volatile boolean running = true;
 
-
-    
-    public TimeThread(Time time){
+    public TimeThread(Time time) {
         this.time = time;
     }
-    
-    public void stopThread(){
+
+    public void stopThread() {
         running = false;
     }
 
     @Override
-    public void run (){
+    public void run() {
         while (running) {
             try {
                 Thread.sleep(1000); // Menghentikan thread selama 1 detik
