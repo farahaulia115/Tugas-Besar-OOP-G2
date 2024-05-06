@@ -1,5 +1,7 @@
 package Map;
 
+import Plant.Plant;
+
 public class Map{
     private static Map map;
     private Tile[][] mapdetail = new Tile[6][11];
@@ -35,5 +37,14 @@ public class Map{
 
     public Tile[][] getMapDetail(){
         return mapdetail;
+    }
+
+    public void tanamAt(int x, int y, Plant plant){
+        try{
+            mapdetail[x][y].tanam(plant);
+        }
+        catch (NotPlantableException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
