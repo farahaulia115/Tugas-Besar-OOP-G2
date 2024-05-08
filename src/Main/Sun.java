@@ -1,4 +1,5 @@
 package Main;
+import Time.*;
 
 public class Sun {
     private static int amount;
@@ -18,6 +19,14 @@ public class Sun {
 
     public static void setSun (int sun){
         amount = sun;
+    }
+
+    public static void generateSun(Time time){
+        if (time.getCurrentPhase().equalsIgnoreCase("Pagi") ){
+            if (time.getTotalSeconds() % 25 == 0){
+                increaseeSun(25);
+            }
+        }
     }
 
     // buat generate sun tiap berapa second

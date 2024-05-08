@@ -1,7 +1,7 @@
 package Plant;
 
 public class TangleKelp implements Plant {
-    private String name = "Tangle Kelp";
+    private String name = "TangleKelp";
     private int cost = 25;
     private int health = 100;
     private int attackDamage = 5000;

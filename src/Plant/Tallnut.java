@@ -1,7 +1,7 @@
 package Plant;
 
 public class Tallnut implements Plant {
-    private String name = "Tall-nut";
+    private String name = "Tallnut";
     private int cost = 125;
     private int health = 2000;
     private int attackDamage = 0;

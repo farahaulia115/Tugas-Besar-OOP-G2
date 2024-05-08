@@ -16,7 +16,7 @@ public class Time {
         this.totalSeconds = totalSeconds;
     }
 
-    // 200 jumlah second dalam dua hari
+    // 200 jumlah second dalam satu hari
     public int getDay() {
         return (totalSeconds / 200) + 1;
     }

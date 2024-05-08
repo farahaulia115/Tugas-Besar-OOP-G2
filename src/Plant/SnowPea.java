@@ -1,7 +1,7 @@
 package Plant;
 
 public class SnowPea implements Plant {
-    private String name = "Snow Pea";
+    private String name = "SnowPea";
     private int cost = 175;
     private int health = 100;
     private int attackDamage = 25;

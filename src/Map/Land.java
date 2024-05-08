@@ -6,7 +6,7 @@ public class Land extends Tile {
         
         if (plant instanceof Lilypad|| plant instanceof TangleKelp){
             throw new NotPlantableException();
-        }
+        } 
         else{
             super.tanam(plant);
         }

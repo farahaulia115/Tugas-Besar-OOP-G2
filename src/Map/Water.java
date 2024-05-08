@@ -8,6 +8,7 @@ public class Water extends Tile {
         super();
         lilypadInPool = null;
     }
+    
     @Override
     public void tanam(Plant plant) throws NotPlantableException{
         if (plant instanceof Lilypad && lilypadInPool == null ){
