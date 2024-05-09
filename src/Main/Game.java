@@ -13,9 +13,25 @@ public class Game {
     private static boolean statusGame = true;
     private Map map;
     private Inventory inventory;
+    private Time time;
 
+    public Game (){
+        time = new Time();
+        TimeThread timeThread = new TimeThread(time);
+        timeThread.start();
+    }
+
+    public Time getTime(){
+        return time;
+    }
+
+    
     public static boolean getStatusGame(){
         return statusGame;
+    }
+
+    public void startGame(){
+
     }
     
 }
