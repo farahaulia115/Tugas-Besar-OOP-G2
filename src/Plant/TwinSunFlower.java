@@ -35,6 +35,28 @@ public class TwinSunFlower implements Plant, ProduceSun{
         sunProductionThread.start(); // Mulai thread
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+    public void setHealth(int health) {
+        this.health = health;
+    }
+    public void setAttackDamage(int attackDamage) {
+        this.attackDamage = attackDamage;
+    }
+    public void setRange(int range) {
+        this.range = range;
+    }
+    public void setCooldown(int cooldown) {
+        this.cooldown = cooldown;
+    }
+
+    public void setJumpable(boolean jumpable) {
+        this.jumpable = jumpable;
+    }
 
     public String getName() {
         return name;
