@@ -47,6 +47,7 @@ public class Tile {
     }
 
     public void plantDie(){
+        adaTanaman = false;
         planted = null;
     }
 }
