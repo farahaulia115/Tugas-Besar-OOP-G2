@@ -1,4 +1,6 @@
 package Zombie;
+import Map.*;
+import Time.*;
 
 public class DuckytubeZombie implements Zombie {
     private String name = "Ducky Tube Zombie";
@@ -6,6 +8,9 @@ public class DuckytubeZombie implements Zombie {
     private int damage = 100;
     private int speed = 1;
     private boolean aquatic = true;
+    private int timeSpawn;
+    private int x;
+    private int y;
 
 
     @Override
@@ -35,7 +40,28 @@ public class DuckytubeZombie implements Zombie {
 
     @Override
     public void attack() {
-        // Implementasi serangan untuk DuckyTubeZombie
+        // Implementasi serangan
+        if ((Time.getTime().getTotalSeconds() - timeSpawn) % speed == 0) {
+            if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
+                if (Map.getMapInstance().getMapDetail()[x][y].getPlant().getHealth() - damage > 0) {
+                    Map.getMapInstance().getMapDetail()[x][y].getPlant().setHealth(Map.getMapInstance().getMapDetail()[x][y].getPlant().getHealth()-damage) ;
+                }
+                else {
+                    Map.getMapInstance().getMapDetail()[x][y].plantDie();
+                }
+            }
+        }
     }
     
+    @Override
+    public void move() {
+        if ((Time.getTime().getTotalSeconds() - timeSpawn) % 5 == 0) {
+            // remove zombie di tile lama
+            Map.getMapInstance().getMapDetail()[x][y].getZombieList().remove(this);
+            // ubah koordinat
+            y++;
+            // tambah zombie di tile baru
+            Map.getMapInstance().getMapDetail()[x][y].getZombieList().add(this);
+        }
+    }
 }

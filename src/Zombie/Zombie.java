@@ -7,5 +7,6 @@ public interface Zombie {
     int getSpeed();
     boolean isAquatic();
     void attack();
+    void move();
 
 }
