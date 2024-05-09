@@ -17,6 +17,7 @@ public class SunFlower implements Plant, ProduceSun{
 
     
     public SunFlower (){
+        plantedTime = Time.getT
         startSunProductionThread();
     }
 
