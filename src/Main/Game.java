@@ -11,6 +11,6 @@ import Zombie.*;
 
 public class Game {
     Map map;
-    Inventory inventory
+    Inventory inventory;
     
 }

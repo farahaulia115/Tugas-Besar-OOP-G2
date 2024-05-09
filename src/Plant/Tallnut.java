@@ -44,8 +44,6 @@ public class Tallnut implements Plant {
         return jumpable;
     }
 
-    public void attack() {
 
-    }
 
 }

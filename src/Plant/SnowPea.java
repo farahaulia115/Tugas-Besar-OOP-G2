@@ -1,6 +1,6 @@
 package Plant;
 
-public class SnowPea implements Plant {
+public class SnowPea implements Plant, Attack {
     private String name = "SnowPea";
     private int cost = 175;
     private int health = 100;

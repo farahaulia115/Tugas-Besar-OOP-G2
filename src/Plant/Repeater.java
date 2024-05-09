@@ -1,6 +1,6 @@
 package Plant;
 
-public class Repeater implements Plant{
+public class Repeater implements Plant, Attack{
     private String name = "Repeater";
     private int cost = 200;
     private int health = 100;

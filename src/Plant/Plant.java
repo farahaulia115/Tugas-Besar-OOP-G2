@@ -9,5 +9,5 @@ public  interface Plant {
     int getRange();
     int getCooldown();
     boolean isJumpable();
-    void attack();
+    
 }

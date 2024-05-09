@@ -1,6 +1,6 @@
 package Plant;
 
-public class TangleKelp implements Plant {
+public class TangleKelp implements Plant, Attack {
     private String name = "TangleKelp";
     private int cost = 25;
     private int health = 100;

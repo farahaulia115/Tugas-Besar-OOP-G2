@@ -44,7 +44,4 @@ public class Lilypad implements Plant {
         return jumpable;
     }
 
-    public void attack() {
-
-    }
 }

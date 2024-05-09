@@ -4,6 +4,9 @@ package Time;
 public class Time {
     private int totalSeconds;
 
+    public Time() {
+        totalSeconds = 0;
+    }
     public Time(int secondInitial) {
         totalSeconds = secondInitial;
     }
