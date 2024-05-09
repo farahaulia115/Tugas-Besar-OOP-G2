@@ -1,5 +1,7 @@
 package Plant;
 
+import Main.Game;
+
 public class SnowPea implements Plant, Attack {
     private String name = "SnowPea";
     private int cost = 175;
@@ -9,6 +11,10 @@ public class SnowPea implements Plant, Attack {
     private int range = -1;
     private int cooldown = 10;
     private boolean jumpable = true;
+
+    public SnowPea() {
+        startSnowPeaAttackThread();
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -31,6 +37,20 @@ public class SnowPea implements Plant, Attack {
 
     public void setJumpable(boolean jumpable) {
         this.jumpable = jumpable;
+    }
+
+    public void startSnowPeaAttackThread (){
+        Thread SnowPeaAttackThread = new Thread(() -> {
+            while (Game.getStatusGame()) {
+                try {
+                    Thread.sleep(attackSpeed * 100); // Tunggu interval produksi
+                    attack();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        SnowPeaAttackThread.start(); // Mulai thread
     }
 
     public String getName() {

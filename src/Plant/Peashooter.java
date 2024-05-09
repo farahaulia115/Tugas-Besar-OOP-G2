@@ -1,5 +1,7 @@
 package Plant;
 
+import Main.Game;
+
 public class Peashooter implements Plant, Attack {
     private String name = "Peashooter";
     private int cost = 100;
@@ -10,6 +12,9 @@ public class Peashooter implements Plant, Attack {
     private int cooldown = 10;
     private boolean jumpable = true;
 
+    public Peashooter() {
+        startPeashooterAttackThread();
+    }
     public void setName(String name) {
         this.name = name;
     }
@@ -33,6 +38,22 @@ public class Peashooter implements Plant, Attack {
         this.jumpable = jumpable;
     }
 
+    
+
+    public void startPeashooterAttackThread (){
+        Thread PeashooterAttackThread = new Thread(() -> {
+            while (Game.getStatusGame()) {
+                try {
+                    Thread.sleep(attackSpeed * 100); // Tunggu interval produksi
+                    attack();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        PeashooterAttackThread.start(); // Mulai thread
+    }
+    
     public String getName() {
         return name;
     }

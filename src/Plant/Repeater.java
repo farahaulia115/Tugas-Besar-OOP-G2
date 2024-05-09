@@ -1,5 +1,7 @@
 package Plant;
 
+import Main.Game;
+
 public class Repeater implements Plant, Attack{
     private String name = "Repeater";
     private int cost = 200;
@@ -9,6 +11,10 @@ public class Repeater implements Plant, Attack{
     private int range = -1;
     private int cooldown = 10;
     private boolean jumpable = true;
+
+    public Repeater() {
+
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -31,6 +37,20 @@ public class Repeater implements Plant, Attack{
 
     public void setJumpable(boolean jumpable) {
         this.jumpable = jumpable;
+    }
+
+    public void startRepeaterAttackThread (){
+        Thread RepeaterAttackThread = new Thread(() -> {
+            while (Game.getStatusGame()) {
+                try {
+                    Thread.sleep(attackSpeed * 100); // Tunggu interval produksi
+                    attack();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        RepeaterAttackThread.start(); // Mulai thread
     }
 
     public String getName() {
