@@ -2,7 +2,7 @@
 package Time;
 
 public class Time {
-    private int totalSeconds;
+    private static int totalSeconds;
 
     public Time() {
         totalSeconds = 0;
@@ -11,7 +11,7 @@ public class Time {
         totalSeconds = secondInitial;
     }
 
-    public int getTotalSeconds() {
+    public static int getTotalSeconds() {
         return totalSeconds;
     }
 

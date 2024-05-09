@@ -46,6 +46,7 @@ public class TwinSunFlower implements Plant, ProduceSun{
 
     public boolean isJumpable() {
         return jumpable;
+    }
 
     public void ProduceSun(Sun sun){
         // setiap berapa detik dia produce sun

@@ -10,7 +10,12 @@ import Zombie.*;
 
 
 public class Game {
-    Map map;
-    Inventory inventory;
+    private static boolean statusGame = true;
+    private Map map;
+    private Inventory inventory;
+
+    public static boolean getStatusGame(){
+        return statusGame;
+    }
     
 }
