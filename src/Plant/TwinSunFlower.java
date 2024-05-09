@@ -1,9 +1,12 @@
 package Plant;
+import Main.Game;
 import Main.Sun;
 import Time.Time;
 
 public class TwinSunFlower implements Plant, ProduceSun{
-    private String name = "Twinsunflower";
+    private static final int SUN_PRODUCTION_INTERVAL = 10; // Interval produksi Sun dalam detik
+    private static final int SUN_PRODUCTION_AMOUNT = 50;
+    private String name = "TwinSunflower";
     private int cost = 150;
     private int health = 120;
     private int attackDamage = 0;
@@ -13,7 +16,24 @@ public class TwinSunFlower implements Plant, ProduceSun{
     private boolean jumpable = true;
     private Time plantedTime = new Time();
     
+    public TwinSunFlower(){
+        plantedTime = new Time();
+        startSunProductionThread();
+    }
 
+    public void startSunProductionThread (){
+        Thread sunProductionThread = new Thread(() -> {
+            while (Game.getStatusGame()) {
+                try {
+                    Thread.sleep(SUN_PRODUCTION_INTERVAL * 1000); // Tunggu interval produksi
+                    Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        sunProductionThread.start(); // Mulai thread
+    }
 
 
     public String getName() {
