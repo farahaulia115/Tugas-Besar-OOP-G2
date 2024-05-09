@@ -47,4 +47,28 @@ public class Map{
             System.out.println(e.getMessage());
         }
     }
+
+    public void renderMap(){
+        for (int i = 0; i<=5;i++){
+            for (int j = 1; j<=9;j++){
+                System.out.printf("[");
+                if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size()>0){
+                    if (mapdetail[i][j].isAdaTanaman()){
+                        System.out.printf("P");
+                    }
+                    if (mapdetail[i][j].getZombieList().size()>0){
+                        for (int k = 0; k<mapdetail[i][j].getZombieList().size();k++) {
+                            System.out.printf("Z");
+                        }      
+                    }
+                }
+                else{
+                    System.out.printf(" ");
+                }
+                System.out.printf("]");
+                
+            }
+            System.out.println();
+        }
+    }
 }
