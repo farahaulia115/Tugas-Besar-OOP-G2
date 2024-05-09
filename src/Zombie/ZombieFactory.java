@@ -10,7 +10,7 @@ public class ZombieFactory {
     // Dolphin Rider Zombie
     // Ducky Tube Conehead Zombie
     // Ducky Tube Zombie
-    // Pogo Zombie
+    // Football Zombie
     // Pole Vaulting Zombie
     // Screen Door Zombie
     // Wallnut Zombie
@@ -32,7 +32,7 @@ public class ZombieFactory {
             case 6:
                 return new DuckytubeZombie();
             case 7:
-                return new PogoZombie();
+                return new FootballZombie();
             case 8:
                 return new PolevaultingZombie();
             case 9:

@@ -1,9 +1,9 @@
 package Zombie;
 
-public class PogoZombie implements Zombie, CanJump {
-    private String name = "Pogo Zombie";
-    private int health = 150;
-    private int damage = 100;
+public class FootballZombie implements Zombie, CanJump {
+    private String name = "Football Zombie";
+    private int health = 300;
+    private int damage = 150;
     private int speed = 1;
     private boolean aquatic = false;
 
