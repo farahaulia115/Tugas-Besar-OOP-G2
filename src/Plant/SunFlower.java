@@ -13,11 +13,9 @@ public class SunFlower implements Plant, ProduceSun{
     private int range = 0;
     private int cooldown = 10;
     private boolean jumpable = true;
-    private Time plantedTime;
 
     
     public SunFlower (){
-        plantedTime = new Time();
         startSunProductionThread();
     }
 
