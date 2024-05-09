@@ -16,7 +16,7 @@ public class Time {
     }
 
     public void setTotalSeconds(int totalSeconds) {
-        this.totalSeconds = totalSeconds;
+        Time.totalSeconds = totalSeconds;
     }
 
     // 200 jumlah second dalam satu hari

@@ -1,6 +1,4 @@
 package Map;
-
-import Plant.Peashooter;
 import Plant.Repeater;
 import Plant.Squash;
 import Zombie.*;
@@ -19,7 +17,7 @@ public class TesMap {
             map.getMapDetail()[0][2].getZombieList().add(new PolevaultingZombie());
             map.renderMap();
 
-            
+
         } catch (NotPlantableException e) {
            System.out.println(e.getMessage());
         // } catch (NotShovelableException e) {
