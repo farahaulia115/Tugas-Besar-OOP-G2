@@ -25,7 +25,7 @@ public class Time {
     }
 
     // 200 jumlah second dalam satu hari
-    public int getDay() {
+    public static int getDay() {
         return (totalSeconds / 200) + 1;
     }
 

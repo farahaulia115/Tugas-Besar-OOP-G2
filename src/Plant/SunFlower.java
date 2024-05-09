@@ -1,5 +1,4 @@
 package Plant;
-import Time.*;
 import Main.*;
 
 public class SunFlower implements Plant, ProduceSun{
@@ -13,7 +12,10 @@ public class SunFlower implements Plant, ProduceSun{
     private int range = 0;
     private int cooldown = 10;
     private boolean jumpable = true;
-    private Time plantedTime;
+    
+    public SunFlower(){
+        startSunProductionThread();
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -38,17 +40,13 @@ public class SunFlower implements Plant, ProduceSun{
         this.jumpable = jumpable;
     }
     
-    public SunFlower (){
-        plantedTime = Time.getT
-        startSunProductionThread();
-    }
 
     public void startSunProductionThread (){
         Thread sunProductionThread = new Thread(() -> {
             while (Game.getStatusGame()) {
                 try {
                     Thread.sleep(SUN_PRODUCTION_INTERVAL * 1000); // Tunggu interval produksi
-                    Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
+                    produceSun();;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -92,7 +90,7 @@ public class SunFlower implements Plant, ProduceSun{
     }
 
     public void produceSun(){
-
+        Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
     }
 
 }
