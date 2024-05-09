@@ -38,7 +38,7 @@ public class Game {
     }
 
     public void spawnZombie() {
-        double probabilityTile = 0.33;
+        double probabilityTile = 0.3;
         for (int i = 0; i < 6; i++) {
             if (Math.random() < probabilityTile) {
                 int jenisZombie = new Random().nextInt(10) + 1;
