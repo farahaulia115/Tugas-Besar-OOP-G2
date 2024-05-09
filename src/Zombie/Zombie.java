@@ -8,5 +8,6 @@ public interface Zombie {
     boolean isAquatic();
     void attack();
     void move();
+    void setPosition(int x, int y);
 
 }

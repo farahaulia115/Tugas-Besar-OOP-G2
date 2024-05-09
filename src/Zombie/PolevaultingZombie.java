@@ -39,6 +39,12 @@ public class PolevaultingZombie implements Zombie {
     }
 
     @Override
+    public void setPosition(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
     public void attack() {
         // Implementasi serangan
         if ((Time.getTime().getTotalSeconds() - timeSpawn) % speed == 0) {
