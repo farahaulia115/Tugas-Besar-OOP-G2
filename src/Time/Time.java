@@ -2,21 +2,26 @@
 package Time;
 
 public class Time {
+    private static Time time = null;
     private int totalSeconds;
 
-    public Time() {
+    private Time() {
         totalSeconds = 0;
-    }
-    public Time(int secondInitial) {
-        totalSeconds = secondInitial;
     }
 
     public int getTotalSeconds() {
         return totalSeconds;
     }
 
+    public static Time getTime(){
+        if (time == null){
+            return new Time();
+        }
+        return time;
+    }
+    
     public void setTotalSeconds(int totalSeconds) {
-        Time.totalSeconds = totalSeconds;
+        this.totalSeconds = totalSeconds;
     }
 
     // 200 jumlah second dalam satu hari
