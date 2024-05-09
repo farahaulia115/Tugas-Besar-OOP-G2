@@ -13,7 +13,7 @@ public class Sun {
         amount -= sun;
     }
 
-    public static void increaseeSun (int sun){
+    public static void increaseSun (int sun){
         amount += sun;
     }
 
@@ -24,7 +24,7 @@ public class Sun {
     public static void generateSun(Time time){
         if (time.getCurrentPhase().equalsIgnoreCase("Pagi") ){
             if (time.getTotalSeconds() % 25 == 0){
-                increaseeSun(25);
+                increaseSun(25);
             }
         }
     }

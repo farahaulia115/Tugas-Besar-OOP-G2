@@ -1,6 +1,6 @@
 package Plant;
 
-public class Squash implements Plant, Attack {
+public class Squash implements Plant, Attack, SelfDestruct {
     private String name = "Squash";
     private int cost = 50;
     private int health = 100;
@@ -45,6 +45,10 @@ public class Squash implements Plant, Attack {
     }
 
     public void attack() {
+        
+    }
+
+    public void selfDestruct() {
         
     }
 

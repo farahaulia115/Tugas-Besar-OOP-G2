@@ -13,6 +13,7 @@ public class SunFlower implements Plant, ProduceSun{
     private int range = 0;
     private int cooldown = 10;
     private boolean jumpable = true;
+    private Time plantedTime;
 
     
     public SunFlower (){
@@ -24,7 +25,7 @@ public class SunFlower implements Plant, ProduceSun{
             while (Game.getStatusGame()) {
                 try {
                     Thread.sleep(SUN_PRODUCTION_INTERVAL * 1000); // Tunggu interval produksi
-                    Sun.increaseeSun(SUN_PRODUCTION_AMOUNT);
+                    Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
