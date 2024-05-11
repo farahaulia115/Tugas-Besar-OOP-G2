@@ -2,18 +2,19 @@ package Map;
 import Plant.*;
 import Zombie.*;
 import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.ArrayList;
 
 public class Tile {
     private Plant planted;
     private boolean adaTanaman;
-    private List<Zombie> zombieList;
-    public Object zombieQueue;
+    private Queue<Zombie> zombieQueue;
 
     public Tile(){
         planted = null;
         adaTanaman= false;
-        zombieList = new ArrayList<>();
+        zombieQueue = new ConcurrentLinkedQueue<>();
     }
     
     public void tanam(Plant plant) throws NotPlantableException{
@@ -43,8 +44,8 @@ public class Tile {
         return planted;
     }
 
-    public List<Zombie> getZombieList(){
-        return zombieList;
+    public Queue<Zombie> getZombieList(){
+        return zombieQueue;
     }
 
     public void plantDie(){
