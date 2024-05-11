@@ -1,25 +1,27 @@
 
-package Main;
+package main;
 
 import Map.*;
 import Plant.*;
 import Time.*;
 import Util.*;
-import Exception.*;
 import Zombie.*;
-import java.lang.Math;
-import java.util.Random;
+// import exception.*;
+
+// import java.lang.Math;
+// import java.util.Random;
+
 
 
 public class Game {
-    private static boolean statusGame = true;
-    private Map map;
+    private static boolean statusGame;;
+    private Map map = Map.getMapInstance();
     private Inventory inventory;
-    private Time time;
-    private ZombieFactory factory;
+    private Time time = Time.getTime();
+    private Deck deck = inventory.getDeck();
 
     public Game (){
-        time = new Time();
+        inventory = new Inventory();
         TimeThread timeThread = new TimeThread(time);
         timeThread.start();
     }
@@ -37,16 +39,16 @@ public class Game {
 
     }
 
-    public void spawnZombie() {
-        double probabilityTile = 0.3;
-        for (int i = 0; i < 6; i++) {
-            if (Math.random() < probabilityTile) {
-                int jenisZombie = new Random().nextInt(10) + 1;
-                Zombie newZombie = factory.createZombie(jenisZombie);
-                map.getMapDetail()[i][1].getZombieList().add(newZombie);
-                newZombie.setPosition(i, 1);
-            }
-        }
-    }
+    // public void spawnZombie() {
+    //     double probabilityTile = 0.3;
+    //     for (int i = 0; i < 6; i++) {
+    //         if (Math.random() < probabilityTile) {
+    //             int jenisZombie = new Random().nextInt(10) + 1;
+    //             Zombie newZombie = factory.createZombie(jenisZombie);
+    //             map.getMapDetail()[i][1].getZombieList().add(newZombie);
+    //             newZombie.setPosition(i, 1);
+    //         }
+    //     }
+    // }
     
 }

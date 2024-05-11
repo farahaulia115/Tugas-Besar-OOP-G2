@@ -8,6 +8,7 @@ public class Tile {
     private Plant planted;
     private boolean adaTanaman;
     private List<Zombie> zombieList;
+    public Object zombieQueue;
 
     public Tile(){
         planted = null;

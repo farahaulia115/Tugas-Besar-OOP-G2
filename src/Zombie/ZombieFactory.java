@@ -26,19 +26,19 @@ public class ZombieFactory {
             case 3:
                 return new BucketheadZombie();
             case 4:
-                return new DolphinriderZombie();
-            case 5:
-                return new DuckytubeConeheadZombie();
-            case 6:
-                return new DuckytubeZombie();
-            case 7:
                 return new FootballZombie();
-            case 8:
+            case 5:
                 return new PolevaultingZombie();
-            case 9:
+            case 6:
                 return new ScreendoorZombie();
-            case 10:
+            case 7:
                 return new WallnutZombie();
+            case 8:
+                return new DolphinriderZombie();
+            case 9:
+                return new DuckytubeConeheadZombie();
+            case 10:
+                return new DuckytubeZombie();
             default:
                 return null;
         }

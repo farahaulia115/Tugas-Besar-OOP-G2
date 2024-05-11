@@ -1,4 +1,4 @@
-package Main;
+package main;
 import Time.*;
 
 public class Sun {
