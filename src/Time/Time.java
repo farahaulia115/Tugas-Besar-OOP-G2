@@ -25,9 +25,11 @@ public class Time {
     }
 
     // 200 jumlah second dalam satu hari
-    public static int getDay() {
-        return (totalSeconds / 200) + 1;
-    }
+
+    
+    // public static int getDay() {
+    //     return (this.totalSeconds / 200) + 1;
+    // }
 
     // nambahin totalSeconds setiap ada penambahan
     public void tick() {

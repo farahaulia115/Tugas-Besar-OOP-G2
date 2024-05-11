@@ -14,7 +14,9 @@ public class Sun {
     }
 
     public static void increaseSun (int sun){
-        amount += sun;
+        synchronized (Sun.class){
+            amount += sun;
+        }
     }
 
     public static void setSun (int sun){

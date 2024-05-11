@@ -1,9 +1,9 @@
 package Plant;
 import Main.*;
 
-public class SunFlower implements Plant, ProduceSun{
+public class SunFlower implements Plant, ProduceSun {
     private static final int SUN_PRODUCTION_INTERVAL = 10; // Interval produksi Sun dalam detik
-    private static final int SUN_PRODUCTION_AMOUNT = 25; 
+    private static final int SUN_PRODUCTION_AMOUNT = 25;
     private String name = "SunFlower";
     private int cost = 50;
     private int health = 100;
@@ -12,26 +12,33 @@ public class SunFlower implements Plant, ProduceSun{
     private int range = 0;
     private int cooldown = 10;
     private boolean jumpable = true;
-    
-    public SunFlower(){
+    private boolean isAlive = true;
+    private Thread sunProductionThread;
+
+    public SunFlower() {
         startSunProductionThread();
     }
 
     public void setName(String name) {
         this.name = name;
     }
+
     public void setCost(int cost) {
         this.cost = cost;
     }
+
     public void setHealth(int health) {
         this.health = health;
     }
+
     public void setAttackDamage(int attackDamage) {
         this.attackDamage = attackDamage;
     }
+
     public void setRange(int range) {
         this.range = range;
     }
+
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
     }
@@ -39,14 +46,13 @@ public class SunFlower implements Plant, ProduceSun{
     public void setJumpable(boolean jumpable) {
         this.jumpable = jumpable;
     }
-    
 
-    public void startSunProductionThread (){
-        Thread sunProductionThread = new Thread(() -> {
-            while (Game.getStatusGame()) {
+    public void startSunProductionThread() {
+        sunProductionThread = new Thread(() -> {
+            while (Game.getStatusGame() && isAlive) {
                 try {
                     Thread.sleep(SUN_PRODUCTION_INTERVAL * 1000); // Tunggu interval produksi
-                    produceSun();;
+                    produceSun();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -54,8 +60,6 @@ public class SunFlower implements Plant, ProduceSun{
         });
         sunProductionThread.start(); // Mulai thread
     }
-
-
 
     public String getName() {
         return name;
@@ -89,9 +93,13 @@ public class SunFlower implements Plant, ProduceSun{
         return jumpable;
     }
 
-    public void produceSun(){
+    public void produceSun() {
         Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
     }
 
+    public void stopSunProductionThread() {
+        if (sunProductionThread != null) {
+            sunProductionThread.interrupt();
+        }
+    }
 }
-

@@ -1,7 +1,5 @@
 package Plant;
-import Main.Game;
-import Main.Sun;
-import Time.Time;
+import Main.*;
 
 public class TwinSunFlower implements Plant, ProduceSun{
     private static final int SUN_PRODUCTION_INTERVAL = 10; // Interval produksi Sun dalam detik
@@ -14,48 +12,54 @@ public class TwinSunFlower implements Plant, ProduceSun{
     private int range = 0;
     private int cooldown = 10;
     private boolean jumpable = true;
-    private Time plantedTime = new Time();
-    
-    public TwinSunFlower(){
-        plantedTime = new Time();
-        startSunProductionThread();
-    }
+    private boolean isAlive = true;
+    private Thread sunProductionThread;
 
-    public void startSunProductionThread (){
-        Thread sunProductionThread = new Thread(() -> {
-            while (Game.getStatusGame()) {
-                try {
-                    Thread.sleep(SUN_PRODUCTION_INTERVAL * 1000); // Tunggu interval produksi
-                    Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        sunProductionThread.start(); // Mulai thread
+
+    public TwinSunFlower(){
+        startSunProductionThread();
     }
 
     public void setName(String name) {
         this.name = name;
     }
+
     public void setCost(int cost) {
         this.cost = cost;
     }
+
     public void setHealth(int health) {
         this.health = health;
     }
+
     public void setAttackDamage(int attackDamage) {
         this.attackDamage = attackDamage;
     }
+
     public void setRange(int range) {
         this.range = range;
     }
+
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
     }
 
     public void setJumpable(boolean jumpable) {
         this.jumpable = jumpable;
+    }
+
+    public void startSunProductionThread() {
+        sunProductionThread = new Thread(() -> {
+            while (Game.getStatusGame() && isAlive) {
+                try {
+                    Thread.sleep(SUN_PRODUCTION_INTERVAL * 1000); // Tunggu interval produksi
+                    produceSun();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        sunProductionThread.start(); // Mulai thread
     }
 
     public String getName() {
@@ -90,13 +94,13 @@ public class TwinSunFlower implements Plant, ProduceSun{
         return jumpable;
     }
 
-    public void ProduceSun(Sun sun){
-        // setiap berapa detik dia produce sun
+    public void produceSun() {
+        Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
     }
 
-    @Override
-    public void produceSun() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'ProduceSun'");
+    public void stopSunProductionThread() {
+        if (sunProductionThread != null) {
+            sunProductionThread.interrupt();
+        }
     }
 }
