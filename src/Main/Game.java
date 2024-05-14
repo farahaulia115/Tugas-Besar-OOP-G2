@@ -1,5 +1,5 @@
 
-package main;
+package Main;
 
 import Map.*;
 import Plant.*;

@@ -1,6 +1,6 @@
 package Plant;
 
-import main.Game;
+import Main.Game;
 
 public class SnowPea implements Plant, Attack {
     private String name = "SnowPea";
