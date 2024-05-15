@@ -1,4 +1,5 @@
 package Plant;
+import Thread.Time;
 
 public class Lilypad implements Plant {
     private String name = "Lilypad";
@@ -9,7 +10,13 @@ public class Lilypad implements Plant {
     private int range = 0;
     private int cooldown = 10;
     private boolean jumpable = true;
-
+    private int timeCreated;
+    public Lilypad() {
+        this.timeCreated = Time.getTime().getTotalSeconds();
+    }
+    public int getTimePlantCreated() {
+        return timeCreated;
+    }
     public void setName(String name) {
         this.name = name;
     }

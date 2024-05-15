@@ -15,6 +15,10 @@ public class DuckytubeZombie implements Zombie {
     public DuckytubeZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
     }
+    @Override
+    public void setHealth(int i) {
+        health = i;
+    }
 
     @Override
     public String getName() {

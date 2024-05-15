@@ -1,5 +1,10 @@
 package Plant;
 
+import Map.NotShovelableException;
+import Map.Tile;
+import Thread.Time;
+import Zombie.Zombie;
+
 public class Squash implements Plant, Attack, SelfDestruct {
     private String name = "Squash";
     private int cost = 50;
@@ -9,7 +14,33 @@ public class Squash implements Plant, Attack, SelfDestruct {
     private int range = 1;
     private int cooldown = 20;
     private boolean jumpable = true;
+    private int timeCreated;
+    
+    
+    public Squash() {
+        this.timeCreated = Time.getTime().getTotalSeconds();
+    }
+    @Override
+    public void attack(Zombie zombie) {
+        zombie.setHealth(zombie.getHealth() - getAttackDamage());
+        
+    }
+    public void attack(Zombie zombie, Tile tile) {
+        attack(zombie);
+        selfDestruct(tile);
+    }
+    
+    public void selfDestruct(Tile tile) {
+        try {
+            tile.gali();
+        } catch (NotShovelableException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public int getTimePlantCreated() {
+        return timeCreated;
+    }
     public void setName(String name) {
         this.name = name;
     }
@@ -72,6 +103,7 @@ public class Squash implements Plant, Attack, SelfDestruct {
     public void selfDestruct() {
         
     }
+
 
 }
 

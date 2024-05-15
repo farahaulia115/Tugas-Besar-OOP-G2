@@ -9,4 +9,5 @@ public interface Zombie {
     boolean isAquatic();
     void setPosition(int x, int y);
     void setTimeSpawn();
+    void setHealth(int i);
 }

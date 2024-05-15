@@ -1,5 +1,7 @@
 package Plant;
 
+import Thread.Time;
+
 public class Wallnut implements Plant {
     private String name = "Wallnut";
     private int cost = 50;
@@ -9,6 +11,15 @@ public class Wallnut implements Plant {
     private int range = 0;
     private int cooldown = 20;
     private boolean jumpable = true;
+    private int timeCreated;
+
+    public Wallnut (){
+        this.timeCreated = Time.getTime().getTotalSeconds();
+    }
+
+    public int getTimePlantCreated() {
+        return timeCreated;
+    }
 
     public void setName(String name) {
         this.name = name;

@@ -1,5 +1,10 @@
 package Plant;
 
+import Map.NotShovelableException;
+import Map.Tile;
+import Thread.Time;
+import Zombie.Zombie;
+
 public class TangleKelp implements Plant, Attack, SelfDestruct {
     private String name = "TangleKelp";
     private int cost = 25;
@@ -9,7 +14,32 @@ public class TangleKelp implements Plant, Attack, SelfDestruct {
     private int range = 1;
     private int cooldown = 20;
     private boolean jumpable = true;
+    private int timeCreated;
+    public TangleKelp() {
+        this.timeCreated = Time.getTime().getTotalSeconds();
+    }
 
+    public void attack(Zombie z) {
+        z.setHealth(z.getHealth()-getAttackDamage());
+    }
+
+    public void attack(Zombie z, Tile tile) {
+        attack(z);
+        selfDestruct(tile);
+    }
+
+    @Override
+    public void selfDestruct(Tile tile) {
+        try {
+            tile.gali();
+        } catch (NotShovelableException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getTimePlantCreated() {
+        return timeCreated;
+    }
     public void setName(String name) {
         this.name = name;
     }

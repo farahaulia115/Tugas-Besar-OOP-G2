@@ -1,7 +1,8 @@
 package Plant;
 import Main.*;
+import Thread.Time;
 
-public class SunFlower implements Plant, ProduceSun {
+public class SunFlower implements Plant {
     private static final int SUN_PRODUCTION_INTERVAL = 10; // Interval produksi Sun dalam detik
     private static final int SUN_PRODUCTION_AMOUNT = 25;
     private String name = "SunFlower";
@@ -12,11 +13,14 @@ public class SunFlower implements Plant, ProduceSun {
     private int range = 0;
     private int cooldown = 10;
     private boolean jumpable = true;
-    private boolean isAlive = true;
-    private Thread sunProductionThread;
+    private int timeCreated;
 
     public SunFlower() {
-        startSunProductionThread();
+        this.timeCreated = Time.getTime().getTotalSeconds();
+    }
+
+    public int getTimePlantCreated() {
+        return timeCreated;
     }
 
     public void setName(String name) {
@@ -45,20 +49,6 @@ public class SunFlower implements Plant, ProduceSun {
 
     public void setJumpable(boolean jumpable) {
         this.jumpable = jumpable;
-    }
-
-    public void startSunProductionThread() {
-        sunProductionThread = new Thread(() -> {
-            while (Game.getStatusGame() && isAlive) {
-                try {
-                    Thread.sleep(SUN_PRODUCTION_INTERVAL * 1000); // Tunggu interval produksi
-                    produceSun();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        sunProductionThread.start(); // Mulai thread
     }
 
     public String getName() {
@@ -93,13 +83,5 @@ public class SunFlower implements Plant, ProduceSun {
         return jumpable;
     }
 
-    public void produceSun() {
-        Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
-    }
 
-    public void stopSunProductionThread() {
-        if (sunProductionThread != null) {
-            sunProductionThread.interrupt();
-        }
-    }
 }

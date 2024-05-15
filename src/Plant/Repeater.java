@@ -1,6 +1,8 @@
 package Plant;
 
 import Main.Game;
+import Thread.Time;
+import Zombie.Zombie;
 
 public class Repeater implements Plant, Attack{
     private String name = "Repeater";
@@ -11,11 +13,14 @@ public class Repeater implements Plant, Attack{
     private int range = -1;
     private int cooldown = 10;
     private boolean jumpable = true;
+    private int timeCreated;
 
     public Repeater() {
-
+        this.timeCreated = Time.getTime().getTotalSeconds();
     }
-
+    public int getTimePlantCreated() {
+        return timeCreated;
+    }
     public void setName(String name) {
         this.name = name;
     }
@@ -39,19 +44,19 @@ public class Repeater implements Plant, Attack{
         this.jumpable = jumpable;
     }
 
-    public void startRepeaterAttackThread (){
-        Thread RepeaterAttackThread = new Thread(() -> {
-            while (Game.getStatusGame()) {
-                try {
-                    Thread.sleep(attackSpeed * 100); // Tunggu interval produksi
-                    attack();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        RepeaterAttackThread.start(); // Mulai thread
-    }
+    // public void startRepeaterAttackThread (){
+    //     Thread RepeaterAttackThread = new Thread(() -> {
+    //         while (Game.getStatusGame()) {
+    //             try {
+    //                 Thread.sleep(attackSpeed * 100); // Tunggu interval produksi
+    //                 attack();
+    //             } catch (InterruptedException e) {
+    //                 e.printStackTrace();
+    //             }
+    //         }
+    //     });
+    //     RepeaterAttackThread.start(); // Mulai thread
+    // }
 
     public String getName() {
         return name;
@@ -87,6 +92,10 @@ public class Repeater implements Plant, Attack{
 
     public void attack() {
         
+    }
+    @Override
+    public void attack(Zombie zombie) {
+        zombie.setHealth(zombie.getHealth() - attackDamage);
     }
 
 }

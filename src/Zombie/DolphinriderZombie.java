@@ -16,6 +16,10 @@ public class DolphinriderZombie implements Zombie, CanJump {
         this.timeSpawn = Time.getTime().getTotalSeconds();
     }
     @Override
+    public void setHealth(int i) {
+        health = i;
+    }
+    @Override
     public String getName() {
         return name;
     }

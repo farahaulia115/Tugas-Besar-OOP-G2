@@ -1,6 +1,8 @@
 package Plant;
 
 import Main.Game;
+import Thread.Time;
+import Zombie.Zombie;
 
 public class SnowPea implements Plant, Attack {
     private String name = "SnowPea";
@@ -11,9 +13,13 @@ public class SnowPea implements Plant, Attack {
     private int range = -1;
     private int cooldown = 10;
     private boolean jumpable = true;
+    private int timeCreated;
 
     public SnowPea() {
-        startSnowPeaAttackThread();
+        this.timeCreated = Time.getTime().getTotalSeconds();
+    }
+    public int getTimePlantCreated() {
+        return timeCreated;
     }
 
     public void setName(String name) {
@@ -39,19 +45,19 @@ public class SnowPea implements Plant, Attack {
         this.jumpable = jumpable;
     }
 
-    public void startSnowPeaAttackThread (){
-        Thread SnowPeaAttackThread = new Thread(() -> {
-            while (Game.getStatusGame()) {
-                try {
-                    Thread.sleep(attackSpeed * 100); // Tunggu interval produksi
-                    attack();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        SnowPeaAttackThread.start(); // Mulai thread
-    }
+    // public void startSnowPeaAttackThread (){
+    //     Thread SnowPeaAttackThread = new Thread(() -> {
+    //         while (Game.getStatusGame()) {
+    //             try {
+    //                 Thread.sleep(attackSpeed * 100); // Tunggu interval produksi
+    //                 attack();
+    //             } catch (InterruptedException e) {
+    //                 e.printStackTrace();
+    //             }
+    //         }
+    //     });
+    //     SnowPeaAttackThread.start(); // Mulai thread
+    // }
 
     public String getName() {
         return name;
@@ -85,7 +91,8 @@ public class SnowPea implements Plant, Attack {
         return jumpable;
     }
 
-    public void attack() {
-
+    public void attack(Zombie zombie) {
+        zombie.setHealth(zombie.getHealth() - attackDamage);
+        // zombie.setSpeed(); perlu diset speednya
     }
 }

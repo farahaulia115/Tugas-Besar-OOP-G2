@@ -67,6 +67,11 @@ public class ConeheadZombie implements Zombie {
     //         }
     //     }
     // }
+
+    @Override
+    public void setHealth(int i) {
+        health = i;
+    }
     
     // @Override
     // public void move() {

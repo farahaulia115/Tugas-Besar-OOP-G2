@@ -20,6 +20,10 @@ public class NormalZombie implements Zombie {
     public String getName() {
         return name;
     }
+    @Override
+    public void setHealth(int i) {
+        health = i;
+    }
 
     @Override
     public int getHealth() {
