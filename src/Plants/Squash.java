@@ -29,3 +29,4 @@ public class Squash extends Plants implements Attack, SelfDestruct{
             e.printStackTrace();
         }
     }
+}

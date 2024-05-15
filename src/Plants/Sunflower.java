@@ -1,12 +1,9 @@
 package Plants;
-// import Main.Game;
-// import Main.Sun;
+import Main.Sun;
 
-public class Sunflower extends Plants {
-    private static final int SUN_PRODUCTION_INTERVAL = 10; // Interval produksi Sun dalam detik
+public class Sunflower extends Plants implements ProduceSun{
+    private static final int SUN_PRODUCTION_INTERVAL = 3000; // Interval produksi Sun dalam detik
     private static final int SUN_PRODUCTION_AMOUNT = 25;
-    private boolean isAlive = true;
-    private Thread sunProductionThread;
     public Sunflower() {
         setName("Sunflower");
         setCost(50);
@@ -17,6 +14,21 @@ public class Sunflower extends Plants {
         setCooldown(10);
         setJumpable(true);
     }
+
+    @Override
+    public void produceSun() {
+        new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(SUN_PRODUCTION_INTERVAL);
+                    Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+}
     // public void startSunProductionThread() {
     //     sunProductionThread = new Thread(() -> {
     //         while (Game.getStatusGame() && isAlive) {
@@ -40,5 +52,4 @@ public class Sunflower extends Plants {
     //         sunProductionThread.interrupt();
     //     }
     // }
-}
 
