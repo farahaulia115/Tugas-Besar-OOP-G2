@@ -1,5 +1,6 @@
 package Thread;
 
+import Main.Game;
 import Main.Sun;
 
 public class Time implements Runnable {
@@ -47,7 +48,7 @@ public class Time implements Runnable {
 
     @Override
     public void run() {
-        while (){
+        while (Game.getStatusGame()){
             try {
                 Thread.sleep(1000); // Menghentikan thread selama 1 detik
                 tick(); // Menambahkan waktu satu detik
