@@ -17,7 +17,7 @@ public class Game {
 
     public Game (Inventory inventory){
         this.inventory = inventory;
-        TimeThread timeThread = new TimeThread(time);
+        Thread timeThread = new Thread(Time.getTime());
         timeThread.start();
         deck = inventory.getDeck();
     }
