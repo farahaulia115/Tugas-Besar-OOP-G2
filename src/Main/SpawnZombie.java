@@ -12,7 +12,7 @@ public class SpawnZombie implements Runnable {
     @Override
     public void run() {
         // Check if the total seconds are within the desired range
-        if (Time.getTime().getTotalSeconds() >= 20 && Time.getTime().getTotalSeconds() <= 160) {
+        if (Time.getTime().getTotalSeconds() > 20 && Time.getTime().getTotalSeconds() <= 160) {
             double probabilityTile = 0.3;
             for (int i = 0; i < 6; i++) {
                 if (Math.random() < probabilityTile && Map.getMapInstance().jumlahZombie() < 10) {

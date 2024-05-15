@@ -50,6 +50,10 @@ public class WallnutZombie implements Zombie {
         this.y = y;
     }
 
+    public void setTimeSpawn(){
+        timeSpawn = Time.getTime().getTotalSeconds();
+    }
+
     // @Override
     // public void attack() {
     //     // Implementasi serangan

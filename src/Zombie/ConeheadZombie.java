@@ -49,6 +49,10 @@ public class ConeheadZombie implements Zombie {
     public int getTimeSpawn() {
         return timeSpawn;
     }
+
+    public void setTimeSpawn(){
+        timeSpawn = Time.getTime().getTotalSeconds();
+    }
     // @Override
     // public void attack() {
     //     // Implementasi serangan

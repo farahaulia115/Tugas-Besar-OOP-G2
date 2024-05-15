@@ -2,22 +2,26 @@ package Map;
 import Plant.*;
 
 public class Water extends Tile {
-    private Lilypad lilypadInPool;
-
+    private boolean diTanamLilypad = false;
     public Water(){
         super();
-        lilypadInPool = null;
     }
     
     @Override
     public void tanam(Plant plant) throws NotPlantableException{
-        if (plant instanceof Lilypad && lilypadInPool == null ){
-            lilypadInPool = (Lilypad) plant;
+        if (plant instanceof Lilypad && !diTanamLilypad ){
+            super.tanam((Lilypad) plant);
+            diTanamLilypad = true;
         }
-        else if (plant instanceof TangleKelp && lilypadInPool == null){
+        else if (plant instanceof TangleKelp){
             super.tanam(plant);
         }
-        else if ( lilypadInPool != null && !(plant instanceof Lilypad) && !(plant instanceof TangleKelp)){
+        else if (!(plant instanceof Lilypad) && !(plant instanceof TangleKelp) && diTanamLilypad){
+            try {
+                super.gali();
+            } catch (Exception e) {
+            }
+            plant.setHealth(plant.getHealth()+100);
             super.tanam(plant);
         }
         else{
@@ -27,19 +31,33 @@ public class Water extends Tile {
 
     @Override
     public void gali() throws NotShovelableException{
-        if (isAdaTanaman()){
+        if (isAdaTanaman() && getPlant() instanceof TangleKelp){
             super.gali();
         }
-        else if (!isAdaTanaman() && lilypadInPool != null){
-            lilypadInPool = null;
+        else if (isAdaTanaman() && (getPlant() instanceof Lilypad)){
+            super.gali();
+            diTanamLilypad = false;
+        }
+        else if (isAdaTanaman() && diTanamLilypad && !(getPlant() instanceof Lilypad) && !(getPlant() instanceof TangleKelp)){
+            int healthremain = super.getPlant().getHealth();
+            super.gali();
+            try {
+                if (healthremain<100){
+                    Lilypad lili = new Lilypad();
+                    lili.setHealth(healthremain);
+                    tanam(lili);
+                }
+                else tanam(new Lilypad());
+            } catch (Exception e) {
+            }
         }
         else{
             throw new NotShovelableException();
         }
     }
 
-    public Lilypad getLilypad(){
-        return lilypadInPool;
+    public boolean isDitanamLilypad(){
+        return diTanamLilypad;
     }
 
 }

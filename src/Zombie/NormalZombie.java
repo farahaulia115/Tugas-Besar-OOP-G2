@@ -39,7 +39,7 @@ public class NormalZombie implements Zombie {
     public int getTimeSpawn() {
         return timeSpawn;
     }
-    
+
     @Override
     public boolean isAquatic() {
         return aquatic;
@@ -51,6 +51,9 @@ public class NormalZombie implements Zombie {
         this.y = y;
     }
 
+    public void setTimeSpawn(){
+        timeSpawn = Time.getTime().getTotalSeconds();
+    }
     // @Override
     // public void attack() {
     //     // Implementasi serangan

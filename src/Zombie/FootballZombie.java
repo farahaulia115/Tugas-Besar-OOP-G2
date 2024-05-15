@@ -55,6 +55,10 @@ public class FootballZombie implements Zombie, CanJump {
         this.y = y;
     }
 
+    public void setTimeSpawn(){
+        timeSpawn = Time.getTime().getTotalSeconds();
+    }
+
     // @Override
     // public void attack() {
     //     // Implementasi serangan

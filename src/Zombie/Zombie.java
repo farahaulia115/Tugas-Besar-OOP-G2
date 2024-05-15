@@ -8,5 +8,5 @@ public interface Zombie {
     int getTimeSpawn();
     boolean isAquatic();
     void setPosition(int x, int y);
-    
+    void setTimeSpawn();
 }

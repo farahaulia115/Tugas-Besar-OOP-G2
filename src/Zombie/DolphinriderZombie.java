@@ -55,6 +55,9 @@ public class DolphinriderZombie implements Zombie, CanJump {
         this.y = y;
     }
 
+    public void setTimeSpawn(){
+        timeSpawn = Time.getTime().getTotalSeconds();
+    }
     // @Override
     // public void attack() {
     //     // Implementasi serangan
