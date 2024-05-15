@@ -2,32 +2,29 @@
 package Main;
 
 import Map.*;
-import Plant.*;
 import Time.*;
-import Util.*;
-import Zombie.*;
-// import exception.*;
 
-// import java.lang.Math;
-// import java.util.Random;
+
 
 
 
 public class Game {
-    private static boolean statusGame;;
+    private static boolean statusGame = true;
     private Map map = Map.getMapInstance();
     private Inventory inventory;
-    private Time time = Time.getTime();
-    private Deck deck = inventory.getDeck();
+    private Time time;
+    private Deck deck;
 
-    public Game (){
-        inventory = new Inventory();
-        TimeThread timeThread = new TimeThread(time);
+    public Game (Inventory inventory){
+        this.inventory = inventory;
+        Thread timeThread = new Thread(Time.getTime());
         timeThread.start();
+        deck = inventory.getDeck();
     }
 
-    public Time getTime(){
-        return time;
+
+    public int getTime(){
+        return time.getTotalSeconds();
     }
 
     
@@ -39,16 +36,5 @@ public class Game {
 
     }
 
-    // public void spawnZombie() {
-    //     double probabilityTile = 0.3;
-    //     for (int i = 0; i < 6; i++) {
-    //         if (Math.random() < probabilityTile) {
-    //             int jenisZombie = new Random().nextInt(10) + 1;
-    //             Zombie newZombie = factory.createZombie(jenisZombie);
-    //             map.getMapDetail()[i][1].getZombieList().add(newZombie);
-    //             newZombie.setPosition(i, 1);
-    //         }
-    //     }
-    // }
     
 }
