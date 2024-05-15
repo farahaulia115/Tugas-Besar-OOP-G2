@@ -1,6 +1,7 @@
 package Map;
 
 import Plant.Plant;
+import Zombie.Zombie;
 
 public class Map{
     private static Map map;
@@ -54,11 +55,11 @@ public class Map{
                 System.out.printf("[");
                 if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size()>0){
                     if (mapdetail[i][j].isAdaTanaman()){
-                        System.out.printf("P");
+                        System.out.printf("P:" + mapdetail[i][j].getPlant().getHealth() + " ");
                     }
                     if (mapdetail[i][j].getZombieList().size()>0){
-                        for (int k = 0; k<mapdetail[i][j].getZombieList().size();k++) {
-                            System.out.printf("Z");
+                        for (Zombie z : mapdetail[i][j].getZombieList()) {
+                            System.out.printf("Z:" + z.getHealth() + " ");
                         }      
                     }
                 }
@@ -70,5 +71,31 @@ public class Map{
             }
             System.out.println();
         }
+        System.out.println();
+    }
+
+    public void renderMap2(){
+        for (int i = 0; i<=5;i++){
+            for (int j = 1; j<=9;j++){
+                System.out.printf("[");
+                if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size()>0){
+                    if (mapdetail[i][j].isAdaTanaman()){
+                        System.out.printf("P:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                    }
+                    if (mapdetail[i][j].getZombieList().size()>0){
+                        for (Zombie z : mapdetail[i][j].getZombieList()) {
+                            System.out.printf("Z:" + z.getClass().getCanonicalName() + " ");
+                        }      
+                    }
+                }
+                else{
+                    System.out.printf(" ");
+                }
+                System.out.printf("]");
+                
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
