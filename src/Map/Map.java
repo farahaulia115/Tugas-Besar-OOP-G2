@@ -143,4 +143,14 @@ public class Map{
             }
         }
     }
+
+
+    public boolean zombieMenang(){
+        for (int i = 0; i<=5;i++){
+            if (mapdetail[i][0].getZombieList().size() > 0){
+                return true;
+            }
+        }
+        return false;
+    }
 }

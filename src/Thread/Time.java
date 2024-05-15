@@ -6,9 +6,11 @@ import Main.Sun;
 public class Time implements Runnable {
     private static Time instance;
     private int totalSeconds;
+    private int day;
 
     private Time() {
         totalSeconds = 0;
+        day = 1;
     }
 
     public static Time getTime() {
@@ -46,8 +48,12 @@ public class Time implements Runnable {
         }
     }
 
+    public void resetTime() {
+        totalSeconds = 0;
+    }
+
     public int getDay() {
-        return (totalSeconds / 200) + 1;
+        return day;
     }
 
     @Override
@@ -60,7 +66,11 @@ public class Time implements Runnable {
                     if (Time.getTime().getTotalSeconds() % 25 == 0) {
                         Sun.increaseSun(25);
                     }
-                } 
+                }
+                if (Time.getTime().getTotalSeconds() % 200 == 0) {
+                    day++;
+                    resetTime();
+                }
             } catch (Exception e) {
                 Thread.currentThread().interrupt(); // Set the interrupt flag
             }

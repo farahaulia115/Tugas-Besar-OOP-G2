@@ -33,12 +33,32 @@ public class Game {
         return time.getTotalSeconds();
     }
 
+    public Map getMap(){
+        return map;
+    }
+
+    public Inventory getInventory(){
+        return inventory;
+    }
+
+    public Deck getDeck(){
+        return deck;
+    }
+
     
-    public void isGameOver(){
-        if (time.getTotalSeconds() > 160){
+    public void isGameOver() {
+        if (map.jumlahZombie() == 0 && time.getTotalSeconds() > 160) {
             statusGame = false;
+            System.out.println("Player Win");
+        } else if (map.jumlahZombie() == 0 && time.getTotalSeconds() < 20 && time.getDay() != 1) {
+            statusGame = false;
+            System.out.println("Player Win");
+        } else if (map.zombieMenang()) {
+            statusGame = false;
+            System.out.println("Zombie Win");
         }
     }
+    
 
     public void startGame(){
         Thread timeThread = new Thread(time);
