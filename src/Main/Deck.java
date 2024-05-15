@@ -45,7 +45,7 @@ public class Deck {
         if (i < 0 || i >= deck.size()) {
             throw new IllegalArgumentException("Index out of bounds");
         } else {
-            if (deck.get(i).getCost() < Sun.getAmount()){
+            if (deck.get(i).getCost() > Sun.getAmount()){
                 throw new IllegalArgumentException("Not enough sun to plant this plant");
             } else {
                 
