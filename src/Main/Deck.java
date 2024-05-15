@@ -85,7 +85,7 @@ public class Deck {
                 i++;
             }
         } else {
-            System.out.println("Deck kosong");
+            System.out.println("Deck is empty");
         }
     
     }

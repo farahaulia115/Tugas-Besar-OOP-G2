@@ -45,7 +45,18 @@ public class Inventory {
     }
 
     public void deletePlantFromDeck (int index){
+        if (index < 0 || index >= deck.getDeck().size()) {
+            throw new IllegalArgumentException("Index out of bounds");
+        }
+        else if (deck.getDeck().isEmpty()){
+            throw new IllegalArgumentException("Deck is empty");
+        }
+        else if (deck.getDeck().get(index) == null){
+            throw new IllegalArgumentException("No plant in deck");
+        }
+        System.out.println(deck.getDeck().get(index).getName() + " has been deleted from deck");
         deck.getDeck().remove(index);
+        
     }
 
     public void deletePlant (Plant plant){
@@ -53,7 +64,17 @@ public class Inventory {
     }
 
     public void addPlantToDeck (int i){
-        deck.getDeck().add(inventory.get(i));
+        if (i < 0 || i >= inventory.size()) {
+            throw new IllegalArgumentException("Index out of bounds");
+        }
+        else if (deck.getDeck().size() >= 6){
+            throw new IllegalArgumentException("Deck is full");
+        }
+        else if (deck.getDeck().contains(inventory.get(i-1))){
+            throw new IllegalArgumentException("Plant already in deck");
+        }
+        System.out.println(inventory.get(i-1).getName() + " has been added to deck");
+        deck.getDeck().add(inventory.get(i-1));
     }
 
     public void addPlantToDeck (Plant plant){
@@ -62,6 +83,7 @@ public class Inventory {
 
     public void showInventory (){
         int i = 1;
+        System.out.println("Inventory : ");
         for (Plant p : inventory){
             System.out.println(i + ". " + inventory.get(i-1).getName());
             i++;

@@ -4,7 +4,7 @@ import java.util.Scanner;
 import Main.Game;
 import Main.Opening;
 import Main.Sun;
-import Thread.Time;
+import Input.InputHandler;
 
 public class Main {
     
@@ -14,7 +14,6 @@ public class Main {
         boolean gameInventory = false; // tanda untuk bagian pilih inventory, preparation sebelum game start
         boolean running = false; // tanda untuk game berjalan
         Opening opening = new Opening();
-        Scanner input = new Scanner(System.in);
         Game game = new Game();
 
         opening.pvz();
@@ -26,14 +25,13 @@ public class Main {
             System.out.println("3. Plants List");
             System.out.println("4. Zombies List");
             System.out.println("5. Exit");
-            System.out.print("Choose : ");
-            int choose = input.nextInt();
+            int choose = InputHandler.getIntInput("Choose :");
             System.out.println();
             switch (choose) {
                 case 1:
                     gameInventory = true;
-                    System.out.println("Selamat datang di Plants vs Zombies!");
-                    System.out.println("Silahkan pilih inventory dan deck yang akan digunakan");
+                    System.out.println("Welcome to Plants vs Zombies");
+                    System.out.println("Please select your plants deck");
                     break;
                 case 2:
                     opening.help();
@@ -62,11 +60,11 @@ public class Main {
                 System.out.println("2. Show Inventory");
                 System.out.println("3. Swap Deck");
                 System.out.println("4. Swap Inventory");
-                System.out.println("5. Delete Deck");
-                System.out.println("6. Start Game");
-                System.out.println("7. Exit");
-                System.out.print("Choose : ");
-                int choose2 = input.nextInt();
+                System.out.println("5. Add Deck");
+                System.out.println("6. Delete Deck");
+                System.out.println("7. Start Game");
+                System.out.println("8. Exit");
+                int choose2 = InputHandler.getIntInput("Choose :");
                 System.out.println();
                 switch (choose2) {
                     case 1:
@@ -79,9 +77,9 @@ public class Main {
                         break;
                     case 3:
                         System.out.print("Swap deck index : ");
-                        int x = input.nextInt();
+                        int x = InputHandler.getIntInput();
                         System.out.print("With deck index : ");
-                        int y = input.nextInt();
+                        int y = InputHandler.getIntInput();
                         try {
                             game.getInventory().swapDeck(x, y);
                             System.out.println("Swap deck success");
@@ -92,9 +90,9 @@ public class Main {
                         break;
                     case 4:
                         System.out.print("Swap inventory index : ");
-                        int x2 = input.nextInt();
+                        int x2 = InputHandler.getIntInput();
                         System.out.print("With inventory index : ");
-                        int y2 = input.nextInt();
+                        int y2 = InputHandler.getIntInput();
                         try {
                             game.getInventory().swapInventory(x2, y2);
                             System.out.println("Swap inventory success");
@@ -105,8 +103,20 @@ public class Main {
                         // swap inventory
                         break;
                     case 5:
+                        System.out.print("Add deck index : ");
+                        int i = InputHandler.getIntInput();
+                        try {
+                            game.getInventory().addPlantToDeck(i);
+                            System.out.println("Add deck success");
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
+                        }
+                        
+                        // add deck
+                        break;
+                    case 6:
                         System.out.print("Delete deck index : ");
-                        int index = input.nextInt();
+                        int index = InputHandler.getIntInput();
                         try {
                             game.getInventory().deletePlantFromDeck(index);
                             System.out.println("Delete deck success");
@@ -116,13 +126,14 @@ public class Main {
                         
                         // delete deck
                         break;
-                    case 6:
+                    case 7:
                         // start game
                         gameInventory = false;
                         running = true;
                         game.startGame();
+                        Sun.increaseSun(25);
                         break;
-                    case 7:
+                    case 8:
                         gameInventory = false;
                         break;
                     default:
@@ -143,6 +154,16 @@ public class Main {
                     System.out.println("4. Plant");
                     System.out.println("5. Remove Plant");
                     System.out.println("6. Quit Game");
+
+                    try{
+                        Thread.sleep(10000);
+                        System.out.println(game.getTime());
+                        game.getDeck().showDeckStatus();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    
+                    running = false;
 
                     
                 }
