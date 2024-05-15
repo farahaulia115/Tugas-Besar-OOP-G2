@@ -5,7 +5,7 @@ import java.util.List;
 
 import Map.Map;
 import Plant.Plant;
-import Time.Time;
+import Thread.Time;
 
 public class Deck {
 

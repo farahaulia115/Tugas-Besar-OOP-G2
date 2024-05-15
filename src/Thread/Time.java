@@ -1,4 +1,4 @@
-package Time;
+package Thread;
 
 import Main.Sun;
 

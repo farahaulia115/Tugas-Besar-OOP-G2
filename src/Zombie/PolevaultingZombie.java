@@ -1,6 +1,6 @@
 package Zombie;
 import Map.*;
-import Time.*;
+import Thread.Time;
 
 public class PolevaultingZombie implements Zombie {
     private String name = "Pole Vaulting Zombie";

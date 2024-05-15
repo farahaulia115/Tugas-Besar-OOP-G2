@@ -1,6 +1,6 @@
 package Zombie;
 import Map.*;
-import Time.*;
+import Thread.Time;
 
 public class WallnutZombie implements Zombie {
     private String name = "Wallnut Zombie";

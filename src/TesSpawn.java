@@ -1,8 +1,8 @@
 import java.util.Random;
 import Map.*;
+import Thread.Time;
 import Zombie.Zombie;
 import Zombie.ZombieFactory;
-import Time.Time;
 
 public class TesSpawn {
     public static void main(String[] args) {

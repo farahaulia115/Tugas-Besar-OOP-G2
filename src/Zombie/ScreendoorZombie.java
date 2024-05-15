@@ -1,6 +1,6 @@
 package Zombie;
 import Map.*;
-import Time.*;
+import Thread.Time;
 
 public class ScreendoorZombie implements Zombie {
     private String name = "Screen Door Zombie";

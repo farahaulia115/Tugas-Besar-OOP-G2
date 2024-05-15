@@ -3,7 +3,7 @@ package Main;
 import java.util.Random;
 
 import Map.Map;
-import Time.Time;
+import Thread.Time;
 import Zombie.Zombie;
 import Zombie.ZombieFactory;
 

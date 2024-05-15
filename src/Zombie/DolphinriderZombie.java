@@ -1,6 +1,6 @@
 package Zombie;
 import Map.*;
-import Time.*;
+import Thread.Time;
 
 public class DolphinriderZombie implements Zombie, CanJump {
     private String name = "Dolphin Rider Zombie";

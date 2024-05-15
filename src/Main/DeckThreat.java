@@ -2,7 +2,7 @@ package Main;
 
 import java.util.ArrayList;
 
-import Time.Time;
+import Thread.Time;
 
 public class DeckThreat implements Runnable{
     private static DeckThreat deckThreat;

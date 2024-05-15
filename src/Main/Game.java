@@ -2,7 +2,7 @@
 package Main;
 
 import Map.*;
-import Time.*;
+import Thread.Time;
 
 
 
