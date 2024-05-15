@@ -41,7 +41,8 @@ public class Game {
     }
 
     public void startGame(){
-
+        Thread timeThread = new Thread(time);
+        timeThread.start();
     }
 
     

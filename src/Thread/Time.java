@@ -46,6 +46,10 @@ public class Time implements Runnable {
         }
     }
 
+    public int getDay() {
+        return (totalSeconds / 200) + 1;
+    }
+
     @Override
     public void run() {
         while (Game.getStatusGame()){
