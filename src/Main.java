@@ -12,6 +12,7 @@ public class Main {
         boolean game = false; // tanda untuk game berjalan
         Opening opening = new Opening();
         Scanner input = new Scanner(System.in);
+        opening.pvz();
         while (open){
             System.out.println("1. Start");
             System.out.println("2. Help");
@@ -20,9 +21,12 @@ public class Main {
             System.out.println("5. Exit");
             System.out.print("Choose : ");
             int choose = input.nextInt();
+            System.out.println();
             switch (choose) {
                 case 1:
                     gameInventory = true;
+                    System.out.println("Selamat datang di Plants vs Zombies!");
+                    System.out.println("Silahkan pilih inventory dan deck yang akan digunakan");
                     break;
                 case 2:
                     opening.help();
@@ -45,6 +49,7 @@ public class Main {
 
 
             while (gameInventory){
+
                 System.out.println("1. Show Deck");
                 System.out.println("2. Show Inventory");
                 System.out.println("3. Swap Deck");
@@ -54,6 +59,7 @@ public class Main {
                 System.out.println("7. Exit");
                 System.out.print("Choose : ");
                 int choose2 = input.nextInt();
+                System.out.println();
                 switch (choose2) {
                     case 1:
                         // show deck
