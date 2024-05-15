@@ -1,9 +1,11 @@
 // Main.java
-import java.util.Scanner;
 
+
+import Main.DeckThreat;
 import Main.Game;
 import Main.Opening;
 import Main.Sun;
+import Map.NotShovelableException;
 import Input.InputHandler;
 
 public class Main {
@@ -12,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         boolean open = true; // tanda looping ketika game dibuka
         boolean gameInventory = false; // tanda untuk bagian pilih inventory, preparation sebelum game start
-        boolean running = false; // tanda untuk game berjalan
+         // tanda untuk game berjalan
         Opening opening = new Opening();
         Game game = new Game();
 
@@ -141,9 +143,11 @@ public class Main {
                 }
 
                 while (Game.getStatusGame()) {
+                    Thread deckThreat = new Thread(DeckThreat.getDeckThreatInstance(game.getDeck()));
+                    deckThreat.start();
                     game.isGameOver();
-                    System.out.println("Sun : " + Sun.getAmount());
-                    game.getDeck().showDeckStatus();
+                    // System.out.println("Sun : " + Sun.getAmount());
+                    // game.getDeck().showDeckStatus();
 
                     System.out.println();
                     System.out.println("Game Menu");
@@ -153,6 +157,7 @@ public class Main {
                     System.out.println("4. Plant");
                     System.out.println("5. Remove Plant");
                     System.out.println("6. Quit Game");
+                    System.out.println("7. Get time");
 
                     int choose3 = InputHandler.getIntInput("Choose :");
                     System.out.println();
@@ -174,35 +179,52 @@ public class Main {
                             System.out.println("Choose plant to plant");
                             game.getDeck().showDeck();
                             int choose4 = InputHandler.getIntInput("Choose :");
-
-                            int row = InputHandler.getIntInput("Choose row to plant");
-                            int column = InputHandler.getIntInput("Choose column to plant");
                             try {
-                                game.getMap().plantPlant(game.getDeck().getDeck().get(choose4-1), row, column);
-                                System.out.println("Plant success");
+                                game.getDeck().pilihTanaman(choose4-1);
+                                System.out.println("Plant ready");
+                                boolean plant = false;
+                                int row = InputHandler.getIntInput("Choose row to plant");
+                                int column = InputHandler.getIntInput("Choose column to plant");
+                                try {
+                                    game.getDeck().tanam(choose4-1, row, column, plant);
+                                    System.out.println("Plant " + game.getDeck().getDeck().get(choose4-1).getName() + " has been planted");
+                                    Sun.decreaseSun(game.getDeck().getDeck().get(choose4-1).getCost());
+                                } catch (IllegalArgumentException e) {
+                                    System.out.println(e.getMessage());
+                                } catch (IllegalStateException e) {
+                                    System.out.println(e.getMessage());
+                                }
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
                             }
-                            // plant
+                            
+                            
                             break;
                         case 5:
                             int row2 = InputHandler.getIntInput("Choose row to remove plant");
                             int column2 = InputHandler.getIntInput("Choose column to remove plant");
-                            try {
-                                game.getMap().removePlant(row2, column2);
-                                System.out.println("Remove plant success");
+                            try{
+                                game.getDeck().gali(row2, column2);
                             } catch (IllegalArgumentException e) {
+                                System.out.println(e.getMessage());
+                            }
+                            catch (NotShovelableException e) {
                                 System.out.println(e.getMessage());
                             }
                             // remove plant
                             break;
                         case 6:
-                            running = false;
+                            Game.setStatusGame(false);
+                            break;
+                        case 7:
+                            System.out.println("Time : " + game.getTime());
                             break;
                         default:
                             System.out.println("Invalid input");
                             break;
+                        
                     }
+                    // game.getMap().renderMap2();
 
                     
                 }

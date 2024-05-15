@@ -63,7 +63,7 @@ public class Time implements Runnable {
                 Thread.sleep(1000); // Menghentikan thread selama 1 detik
                 tick(); // Menambahkan waktu satu detik
                 if (Time.getTime().getCurrentPhase().equalsIgnoreCase("Pagi")) {
-                    if (Time.getTime().getTotalSeconds() % 25 == 0) {
+                    if (Time.getTime().getTotalSeconds() % 5 == 0) {
                         Sun.increaseSun(25);
                     }
                 }

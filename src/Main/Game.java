@@ -63,7 +63,10 @@ public class Game {
     public void startGame(){
         setGame();
         Thread timeThread = new Thread(time);
+        
         timeThread.start();
+        
+        
     }
 
     

@@ -10,7 +10,7 @@ public class DeckThreat implements Runnable{
     private ArrayList<StatusDeck> deckStatus;
     
     private DeckThreat(Deck deck){
-        deckStatus = new ArrayList<>();
+        deckStatus = new ArrayList<StatusDeck>();
         for (int i = 0; i < deck.getDeck().size(); i++)  {
             deckStatus.add(new StatusDeck(deck.getDeck().get(i)));
         }
@@ -29,11 +29,12 @@ public class DeckThreat implements Runnable{
 
     @Override
     public void run() {
-        for (StatusDeck statusDeck : deckStatus) {
-            if (!statusDeck.isReadyToPlant() && statusDeck.getLastTimeCreated() + statusDeck.getInterval() <= Time.getTime().getTotalSeconds()) {
-                statusDeck.setReadyToPlant(true);
+            for (StatusDeck statusDeck : deckStatus) {
+                if (!statusDeck.isReadyToPlant() && statusDeck.getLastTimeCreated() + statusDeck.getInterval() <= Time.getTime().getTotalSeconds()) {
+                    statusDeck.setReadyToPlant(true);
+                }
             }
-        }
+        
     }
 
     public ArrayList<StatusDeck> getDeckStatus() {
