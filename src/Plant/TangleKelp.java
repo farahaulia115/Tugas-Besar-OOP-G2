@@ -22,7 +22,10 @@ public class TangleKelp implements Plant, Attack, SelfDestruct {
     @Override
     public void attack(Zombie z) {
         z.setHealth(z.getHealth()-getAttackDamage());
-        selfDestruct(tile);
+    }
+    public void attack(Zombie z, Tile tile) {
+        attack(z);
+        selfDestruct(tile); 
     }
 
     @Override

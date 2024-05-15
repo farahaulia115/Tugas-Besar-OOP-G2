@@ -11,9 +11,9 @@ public class Game {
     private Time time;
     private Deck deck;
 
-    public Game (Inventory inventory){
+    public Game (){
         this.time = Time.getTime();
-        this.inventory = inventory;
+        inventory = new Inventory();
         deck = inventory.getDeck();
     }
 

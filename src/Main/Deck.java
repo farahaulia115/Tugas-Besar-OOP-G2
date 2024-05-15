@@ -77,6 +77,19 @@ public class Deck {
         }
     }
 
+    public void showDeckStatus(){
+        int i = 1;
+        if (!deck.isEmpty()){
+            for (Plant p: deck){
+                System.out.println(i + " ." + deck.get(i-1).getName() + " " + DeckThreat.getDeckThreatInstance(this).getDeckStatus().get(i-1).isReadyToPlant());
+                i++;
+            }
+        } else {
+            System.out.println("Deck kosong");
+        }
+    
+    }
+
 
 
 // jangan lupa tanganin kalo deck kosong gak bisa maen game

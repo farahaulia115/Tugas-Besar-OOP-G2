@@ -20,12 +20,19 @@ public class Squash implements Plant, Attack, SelfDestruct {
     public Squash() {
         this.timeCreated = Time.getTime().getTotalSeconds();
     }
+
+    
     @Override
     public void attack(Zombie zombie) {
         zombie.setHealth(zombie.getHealth() - getAttackDamage());
-        selfDestruct(tile);   
+        
     }
-    
+
+    public void attack (Zombie zombie, Tile tile){
+        attack(zombie);
+        selfDestruct(tile);
+    }
+
     @Override
     public void selfDestruct(Tile tile) {
         try {
