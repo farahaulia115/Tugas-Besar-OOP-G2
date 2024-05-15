@@ -10,7 +10,6 @@ public class TesRun {
                 spawnerThread.join();
                 Map.getMapInstance().renderMap();
             } catch (Exception e) {
-                // TODO: handle exception
             }
             
         }
