@@ -1,5 +1,4 @@
 package Zombie;
-import Map.*;
 import Thread.Time;
 
 public class ConeheadZombie implements Zombie {
@@ -53,35 +52,10 @@ public class ConeheadZombie implements Zombie {
     public void setTimeSpawn(){
         timeSpawn = Time.getTime().getTotalSeconds();
     }
-    // @Override
-    // public void attack() {
-    //     // Implementasi serangan
-    //     if ((Time.getTime().getTotalSeconds() - timeSpawn) % speed == 0) {
-    //         if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
-    //             if (Map.getMapInstance().getMapDetail()[x][y].getPlant().getHealth() - damage > 0) {
-    //                 Map.getMapInstance().getMapDetail()[x][y].getPlant().setHealth(Map.getMapInstance().getMapDetail()[x][y].getPlant().getHealth()-damage) ;
-    //             }
-    //             else {
-    //                 Map.getMapInstance().getMapDetail()[x][y].plantDie();
-    //             }
-    //         }
-    //     }
-    // }
 
     @Override
     public void setHealth(int i) {
         health = i;
     }
-    
-    // @Override
-    // public void move() {
-    //     if ((Time.getTime().getTotalSeconds() - timeSpawn) % 5 == 0) {
-    //         // remove zombie di tile lama
-    //         Map.getMapInstance().getMapDetail()[x][y].getZombieList().poll();
-    //         // ubah koordinat
-    //         y--;
-    //         // tambah zombie di tile baru
-    //         Map.getMapInstance().getMapDetail()[x][y].getZombieList().add(this);
-    //     }
-    // }
+   
 }

@@ -47,8 +47,9 @@ public class Time implements Runnable {
 
     @Override
     public void run() {
+        while (){
             try {
-                // Thread.sleep(1000); // Menghentikan thread selama 1 detik
+                Thread.sleep(1000); // Menghentikan thread selama 1 detik
                 tick(); // Menambahkan waktu satu detik
                 if (Time.getTime().getCurrentPhase().equalsIgnoreCase("Pagi")) {
                     if (Time.getTime().getTotalSeconds() % 25 == 0) {
@@ -58,5 +59,6 @@ public class Time implements Runnable {
             } catch (Exception e) {
                 Thread.currentThread().interrupt(); // Set the interrupt flag
             }
+        }
     }
 }

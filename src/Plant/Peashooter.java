@@ -2,6 +2,7 @@ package Plant;
 
 import Main.Game;
 import Thread.Time;
+import Zombie.Zombie;
 
 public class Peashooter implements Plant, Attack {
     private String name = "Peashooter";
@@ -44,21 +45,6 @@ public class Peashooter implements Plant, Attack {
     }
 
     
-
-    // public void startPeashooterAttackThread (){
-    //     Thread PeashooterAttackThread = new Thread(() -> {
-    //         while (Game.getStatusGame()) {
-    //             try {
-    //                 Thread.sleep(attackSpeed * 100); // Tunggu interval produksi
-    //                 attack();
-    //             } catch (InterruptedException e) {
-    //                 e.printStackTrace();
-    //             }
-    //         }
-    //     });
-    //     PeashooterAttackThread.start(); // Mulai thread
-    // }
-    
     public String getName() {
         return name;
     }
@@ -91,7 +77,8 @@ public class Peashooter implements Plant, Attack {
         return jumpable;
     }
 
-    public void attack() {
+    public void attack(Zombie zombie) {
+        zombie.setHealth(zombie.getHealth() - attackDamage);
 
     }
 

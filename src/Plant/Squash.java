@@ -25,6 +25,7 @@ public class Squash implements Plant, Attack, SelfDestruct {
         zombie.setHealth(zombie.getHealth() - getAttackDamage());
         
     }
+    
     public void attack(Zombie zombie, Tile tile) {
         attack(zombie);
         selfDestruct(tile);
