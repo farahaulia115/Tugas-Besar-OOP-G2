@@ -25,6 +25,10 @@ public class DuckytubeConeheadZombie implements Zombie {
         return health;
     }
 
+    public int getTimeSpawn() {
+        return timeSpawn;
+    }
+
     @Override
     public int getDamage() {
         return damage;

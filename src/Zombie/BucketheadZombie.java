@@ -71,15 +71,4 @@ public class BucketheadZombie implements Zombie {
     //     }
     // }
     
-    // @Override
-    // public void move() {
-    //     if ((Time.getTime().getTotalSeconds() - timeSpawn) % 5 == 0) {
-    //         // remove zombie di tile lama
-    //         Map.getMapInstance().getMapDetail()[x][y].getZombieList().remove(this);
-    //         // ubah koordinat
-    //         y++;
-    //         // tambah zombie di tile baru
-    //         Map.getMapInstance().getMapDetail()[x][y].getZombieList().add(this);
-    //     }
-    // }
 }

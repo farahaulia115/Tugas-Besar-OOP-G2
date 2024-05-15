@@ -5,7 +5,8 @@ public interface Zombie {
     int getHealth();
     int getDamage();
     int getSpeed();
+    int getTimeSpawn();
     boolean isAquatic();
     void setPosition(int x, int y);
-
+    
 }

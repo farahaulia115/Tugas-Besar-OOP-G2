@@ -1,5 +1,6 @@
 package Thread;
 import Map.*;
+import Main.SpawnZombie;
 
 public class TesRun {
     public static void main(String[] args) {
@@ -11,10 +12,11 @@ public class TesRun {
     
                 System.out.println("Current time : " + Time.getTime().getTotalSeconds() + " (" + Time.getTime().getCurrentPhase() + ")");
 
-                Thread spawnerThread = new Thread(new Runnable() {
-                    public void run(){}
-                });
+                Thread spawnerThread = new Thread(new SpawnZombie());
                 spawnerThread.start();
+                Thread entityThread = new Thread(new EntityThreadRow1());
+                entityThread.start();
+
                 spawnerThread.join();
                 Map.getMapInstance().renderMap();
                 

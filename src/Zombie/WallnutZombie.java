@@ -30,6 +30,10 @@ public class WallnutZombie implements Zombie {
         return damage;
     }
 
+    public int getTimeSpawn() {
+        return timeSpawn;
+    }
+
     @Override
     public int getSpeed() {
         return speed;

@@ -36,6 +36,10 @@ public class NormalZombie implements Zombie {
         return speed;
     }
 
+    public int getTimeSpawn() {
+        return timeSpawn;
+    }
+    
     @Override
     public boolean isAquatic() {
         return aquatic;

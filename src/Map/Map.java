@@ -6,7 +6,8 @@ import Zombie.Zombie;
 public class Map{
     private static Map map;
     private Tile[][] mapdetail = new Tile[6][11];
-
+    private int zombieInMap = 0;
+    
     private Map(){
         for (int i = 0;i<=1;i++){
             for (int j = 1;j<=9;j++){
@@ -41,13 +42,22 @@ public class Map{
     }
 
     public int jumlahZombie(){
-        int jumlah = 0;
-        for (int i = 0; i<=5;i++){
-            for (int j = 1; j<=9;j++){
-                jumlah += mapdetail[i][j].getZombieList().size();
-            }
-        }
-        return jumlah;
+        // int jumlah = 0;
+        // for (int i = 0; i<=5;i++){
+        //     for (int j = 1; j<=9;j++){
+        //         jumlah += mapdetail[i][j].getZombieList().size();
+        //     }
+        // }
+        // return jumlah;
+        return zombieInMap;
+    }
+
+    public void addZombieInMap(){
+        zombieInMap++;
+    }
+
+    public void removeZombieInMap(){
+        zombieInMap--;
     }
     
     public void tanamAt(int x, int y, Plant plant){
@@ -61,7 +71,7 @@ public class Map{
 
     public void renderMap(){
         for (int i = 0; i<=5;i++){
-            for (int j = 1; j<=9;j++){
+            for (int j = 1; j<=10;j++){
                 System.out.printf("[");
                 if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size()>0){
                     if (mapdetail[i][j].isAdaTanaman()){

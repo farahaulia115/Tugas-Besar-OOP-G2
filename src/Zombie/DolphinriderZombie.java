@@ -30,6 +30,10 @@ public class DolphinriderZombie implements Zombie, CanJump {
         return damage;
     }
 
+    public int getTimeSpawn() {
+        return timeSpawn;
+    }
+
     @Override
     public int getSpeed() {
         return speed;

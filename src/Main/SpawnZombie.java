@@ -12,10 +12,10 @@ public class SpawnZombie implements Runnable {
     @Override
     public void run() {
         // Check if the total seconds are within the desired range
-        if (Time.getTime().getTotalSeconds() >= 5 && Time.getTime().getTotalSeconds() <= 160) {
+        if (Time.getTime().getTotalSeconds() >= 20 && Time.getTime().getTotalSeconds() <= 160) {
             double probabilityTile = 0.3;
             for (int i = 0; i < 6; i++) {
-                if (Math.random() < probabilityTile && Map.getMapInstance().jumlahZombie() <= 10) {
+                if (Math.random() < probabilityTile && Map.getMapInstance().jumlahZombie() < 10) {
                     int jenisZombie;
                     if (i >= 2 && i < 4) {
                         jenisZombie = new Random().nextInt(3) + 8;
@@ -27,14 +27,15 @@ public class SpawnZombie implements Runnable {
                     Map.getMapInstance().getMapDetail()[i][10].getZombieList().add(newZombie);
                     newZombie.setPosition(i, 10);
                     System.out.println("Zombie spawned at row " + (i + 1));
+                    Map.getMapInstance().addZombieInMap();
                 }
                 // Add a delay of 1 second between each iteration
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    // Handle the exception if the thread is interrupted
-                    System.err.println("Thread was interrupted: " + e.getMessage());
-                }
+                // try {
+                //     Thread.sleep(1000);
+                // } catch (InterruptedException e) {
+                //     // Handle the exception if the thread is interrupted
+                //     System.err.println("Thread was interrupted: " + e.getMessage());
+                // }
             }
         }
     }
