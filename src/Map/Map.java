@@ -2,6 +2,7 @@ package Map;
 
 import Plant.Attack;
 import Plant.Plant;
+import Plants.SelfDestruct;
 import Zombie.Zombie;
 
 public class Map{
@@ -129,6 +130,9 @@ public class Map{
                     if (!tile.getZombieList().isEmpty()) {
                         for (Zombie z : tile.getZombieList()) {
                             attackingPlants.attack(z);
+                            if (attackingPlants instanceof SelfDestruct) {
+                                ((SelfDestruct) attackingPlants).selfDestruct(tile);
+                            }
                             if (z.getHealth() <= 0) {
                                 tile.getZombieList().remove(z);
                                 removeZombieInMap();

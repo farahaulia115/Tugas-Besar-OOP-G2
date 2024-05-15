@@ -1,6 +1,9 @@
 package Plants;
+import Zombie.Zombie;
+import Map.NotShovelableException;
+import Map.Tile;
 
-public class Squash extends Plants {
+public class Squash extends Plants implements Attack, SelfDestruct{
     public Squash() {
         setName("Squash");
         setCost(50);
@@ -11,4 +14,18 @@ public class Squash extends Plants {
         setCooldown(20);
         setJumpable(true);
     }
-}
+
+    @Override
+    public void attack(Zombie z) {
+        z.setHealth(z.getHealth()-getAttackDamage());
+        selfDestruct(tile);
+    }
+
+    @Override
+    public void selfDestruct(Tile tile) {
+        try {
+            tile.gali();
+        } catch (NotShovelableException e) {
+            e.printStackTrace();
+        }
+    }
