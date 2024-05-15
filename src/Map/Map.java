@@ -2,7 +2,7 @@ package Map;
 
 import Plant.Attack;
 import Plant.Plant;
-import Plants.SelfDestruct;
+import Plant.SelfDestruct;
 import Zombie.Zombie;
 
 public class Map{
