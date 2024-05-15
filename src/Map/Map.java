@@ -1,6 +1,7 @@
 package Map;
 
 import Plant.Plant;
+import Map.*;
 
 public class Map{
     private static Map map;
@@ -39,6 +40,16 @@ public class Map{
         return mapdetail;
     }
 
+    public int jumlahZombie(){
+        int jumlah = 0;
+        for (int i = 0; i<=5;i++){
+            for (int j = 1; j<=9;j++){
+                jumlah += mapdetail[i][j].getZombieList().size();
+            }
+        }
+        return jumlah;
+    }
+    
     public void tanamAt(int x, int y, Plant plant){
         try{
             mapdetail[x][y].tanam(plant);

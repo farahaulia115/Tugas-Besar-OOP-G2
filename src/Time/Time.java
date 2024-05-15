@@ -1,37 +1,30 @@
-// Time.java
 package Time;
 
-public class Time {
-    private static Time time = null;
+import main.Sun;
+
+public class Time implements Runnable {
+    private static Time instance;
     private int totalSeconds;
 
     private Time() {
         totalSeconds = 0;
     }
 
+    public static Time getTime() {
+        if (instance == null) {
+            instance = new Time();
+        }
+        return instance;
+    }
+
     public int getTotalSeconds() {
         return totalSeconds;
     }
 
-    public static Time getTime(){
-        if (time == null){
-            return new Time();
-        }
-        return time;
-    }
-    
     public void setTotalSeconds(int totalSeconds) {
         this.totalSeconds = totalSeconds;
     }
 
-    // 200 jumlah second dalam satu hari
-
-    
-    // public static int getDay() {
-    //     return (this.totalSeconds / 200) + 1;
-    // }
-
-    // nambahin totalSeconds setiap ada penambahan
     public void tick() {
         totalSeconds++;
     }
@@ -50,5 +43,20 @@ public class Time {
         } else {
             return "Malam";
         }
+    }
+
+    @Override
+    public void run() {
+            try {
+                Thread.sleep(1000); // Menghentikan thread selama 1 detik
+                tick(); // Menambahkan waktu satu detik
+                if (Time.getTime().getCurrentPhase().equalsIgnoreCase("Pagi")) {
+                    if (Time.getTime().getTotalSeconds() % 25 == 0) {
+                        Sun.increaseSun(25);
+                    }
+                } 
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt(); // Set the interrupt flag
+            }
     }
 }

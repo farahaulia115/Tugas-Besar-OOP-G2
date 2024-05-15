@@ -12,7 +12,10 @@ public class NormalZombie implements Zombie {
     private int x;
     private int y;
 
-
+    public NormalZombie() {
+        this.timeSpawn = Time.getTime().getTotalSeconds();
+    }
+    
     @Override
     public String getName() {
         return name;
@@ -44,30 +47,30 @@ public class NormalZombie implements Zombie {
         this.y = y;
     }
 
-    @Override
-    public void attack() {
-        // Implementasi serangan
-        if ((Time.getTime().getTotalSeconds() - timeSpawn) % speed == 0) {
-            if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
-                if (Map.getMapInstance().getMapDetail()[x][y].getPlant().getHealth() - damage > 0) {
-                    Map.getMapInstance().getMapDetail()[x][y].getPlant().setHealth(Map.getMapInstance().getMapDetail()[x][y].getPlant().getHealth()-damage) ;
-                }
-                else {
-                    Map.getMapInstance().getMapDetail()[x][y].plantDie();
-                }
-            }
-        }
-    }
+    // @Override
+    // public void attack() {
+    //     // Implementasi serangan
+    //     if ((Time.getTime().getTotalSeconds() - timeSpawn) % speed == 0) {
+    //         if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
+    //             if (Map.getMapInstance().getMapDetail()[x][y].getPlant().getHealth() - damage > 0) {
+    //                 Map.getMapInstance().getMapDetail()[x][y].getPlant().setHealth(Map.getMapInstance().getMapDetail()[x][y].getPlant().getHealth()-damage) ;
+    //             }
+    //             else {
+    //                 Map.getMapInstance().getMapDetail()[x][y].plantDie();
+    //             }
+    //         }
+    //     }
+    // }
 
-    @Override
-    public void move() {
-        if (( - timeSpawn) % 5 == 0) {
-            // remove zombie di tile lama
-            Map.getMapInstance().getMapDetail()[x][y].getZombieList().remove(this);
-            // ubah koordinat
-            y++;
-            // tambah zombie di tile baru
-            Map.getMapInstance().getMapDetail()[x][y].getZombieList().add(this);
-        }
-    }
+    // @Override
+    // public void move() {
+    //     if (( - timeSpawn) % 5 == 0) {
+    //         // remove zombie di tile lama
+    //         Map.getMapInstance().getMapDetail()[x][y].getZombieList().remove(this);
+    //         // ubah koordinat
+    //         y++;
+    //         // tambah zombie di tile baru
+    //         Map.getMapInstance().getMapDetail()[x][y].getZombieList().add(this);
+    //     }
+    // }
 }

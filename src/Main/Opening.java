@@ -1,14 +1,11 @@
 package main;
-import java.util.Scanner;
 
-
-public class MenuGame {
-    Scanner input = new Scanner(System.in);
-    public MenuGame() {
+public class Opening {
+    
+    public Opening() {
         System.out.println("");
         pvz();
         System.out.println("");
-        opening();
     }
 
     public void opening() {
@@ -17,23 +14,7 @@ public class MenuGame {
         System.out.println("3. Plants List");
         System.out.println("4. Zombies List");
         System.out.println("5. Exit");
-        System.out.print("Choose : ");
-        int choose = input.nextInt();
-        if (choose == 1) {
-            // startGame();
-        } else if (choose == 2) {
-            help();
-        } else if (choose == 3) {
-            plantsList();
-        } else if (choose == 4) {
-            zombiesList();
-        } 
-        else if (choose == 5) {
-            System.exit(0);
-        } else {
-            System.out.println("Invalid input");
-            opening();
-        }
+        System.out. print("Choose : ");
     }
 
 
@@ -62,5 +43,12 @@ public class MenuGame {
 
     }
 
+
+    public void ZombieConehead(){}
+
+    // lanjutin informasi zombie lainnya
+
+    public void SunFlower(){}
+    //lanjutin informasi tanaman lainnya
 
 }
