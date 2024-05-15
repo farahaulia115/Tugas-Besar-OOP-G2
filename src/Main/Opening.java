@@ -1,4 +1,5 @@
-package main;
+
+package Main;
 
 public class Opening {
     

@@ -1,6 +1,5 @@
-package main;
-// import Time.*;
 
+package Main;
 public class Sun {
     private static int amount;
 

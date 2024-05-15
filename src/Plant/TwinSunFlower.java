@@ -1,5 +1,5 @@
 package Plant;
-import main.*;
+import Main.*;
 
 public class TwinSunFlower implements Plant, ProduceSun{
     private static final int SUN_PRODUCTION_INTERVAL = 10; // Interval produksi Sun dalam detik

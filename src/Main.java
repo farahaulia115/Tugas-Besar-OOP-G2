@@ -1,7 +1,7 @@
 // Main.java
 import java.util.Scanner;
 
-import  main.Opening;
+import Main.Opening;
 
 public class Main {
     

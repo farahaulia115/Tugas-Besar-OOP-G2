@@ -1,6 +1,6 @@
 package Plant;
 
-import main.Game;
+import Main.Game;
 
 public class Repeater implements Plant, Attack{
     private String name = "Repeater";

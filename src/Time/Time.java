@@ -1,6 +1,6 @@
 package Time;
 
-import main.Sun;
+import Main.Sun;
 
 public class Time implements Runnable {
     private static Time instance;
