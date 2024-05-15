@@ -1,8 +1,7 @@
 package Map;
 
-import Plant.Peashooter;
+import Plant.Attack;
 import Plant.Plant;
-import Plant.Repeater;
 import Zombie.Zombie;
 
 public class Map{
@@ -125,11 +124,11 @@ public class Map{
         for (int i = 0; i <= 5; i++) {
             for (int j = 1; j <= 9; i++) { 
                 Tile tile = mapdetail[i][j];
-                if (tile.isAdaTanaman() && tile.getPlant() instanceof Peashooter) {
-                    Peashooter peashooter = (Peashooter) tile.getPlant();
+                if (tile.isAdaTanaman() && tile.getPlant() instanceof Attack) {
+                    Attack attackingPlants = (Attack) tile.getPlant();
                     if (!tile.getZombieList().isEmpty()) {
                         for (Zombie z : tile.getZombieList()) {
-                            peashooter.attack(z);
+                            attackingPlants.attack(z);
                             if (z.getHealth() <= 0) {
                                 tile.getZombieList().remove(z);
                                 removeZombieInMap();

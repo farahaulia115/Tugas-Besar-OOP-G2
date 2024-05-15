@@ -14,7 +14,7 @@ public class Repeater extends Plants implements Attack {
         setJumpable(true);
     }
     @Override
-    public void attack(Zombie zombie) {
-        zombie.setHealth(zombie.getHealth()-getAttackDamage());
+    public void attack(Zombie z) {
+        z.setHealth(z.getHealth()-getAttackDamage());
     }
 }
