@@ -5,7 +5,7 @@ import Map.*;
 import Thread.Time; 
 
 public class Game {
-    private static boolean statusGame = true;
+    private static boolean statusGame = false;
     private Map map = Map.getMapInstance();
     private Inventory inventory;
     private Time time;
@@ -61,6 +61,7 @@ public class Game {
     
 
     public void startGame(){
+        setGame();
         Thread timeThread = new Thread(time);
         timeThread.start();
     }

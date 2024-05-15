@@ -129,7 +129,6 @@ public class Main {
                     case 7:
                         // start game
                         gameInventory = false;
-                        running = true;
                         game.startGame();
                         Sun.increaseSun(25);
                         break;
@@ -141,7 +140,7 @@ public class Main {
                         break;
                 }
 
-                while (running) {
+                while (Game.getStatusGame()) {
                     game.isGameOver();
                     System.out.println("Sun : " + Sun.getAmount());
                     game.getDeck().showDeckStatus();
@@ -155,29 +154,61 @@ public class Main {
                     System.out.println("5. Remove Plant");
                     System.out.println("6. Quit Game");
 
-                    try{
-                        Thread.sleep(10000);
-                        System.out.println(game.getTime());
-                        game.getDeck().showDeckStatus();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    int choose3 = InputHandler.getIntInput("Choose :");
+                    System.out.println();
+
+                    switch (choose3) {
+                        case 1:
+                            game.getMap().renderMap2();
+                            // show map
+                            break;
+                        case 2:
+                            System.out.println("Sun : " + Sun.getAmount());
+                            // show sun
+                            break;
+                        case 3:
+                            game.getDeck().showDeckStatus();
+                            // show deck status
+                            break;
+                        case 4:
+                            System.out.println("Choose plant to plant");
+                            game.getDeck().showDeck();
+                            int choose4 = InputHandler.getIntInput("Choose :");
+
+                            int row = InputHandler.getIntInput("Choose row to plant");
+                            int column = InputHandler.getIntInput("Choose column to plant");
+                            try {
+                                game.getMap().plantPlant(game.getDeck().getDeck().get(choose4-1), row, column);
+                                System.out.println("Plant success");
+                            } catch (IllegalArgumentException e) {
+                                System.out.println(e.getMessage());
+                            }
+                            // plant
+                            break;
+                        case 5:
+                            int row2 = InputHandler.getIntInput("Choose row to remove plant");
+                            int column2 = InputHandler.getIntInput("Choose column to remove plant");
+                            try {
+                                game.getMap().removePlant(row2, column2);
+                                System.out.println("Remove plant success");
+                            } catch (IllegalArgumentException e) {
+                                System.out.println(e.getMessage());
+                            }
+                            // remove plant
+                            break;
+                        case 6:
+                            running = false;
+                            break;
+                        default:
+                            System.out.println("Invalid input");
+                            break;
                     }
-                    
-                    running = false;
 
                     
                 }
-
-
             }
         }
     }
-
-
-
-       
-
-
 }
 
 

@@ -41,19 +41,19 @@ public class Deck {
     }
 
     public int pilihTanaman(int i){
-        if (i < 0 || i >= deck.size()){
-            System.out.println("Input tidak valid");
+        if (i < 0 || i >= deck.size()) {
+            throw new IllegalArgumentException("Index out of bounds");
         } else {
             DeckThreat deckThreat = DeckThreat.getDeckThreatInstance(this);
-            if (deckThreat.getDeckStatus().get(i).isReadyToPlant()){
+            if (deckThreat.getDeckStatus().get(i).isReadyToPlant()) {
                 deckThreat.getDeckStatus().get(i).setReadyToPlant(false);
                 deckThreat.getDeckStatus().get(i).setLastTimeCreated(Time.getTime().getTotalSeconds());
                 return i;
             } else {
-                System.out.println("Tanaman belum siap");
+                throw new IllegalStateException("Plant is not ready to plant, neet to wait " + (deckThreat.getDeckStatus().get(i).getLastTimeCreated() + 5 - Time.getTime().getTotalSeconds()) + " seconds");
             }
         }
-        return -1;
+        
     }
 
     public boolean tanam(int i, int x, int y){
