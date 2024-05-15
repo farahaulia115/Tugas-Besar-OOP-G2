@@ -1,5 +1,7 @@
 package Plants;
 
+import Zombie.Zombie;
+
 public interface Attack {
-    void attack();
+    void attack(Zombie zombie);
 } 

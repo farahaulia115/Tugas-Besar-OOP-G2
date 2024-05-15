@@ -1,6 +1,8 @@
 package Plants;
 
-public class SnowPea extends Plants {
+import Zombie.Zombie;
+
+public class SnowPea extends Plants implements Attack {
     public SnowPea() {
         setName("Snow Pea");
         setCost(175);
@@ -10,5 +12,9 @@ public class SnowPea extends Plants {
         setRange(-1);
         setCooldown(10);
         setJumpable(true);
+    }
+    @Override
+    public void attack(Zombie zombie) {
+        zombie.setHealth(zombie.getHealth()-getAttackDamage());
     }
 }

@@ -1,6 +1,9 @@
 package Plants;
+import Map.*;
+import Thread.Time;
+import Zombie.Zombie;
 
-public class Peashooter extends Plants {
+public class Peashooter extends Plants implements Attack {
     public Peashooter() {
         setName("Peashooter");
         setCost(100);
@@ -10,5 +13,10 @@ public class Peashooter extends Plants {
         setRange(-1);
         setCooldown(10);
         setJumpable(true);
+    }
+
+    @Override
+    public void attack(Zombie zombie) {
+        zombie.setHealth(zombie.getHealth()-getAttackDamage());
     }
 }

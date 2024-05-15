@@ -1,6 +1,8 @@
 package Map;
 
+import Plant.Peashooter;
 import Plant.Plant;
+import Plant.Repeater;
 import Zombie.Zombie;
 
 public class Map{
@@ -117,5 +119,25 @@ public class Map{
             System.out.println();
         }
         System.out.println();
+    }
+
+    public void shooterAttack() {
+        for (int i = 0; i <= 5; i++) {
+            for (int j = 1; j <= 9; i++) { 
+                Tile tile = mapdetail[i][j];
+                if (tile.isAdaTanaman() && tile.getPlant() instanceof Peashooter) {
+                    Peashooter peashooter = (Peashooter) tile.getPlant();
+                    if (!tile.getZombieList().isEmpty()) {
+                        for (Zombie z : tile.getZombieList()) {
+                            peashooter.attack(z);
+                            if (z.getHealth() <= 0) {
+                                tile.getZombieList().remove(z);
+                                removeZombieInMap();
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
