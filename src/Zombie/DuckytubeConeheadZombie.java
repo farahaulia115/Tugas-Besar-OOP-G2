@@ -11,6 +11,7 @@ public class DuckytubeConeheadZombie implements Zombie {
     private int timeSpawn;
     private int x;
     private int y;
+    private int moveInterval = 5;
 
     public DuckytubeConeheadZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();

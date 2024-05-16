@@ -11,6 +11,7 @@ public class WallnutZombie implements Zombie {
     private int timeSpawn;
     private int x;
     private int y;
+    private int moveInterval = 5;
 
     public WallnutZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();

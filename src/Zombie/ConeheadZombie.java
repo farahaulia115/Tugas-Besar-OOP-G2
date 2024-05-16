@@ -10,6 +10,7 @@ public class ConeheadZombie implements Zombie {
     private int timeSpawn;
     private int x;
     private int y;
+    private int moveInterval = 5;
 
     public ConeheadZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();

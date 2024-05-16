@@ -12,6 +12,7 @@ public class DolphinriderZombie implements Zombie, CanJump {
     private int x;
     private int y;
     private boolean jumped;
+    private int moveInterval = 5;
 
     public DolphinriderZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
