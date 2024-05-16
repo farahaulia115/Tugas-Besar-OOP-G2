@@ -33,15 +33,24 @@ public class Inventory {
     }
 
     public void swapInventory (int x, int y){
-        Plant temp = inventory.get(x);
-        inventory.set(x, inventory.get(y));
-        inventory.set(y, temp);
+        if (x < 0 || x >= inventory.size() || y < 0 || y >= inventory.size()) {
+            throw new IllegalArgumentException("Index out of bounds");
+        } else {
+            Plant temp = inventory.get(x);
+            inventory.set(x, inventory.get(y));
+            inventory.set(y, temp);
+        }
+        
     }
 
     public void swapDeck (int x, int y){
-        Plant temp = deck.getDeck().get(x);
-        deck.getDeck().set(x, deck.getDeck().get(y));
-        deck.getDeck().set(y, temp);
+        if (x < 0 || x >= deck.getDeck().size() || y < 0 || y >= deck.getDeck().size()) {
+            throw new IllegalArgumentException("Index out of bounds");
+        } else {
+            Plant temp = deck.getDeck().get(x);
+            deck.getDeck().set(x, deck.getDeck().get(y));
+            deck.getDeck().set(y, temp);
+        }
     }
 
     public void deletePlantFromDeck (int index){

@@ -1,7 +1,5 @@
 // Main.java
 
-
-import Main.DeckThreat;
 import Main.Game;
 import Main.Opening;
 import Main.Sun;
