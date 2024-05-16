@@ -143,8 +143,8 @@ public class Main {
                 while (Game.getStatusGame()) {
                     game.startGame();
                     game.isGameOver();
-                    // System.out.println("Sun : " + Sun.getAmount());
-                    // game.getDeck().showDeckStatus();
+                    System.out.println("Sun : " + Sun.getAmount());
+                    game.getDeck().showDeckStatus();
 
                     System.out.println();
                     System.out.println("Game Menu");
@@ -220,7 +220,7 @@ public class Main {
                             break;
                         
                     }
-                    // game.getMap().renderMap2();
+                    game.getMap().renderMap2();
 
                     
                 }
