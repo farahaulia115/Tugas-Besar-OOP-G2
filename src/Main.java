@@ -83,7 +83,7 @@ public class Main {
                         System.out.print("With deck index : ");
                         int y = InputHandler.getIntInput();
                         try {
-                            game.getInventory().swapDeck(x, y);
+                            game.getInventory().swapDeck(x-1, y-1);
                             System.out.println("Swap deck success");
                         } catch (IllegalArgumentException e) {
                             System.out.println(e.getMessage());
@@ -96,7 +96,7 @@ public class Main {
                         System.out.print("With inventory index : ");
                         int y2 = InputHandler.getIntInput();
                         try {
-                            game.getInventory().swapInventory(x2, y2);
+                            game.getInventory().swapInventory(x2-1, y2-1);
                             System.out.println("Swap inventory success");
                         } catch (IllegalArgumentException e) {
                             System.out.println(e.getMessage());
