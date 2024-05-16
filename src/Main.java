@@ -131,7 +131,7 @@ public class Main {
                     case 7:
                         // start game
                         gameInventory = false;
-                        game.startGame();
+                        Game.setGame();
                         Sun.increaseSun(25);
                         break;
                     case 8:
@@ -143,8 +143,7 @@ public class Main {
                 }
 
                 while (Game.getStatusGame()) {
-                    Thread deckThreat = new Thread(DeckThreat.getDeckThreatInstance(game.getDeck()));
-                    deckThreat.start();
+                    game.startGame();
                     game.isGameOver();
                     // System.out.println("Sun : " + Sun.getAmount());
                     // game.getDeck().showDeckStatus();
@@ -197,7 +196,6 @@ public class Main {
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
                             }
-                            
                             
                             break;
                         case 5:
