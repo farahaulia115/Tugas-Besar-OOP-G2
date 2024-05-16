@@ -2,7 +2,7 @@ package Zombie;
 import Map.*;
 import Thread.Time;
 
-public class FootballZombie implements Zombie, CanJump {
+public class FootballZombie implements Zombie{
     private String name = "Football Zombie";
     private int health = 300;
     private int damage = 150;
@@ -44,10 +44,6 @@ public class FootballZombie implements Zombie, CanJump {
         return aquatic;
     }
 
-    @Override
-    public void jump() {
-        // Implementasi lompat untuk PogoZombie
-    }
 
     @Override
     public void setPosition(int x, int y){

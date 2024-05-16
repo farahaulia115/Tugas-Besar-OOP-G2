@@ -2,6 +2,7 @@ package Thread;
 import Map.*;
 import Plant.*;
 import Main.SpawnZombie;
+import Zombie.*;
 
 public class TesRun {
     public static void main(String[] args) {
@@ -13,6 +14,8 @@ public class TesRun {
             Map.getMapInstance().getMapDetail()[3][6].tanam(new Lilypad());
             Map.getMapInstance().getMapDetail()[4][5].tanam(new Tallnut());
             Map.getMapInstance().getMapDetail()[5][4].tanam(new Tallnut());
+            Map.getMapInstance().getMapDetail()[3][8].getZombieList().add(new DolphinriderZombie());
+            Map.getMapInstance().getMapDetail()[2][9].getZombieList().add(new DolphinriderZombie());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

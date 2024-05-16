@@ -1,5 +1,6 @@
 package Thread;
 import Map.*;
+import Zombie.CanJump;
 import Zombie.Zombie;
 
 public class Row4EntityThread implements Runnable{
@@ -28,11 +29,22 @@ public class Row4EntityThread implements Runnable{
                 }
 
                 else{
-                    while (Time.getTime().getTotalSeconds() != tile.getZombieList().peek().getTimeSpawn() && (Time.getTime().getTotalSeconds() - tile.getZombieList().peek().getTimeSpawn())%5==0){
-                        Zombie z = tile.getZombieList().poll();
-                        Map.getMapInstance().getMapDetail()[3][i-1].getZombieList().add(z);
-                        if (tile.getZombieList().size()==0 ){
-                            break;
+                    for (Zombie z : tile.getZombieList()){
+                        if (z instanceof CanJump){
+                            CanJump zj = (CanJump)z;
+                            if (zj.alreadyJumped()==false && Map.getMapInstance().getMapDetail()[3][i-1].isAdaTanaman()==true){
+                                zj.jump();
+                                if (Map.getMapInstance().getMapDetail()[3][i-1].getPlant().isJumpable()==true){
+                                    Map.getMapInstance().getMapDetail()[3][i-1].plantDie();
+                                }
+                                z.setTimeSpawn();
+                                tile.getZombieList().remove(z);
+                                Map.getMapInstance().getMapDetail()[3][i-1].getZombieList().add(z);
+                            }
+                        }
+                        if (z.getTimeSpawn() != Time.getTime().getTotalSeconds() && (Time.getTime().getTotalSeconds() - z.getTimeSpawn())%5==0){
+                            tile.getZombieList().remove(z);
+                            Map.getMapInstance().getMapDetail()[3][i-1].getZombieList().add(z);
                         }
                     }
                 }
@@ -41,3 +53,24 @@ public class Row4EntityThread implements Runnable{
         
     }
 }
+
+// while ((tile.getZombieList().peek() instanceof CanJump) || (Time.getTime().getTotalSeconds() != tile.getZombieList().peek().getTimeSpawn() && (Time.getTime().getTotalSeconds() - tile.getZombieList().peek().getTimeSpawn())%5==0)){
+//     if (tile.getZombieList().peek() instanceof CanJump){
+//         CanJump zj = (CanJump)tile.getZombieList().peek();
+//         if (zj.alreadyJumped()==false && Map.getMapInstance().getMapDetail()[3][i-1].isAdaTanaman()==true){
+//             zj.jump();
+//             Map.getMapInstance().getMapDetail()[3][i-1].plantDie();
+//         }
+//         else if ((Time.getTime().getTotalSeconds() == tile.getZombieList().peek().getTimeSpawn() || (Time.getTime().getTotalSeconds() - tile.getZombieList().peek().getTimeSpawn())%5!=0)){
+//             break;
+//         }
+
+//     }
+//     else if (tile.getZombieList().){
+//         Zombie z = tile.getZombieList().poll();
+//         Map.getMapInstance().getMapDetail()[3][i-1].getZombieList().add(z);
+//         if (tile.getZombieList().size()==0 ){
+//             break;
+//         }
+//     }
+// }

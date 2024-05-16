@@ -11,9 +11,11 @@ public class DolphinriderZombie implements Zombie, CanJump {
     private int timeSpawn;
     private int x;
     private int y;
+    private boolean jumped;
 
     public DolphinriderZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
+        jumped = false;
     }
     @Override
     public String getName() {
@@ -47,6 +49,12 @@ public class DolphinriderZombie implements Zombie, CanJump {
     @Override
     public void jump() {
         // implementasi jump
+        jumped = true;
+    }
+
+    @Override
+    public boolean alreadyJumped(){
+        return jumped;
     }
 
     @Override

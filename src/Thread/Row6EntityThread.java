@@ -1,5 +1,6 @@
 package Thread;
 import Map.*;
+import Zombie.CanJump;
 import Zombie.Zombie;
 
 public class Row6EntityThread implements Runnable{
@@ -28,13 +29,25 @@ public class Row6EntityThread implements Runnable{
                 }
 
                 else{
-                    while (Time.getTime().getTotalSeconds() != tile.getZombieList().peek().getTimeSpawn() && (Time.getTime().getTotalSeconds() - tile.getZombieList().peek().getTimeSpawn())%5==0){
-                        Zombie z = tile.getZombieList().poll();
-                        Map.getMapInstance().getMapDetail()[5][i-1].getZombieList().add(z);
-                        if (tile.getZombieList().size()==0 ){
-                            break;
+                    for (Zombie z : tile.getZombieList()){
+                        if (z instanceof CanJump){
+                            CanJump zj = (CanJump)z;
+                            if (zj.alreadyJumped()==false && Map.getMapInstance().getMapDetail()[5][i-1].isAdaTanaman()==true){
+                                zj.jump();
+                                if (Map.getMapInstance().getMapDetail()[5][i-1].getPlant().isJumpable()==true){
+                                    Map.getMapInstance().getMapDetail()[5][i-1].plantDie();
+                                }
+                                z.setTimeSpawn();
+                                tile.getZombieList().remove(z);
+                                Map.getMapInstance().getMapDetail()[5][i-1].getZombieList().add(z);
+                            }
+                        }
+                        if (z.getTimeSpawn() != Time.getTime().getTotalSeconds() && (Time.getTime().getTotalSeconds() - z.getTimeSpawn())%5==0){
+                            tile.getZombieList().remove(z);
+                            Map.getMapInstance().getMapDetail()[5][i-1].getZombieList().add(z);
                         }
                     }
+
                 }
             }
         }

@@ -1,6 +1,7 @@
 package Map;
 
 import Plant.Plant;
+import Zombie.CanJump;
 import Zombie.Zombie;
 
 public class Map{
@@ -79,6 +80,9 @@ public class Map{
                     }
                     if (mapdetail[i][j].getZombieList().size()>0){
                         for (Zombie z : mapdetail[i][j].getZombieList()) {
+                            if (z instanceof CanJump){
+                                if (!((CanJump)z).alreadyJumped()) System.out.printf("J");
+                            }
                             System.out.printf("Z:" + z.getHealth() + " ");
                         }      
                     }

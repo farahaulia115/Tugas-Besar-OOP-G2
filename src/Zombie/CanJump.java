@@ -1,4 +1,5 @@
 package Zombie;
 public interface CanJump {
-    void jump();
+    public void jump();
+    public boolean alreadyJumped();
 }
