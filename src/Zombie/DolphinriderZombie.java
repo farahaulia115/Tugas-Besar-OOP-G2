@@ -18,6 +18,10 @@ public class DolphinriderZombie implements Zombie, CanJump {
         jumped = false;
     }
     @Override
+    public void setHealth(int i) {
+        health = i;
+    }
+    @Override
     public String getName() {
         return name;
     }

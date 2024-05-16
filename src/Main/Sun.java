@@ -20,14 +20,6 @@ public class Sun {
         amount = sun;
     }
 
-    // public static void generateSun(Time time){
-    //     if (time.getCurrentPhase().equalsIgnoreCase("Pagi") ){
-    //         if (time.getTotalSeconds() % 25 == 0){
-    //             increaseSun(25);
-    //         }
-    //     } 
-    // }
-
-    // buat generate sun tiap berapa second
+   
 
 }

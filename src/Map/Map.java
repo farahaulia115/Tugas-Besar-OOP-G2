@@ -1,7 +1,9 @@
 package Map;
 
+import Plant.Attack;
 import Plant.Plant;
 import Zombie.CanJump;
+import Plant.SelfDestruct;
 import Zombie.Zombie;
 
 public class Map{
@@ -121,5 +123,38 @@ public class Map{
             System.out.println();
         }
         System.out.println();
+    }
+
+    public void PlantAttack() {
+        for (int i = 0; i <= 5; i++) {
+            for (int j = 1; j <= 9; i++) { 
+                Tile tile = mapdetail[i][j];
+                if (tile.isAdaTanaman() && tile.getPlant() instanceof Attack) {
+                    Attack attackingPlants = (Attack) tile.getPlant();
+                    if (!tile.getZombieList().isEmpty()) {
+                        for (Zombie z : tile.getZombieList()) {
+                            attackingPlants.attack(z);
+                            if (attackingPlants instanceof SelfDestruct) {
+                                ((SelfDestruct) attackingPlants).selfDestruct(tile);
+                            }
+                            if (z.getHealth() <= 0) {
+                                tile.getZombieList().remove(z);
+                                removeZombieInMap();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    public boolean zombieMenang(){
+        for (int i = 0; i<=5;i++){
+            if (mapdetail[i][0].getZombieList().size() > 0){
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -15,5 +15,6 @@ public interface Plant {
     void setAttackDamage(int attackDamage);
     void setRange(int range);
     void setCooldown(int cooldown);
+    int getTimePlantCreated();
     
 }

@@ -1,6 +1,7 @@
 package Thread;
 import Map.*;
 import Plant.*;
+import Main.Game;
 import Main.SpawnZombie;
 import Zombie.*;
 
@@ -19,10 +20,12 @@ public class TesRun {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        while (true) {
+        Game.setStatusGame(true);
+        Runnable time = Time.getTime();
+        Thread timeThread = new Thread(time);
+        timeThread.start();
+        while (timeThread.isAlive()) {
             try {
-                Runnable time = Time.getTime();
-                Thread timeThread = new Thread(time);
         
                 Thread spawnerThread = new Thread(new SpawnZombie());
                 Thread entityThread1 = new Thread(new Row1EntityThread());
@@ -31,11 +34,8 @@ public class TesRun {
                 Thread entityThread4 = new Thread(new Row4EntityThread());
                 Thread entityThread5 = new Thread(new Row5EntityThread());
                 Thread entityThread6 = new Thread(new Row6EntityThread());
-        
-                Thread.sleep(1000); // Menghentikan thread selama 1 detik
-                timeThread.start();
 
-                timeThread.join();
+                Thread.sleep(1000); // Menghentikan thread selama 1 detik
                 System.out.println("Current time : " + Time.getTime().getTotalSeconds() + " (" + Time.getTime().getCurrentPhase() + ")");
 
                 spawnerThread.start();

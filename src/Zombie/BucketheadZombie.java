@@ -1,5 +1,4 @@
 package Zombie;
-import Map.*;
 import Thread.Time;
 
 public class BucketheadZombie implements Zombie {
@@ -15,6 +14,7 @@ public class BucketheadZombie implements Zombie {
     public BucketheadZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
     }
+    
     public int getX() {
         return x;
     }
@@ -74,5 +74,8 @@ public class BucketheadZombie implements Zombie {
     //         }
     //     }
     // }
+    public void setHealth(int i) {
+        health = i;
+    }
     
 }
