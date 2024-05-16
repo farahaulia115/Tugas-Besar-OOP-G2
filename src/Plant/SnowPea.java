@@ -1,10 +1,11 @@
 package Plant;
 
 import Main.Game;
+import Map.Tile;
 import Thread.Time;
 import Zombie.Zombie;
 
-public class SnowPea implements Plant, Attack {
+public class SnowPea implements Plant, Attack, Shooter {
     private String name = "SnowPea";
     private int cost = 175;
     private int health = 100;
@@ -14,9 +15,11 @@ public class SnowPea implements Plant, Attack {
     private int cooldown = 10;
     private boolean jumpable = true;
     private int timeCreated;
+    private int lastAttack;
 
     public SnowPea() {
         this.timeCreated = Time.getTime().getTotalSeconds();
+        this.lastAttack = Time.getTime().getTotalSeconds();
     }
     @Override
     public int getTimePlantCreated() {
@@ -89,8 +92,18 @@ public class SnowPea implements Plant, Attack {
     }
 
     @Override
-    public void attack(Zombie z) {
-        z.setHealth(z.getHealth() - attackDamage);
-        // zombie.setSpeed(); perlu diset speednya
+    public void attack(Zombie zombie) {
+        int timeNow = Time.getTime().getTotalSeconds();
+        if (timeNow - lastAttack >= attackSpeed) {
+        zombie.setHealth(zombie.getHealth() - attackDamage);
+        lastAttack = timeNow;
+        }
+    }
+
+    @Override
+    public void startAttack(Tile tile) {
+        if (!tile.getZombieList().isEmpty()) {
+            attack(tile.getZombieList().peek());
+        }
     }
 }

@@ -1,10 +1,13 @@
 package Plant;
 
+import java.util.ArrayList;
+
 import Main.Game;
+import Map.Tile;
 import Thread.Time;
 import Zombie.Zombie;
 
-public class Peashooter implements Plant, Attack {
+public class Peashooter implements Plant, Attack, Shooter {
     private String name = "Peashooter";
     private int cost = 100;
     private int health = 100;
@@ -14,8 +17,10 @@ public class Peashooter implements Plant, Attack {
     private int cooldown = 10;
     private boolean jumpable = true;
     private int timeCreated;
+    private int lastAttack;
     public Peashooter() {
         this.timeCreated = Time.getTime().getTotalSeconds();
+        this.lastAttack = Time.getTime().getTotalSeconds();
     }
     @Override
     public void setName(String name) {
@@ -89,8 +94,18 @@ public class Peashooter implements Plant, Attack {
 
     @Override
     public void attack(Zombie zombie) {
+        int timeNow = Time.getTime().getTotalSeconds();
+        if (timeNow - lastAttack >= attackSpeed) {
         zombie.setHealth(zombie.getHealth() - attackDamage);
+        lastAttack = timeNow;
+        }
+    }
 
+    @Override
+    public void startAttack(Tile tile) {
+        if (!tile.getZombieList().isEmpty()) {
+            attack(tile.getZombieList().peek());
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 package Map;
 
 import Plant.Attack;
+import Plant.Shooter;
 import Plant.Plant;
 import Zombie.CanJump;
 import Plant.SelfDestruct;
@@ -133,8 +134,11 @@ public class Map{
                     Attack attackingPlants = (Attack) tile.getPlant();
                     if (!tile.getZombieList().isEmpty()) {
                         for (Zombie z : tile.getZombieList()) {
-                            attackingPlants.attack(z);
+                            if (attackingPlants instanceof Shooter) {
+                                ((Shooter) attackingPlants).startAttack(tile);
+                            }
                             if (attackingPlants instanceof SelfDestruct) {
+                                attackingPlants.attack(z);
                                 ((SelfDestruct) attackingPlants).selfDestruct(tile);
                             }
                             if (z.getHealth() <= 0) {
