@@ -7,22 +7,32 @@ public class Row5EntityThread implements Runnable{
     public void run(){
         for (int i = 1;i<=10;i++){
             Tile tile = Map.getMapInstance().getMapDetail()[4][i];
+            Tile nextTile = Map.getMapInstance().getMapDetail()[4][i-1];
             if (tile.isAdaTanaman()){
 
             }
             if (tile.getZombieList().size()>0){     
                 if (tile.isAdaTanaman()){
                     for (Zombie z : tile.getZombieList()){
-                        tile.getPlant().setHealth(tile.getPlant().getHealth()-z.getDamage());
-                        if (tile.getPlant().getHealth()<=0){
-                            try {
-                                tile.gali();
+                        if (z instanceof CanJump){
+                            CanJump zj = (CanJump)z;
+                            if (!zj.alreadyJumped()){
+                                zj.jump();
+                                if (tile.getPlant().isJumpable()){
+                                    tile.plantDie();
+                                }
+                                z.setTimeSpawn();
+                            }
+                        }
+                        if (tile.isAdaTanaman()){
+                            if (z.getTimeSpawn() != Time.getTime().getTotalSeconds() && (Time.getTime().getTotalSeconds()-z.getTimeSpawn())%z.getSpeed()==0)
+                            tile.getPlant().setHealth(tile.getPlant().getHealth()-z.getDamage());
+                            if (tile.getPlant().getHealth()<=0){
+                                tile.plantDie();
                                 for (Zombie zo : tile.getZombieList()){
                                     zo.setTimeSpawn();
                                 }
                                 break;
-                            } catch (Exception e) {
-                                System.out.println(e.getMessage());
                             }
                         }
                     }
@@ -32,19 +42,21 @@ public class Row5EntityThread implements Runnable{
                     for (Zombie z : tile.getZombieList()){
                         if (z instanceof CanJump){
                             CanJump zj = (CanJump)z;
-                            if (zj.alreadyJumped()==false && Map.getMapInstance().getMapDetail()[4][i-1].isAdaTanaman()==true){
-                                zj.jump();
-                                if (Map.getMapInstance().getMapDetail()[4][i-1].getPlant().isJumpable()==true){
-                                    Map.getMapInstance().getMapDetail()[4][i-1].plantDie();
+                            if (!zj.alreadyJumped()){
+                                if (nextTile.isAdaTanaman()){
+                                    zj.jump();
+                                    if (nextTile.getPlant().isJumpable()){
+                                        nextTile.plantDie();
+                                    }
+                                    z.setTimeSpawn();
+                                    tile.getZombieList().remove(z);
+                                    nextTile.getZombieList().add(z);
                                 }
-                                z.setTimeSpawn();
-                                tile.getZombieList().remove(z);
-                                Map.getMapInstance().getMapDetail()[4][i-1].getZombieList().add(z);
                             }
                         }
                         if (z.getTimeSpawn() != Time.getTime().getTotalSeconds() && (Time.getTime().getTotalSeconds() - z.getTimeSpawn())%z.getMoveInterval()==0){
                             tile.getZombieList().remove(z);
-                            Map.getMapInstance().getMapDetail()[4][i-1].getZombieList().add(z);
+                            nextTile.getZombieList().add(z);
                         }
                     }
                 }
