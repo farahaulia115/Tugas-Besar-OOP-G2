@@ -16,19 +16,19 @@ public class TesRun {
             Map.getMapInstance().getMapDetail()[4][5].tanam(new Tallnut());
             Map.getMapInstance().getMapDetail()[5][4].tanam(new Tallnut());
             Map.getMapInstance().getMapDetail()[3][9].getZombieList().add(new DolphinriderZombie());
-            Map.getMapInstance().getMapDetail()[3][8].tanam(new Lilypad());
-            Map.getMapInstance().getMapDetail()[3][8].tanam(new Wallnut());
+            //Map.getMapInstance().getMapDetail()[3][8].tanam(new Lilypad());
+            //Map.getMapInstance().getMapDetail()[3][8].tanam(new Wallnut());
             Map.getMapInstance().getMapDetail()[2][9].getZombieList().add(new DolphinriderZombie());
+            Map.getMapInstance().getMapDetail()[2][7].gali();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         Game.setStatusGame(true);
-        Runnable time = Time.getTime();
-        Thread timeThread = new Thread(time);
-        timeThread.start();
-        while (timeThread.isAlive()) {
+
+        while (Game.getStatusGame()) {
             try {
-        
+                Runnable time = Time.getTime();
+                Thread timeThread = new Thread(time);
                 Thread spawnerThread = new Thread(new SpawnZombie());
                 Thread entityThread1 = new Thread(new Row1EntityThread());
                 Thread entityThread2 = new Thread(new Row2EntityThread());
@@ -38,6 +38,7 @@ public class TesRun {
                 Thread entityThread6 = new Thread(new Row6EntityThread());
 
                 Thread.sleep(1000); // Menghentikan thread selama 1 detik
+                timeThread.start();
                 System.out.println("Current time : " + Time.getTime().getTotalSeconds() + " (" + Time.getTime().getCurrentPhase() + ")");
 
                 spawnerThread.start();
@@ -58,7 +59,7 @@ public class TesRun {
                 entityThread6.join();
                 
                 Map.getMapInstance().renderMap();
-                if (Map.getMapInstance().zombieMenang()) System.exit(0);;
+                //if (Map.getMapInstance().zombieMenang()) System.exit(0);;
 
             } catch (Exception e) {
                 Thread.currentThread().interrupt();

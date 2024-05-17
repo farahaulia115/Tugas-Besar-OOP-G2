@@ -15,8 +15,6 @@ import Thread.Row6EntityThread;
 import Input.InputHandler;
 
 public class Main {
-    
-
     public static void main(String[] args) throws InterruptedException {
         boolean open = true; // tanda looping ketika game dibuka
         boolean gameInventory = false; // tanda untuk bagian pilih inventory, preparation sebelum game start
@@ -138,9 +136,11 @@ public class Main {
                         // start game
                         gameInventory = false;
                         Game.setGame();
-                        Thread timeThread = new Thread(game.getTime());
-                        timeThread.start();
+                        
                         Sun.increaseSun(25);
+                        //Concurrency concurrency = new Concurrency();
+
+
                         break;
                     case 8:
                         gameInventory = false;
@@ -149,35 +149,44 @@ public class Main {
                         System.out.println("Invalid input");
                         break;
                 }
+                Thread thread = new Thread(() -> {
+                    try {
+                        while (Game.getStatusGame()) {
+                        Thread deckThreat = new Thread(DeckThreat.getDeckThreatInstance(game.getDeck() ));
+                        deckThreat.start();
+                        Thread timeThread = new Thread(game.getTime());
+                        timeThread.start();
+                        Thread spawnerThread = new Thread(new SpawnZombie());
+                        Thread entityThread1 = new Thread(new Row1EntityThread());
+                        Thread entityThread2 = new Thread(new Row2EntityThread());
+                        Thread entityThread3 = new Thread(new Row3EntityThread());
+                        Thread entityThread4 = new Thread(new Row4EntityThread());
+                        Thread entityThread5 = new Thread(new Row5EntityThread());
+                        Thread entityThread6 = new Thread(new Row6EntityThread());
+                        Thread.sleep(1000);
+                        spawnerThread.start();
+                        spawnerThread.join();
+                        entityThread1.start();
+                        entityThread2.start();
+                        entityThread3.start();
+                        entityThread4.start();
+                        entityThread5.start();
+                        entityThread6.start();
 
+                        entityThread1.join();
+                        entityThread2.join();
+                        entityThread3.join();
+                        entityThread4.join();
+                        entityThread5.join();
+                        entityThread6.join(); 
+                        }
+                    } catch (InterruptedException e) {
+                        System.out.println("Game Loop Interrupted");
+                    }
+                });
+                thread.start();
                 while (Game.getStatusGame()) {
-                    Thread deckThreat = new Thread(DeckThreat.getDeckThreatInstance(game.getDeck() ));
-                    deckThreat.start();
-                    Thread spawnerThread = new Thread(new SpawnZombie());
-                    Thread entityThread1 = new Thread(new Row1EntityThread());
-                    Thread entityThread2 = new Thread(new Row2EntityThread());
-                    Thread entityThread3 = new Thread(new Row3EntityThread());
-                    Thread entityThread4 = new Thread(new Row4EntityThread());
-                    Thread entityThread5 = new Thread(new Row5EntityThread());
-                    Thread entityThread6 = new Thread(new Row6EntityThread());
-
-
-                    spawnerThread.join();
-                    entityThread1.start();
-                    entityThread2.start();
-                    entityThread3.start();
-                    entityThread4.start();
-                    entityThread5.start();
-                    entityThread6.start();
-
-                    entityThread1.join();
-                    entityThread2.join();
-                    entityThread3.join();
-                    entityThread4.join();
-                    entityThread5.join();
-                    entityThread6.join();              
-        
-                    game.isGameOver();
+             
                     System.out.println("Sun : " + Sun.getAmount());
                     game.getDeck().showDeckStatus();
 
@@ -196,7 +205,7 @@ public class Main {
 
                     switch (choose3) {
                         case 1:
-                            game.getMap().renderMap2();
+                            game.getMap().renderMap();
                             // show map
                             break;
                         case 2:
@@ -255,7 +264,7 @@ public class Main {
                             break;
                         
                     }
-                    game.getMap().renderMap2();
+                    game.getMap().renderMap();
 
                     
                 }

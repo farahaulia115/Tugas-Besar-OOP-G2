@@ -12,9 +12,9 @@ import Thread.Time;
 
 public class Game {
     private static boolean statusGame = false;
-    private Map map = Map.getMapInstance();
+    private static Map map = Map.getMapInstance();
     private Inventory inventory;
-    private Time time;
+    private static Time time;
     private Deck deck;
 
     public Game (){
@@ -55,7 +55,7 @@ public class Game {
     }
 
     
-    public void isGameOver() {
+    public static void isGameOver() {
         if (map.jumlahZombie() == 0 && time.getTotalSeconds() > 160) {
             statusGame = false;
             System.out.println("Player Win");
