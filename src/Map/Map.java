@@ -161,4 +161,13 @@ public class Map{
         }
         return false;
     }
+
+    public void resetMap(){
+        for (int i = 0; i<=5;i++){
+            for (int j = 0; j<=10;j++){
+                mapdetail[i][j].getZombieList().clear();
+                mapdetail[i][j].plantDie();
+            }
+        }
+    }
 }
