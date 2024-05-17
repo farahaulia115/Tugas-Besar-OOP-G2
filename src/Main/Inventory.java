@@ -33,7 +33,10 @@ public class Inventory {
     }
 
     public void swapInventory (int x, int y){
-        if (x < 0 || x >= inventory.size() || y < 0 || y >= inventory.size()) {
+        if (x == y){
+            throw new IllegalArgumentException("Index is the same");
+        }
+        else if (x < 0 || x >= inventory.size() || y < 0 || y >= inventory.size()) {
             throw new IllegalArgumentException("Index out of bounds");
         } else {
             Plant temp = inventory.get(x);
@@ -44,7 +47,10 @@ public class Inventory {
     }
 
     public void swapDeck (int x, int y){
-        if (x < 0 || x >= deck.getDeck().size() || y < 0 || y >= deck.getDeck().size()) {
+        if (x == y){
+            throw new IllegalArgumentException("Index is the same");
+        }
+        else if (x < 0 || x >= deck.getDeck().size() || y < 0 || y >= deck.getDeck().size()) {
             throw new IllegalArgumentException("Index out of bounds");
         } else {
             Plant temp = deck.getDeck().get(x);

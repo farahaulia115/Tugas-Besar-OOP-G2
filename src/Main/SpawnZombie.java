@@ -26,7 +26,7 @@ public class SpawnZombie implements Runnable {
                     Zombie newZombie = factory.createZombie(jenisZombie);
                     Map.getMapInstance().getMapDetail()[i][10].getZombieList().add(newZombie);
                     newZombie.setPosition(i, 10);
-                    System.out.println("Zombie spawned at row " + (i + 1));
+                    System.out.println("Zombie " +  newZombie.getName() + " spawned at " + i + ", 10");
                     Map.getMapInstance().addZombieInMap();
                 }
                 // Add a delay of 1 second between each iteration
