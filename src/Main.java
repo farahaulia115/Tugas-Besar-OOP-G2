@@ -144,6 +144,7 @@ public class Main {
                         try {
                             game.startGame();
                             gameInventory = false;
+                            Sun.increaseSun(25);
                         } catch (IllegalArgumentException e) {
                             System.out.println(e.getMessage());
                         }
@@ -202,10 +203,10 @@ public class Main {
                     System.out.println(brown + "===================================" + reset);
                     System.out.println(red + "GAME MENU" + reset);
                     System.out.println("1. Show Time");
-                    System.out.println("3. Show Deck Status");
-                    System.out.println("4. Plant");
-                    System.out.println("5. Remove Plant");
-                    System.out.println("6. Quit Game");
+                    System.out.println("2. Show Deck Status");
+                    System.out.println("3. Plant");
+                    System.out.println("4. Remove Plant");
+                    System.out.println("5. Quit Game");
                     System.out.println(brown + "===================================" + reset);
 
                     int choose3 = InputHandler.getIntInput("Choose :");

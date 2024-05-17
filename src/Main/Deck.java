@@ -98,6 +98,10 @@ public class Deck {
     
     }
 
+    public void resetDeck(){
+        deck.clear();
+    }
+
 
 
 // jangan lupa tanganin kalo deck kosong gak bisa maen game

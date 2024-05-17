@@ -16,6 +16,7 @@ public class DeckThreat implements Runnable{
         }
     }
 
+
     public static DeckThreat getDeckThreatInstance(Deck deck){
         if (deckThreat == null) {
             deckThreat = new DeckThreat(deck);

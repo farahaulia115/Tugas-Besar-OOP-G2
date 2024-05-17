@@ -1,5 +1,7 @@
 package Thread;
 
+import java.util.Random;
+
 import Main.Game;
 import Main.Sun;
 
@@ -7,6 +9,9 @@ public class Time implements Runnable {
     private static Time instance;
     private int totalSeconds;
     private int day;
+    Random random = new Random();
+    int sunGenerationInterval = random.nextInt(6) + 5; // Menghasilkan angka acak antara 5 hingga 10 detik
+    int elapsedTime = 0;
 
     private Time() {
         totalSeconds = 0;
@@ -56,17 +61,27 @@ public class Time implements Runnable {
         return day;
     }
 
+    public void resetTimeData(){
+        totalSeconds = 0;
+        day = 1;
+    }
+
     @Override
     public void run() {
         // while (Game.getStatusGame()){
             try {
                 // Thread.sleep(1000); // Menghentikan thread selama 1 detik
                 tick(); // Menambahkan waktu satu detik
+                elapsedTime++;
+
                 if (Time.getTime().getCurrentPhase().equalsIgnoreCase("Pagi")) {
-                    if (Time.getTime().getTotalSeconds() % 5 == 0) {
+                    if (elapsedTime >= sunGenerationInterval) {
                         Sun.increaseSun(25);
+                        sunGenerationInterval = random.nextInt(6) + 5; // Menghasilkan angka acak baru antara 5 hingga 10 detik
+                        elapsedTime = 0; // Reset waktu yang telah berlalu
                     }
                 }
+                
                 if (Time.getTime().getTotalSeconds() % 200 == 0) {
                     day++;
                     resetTime();

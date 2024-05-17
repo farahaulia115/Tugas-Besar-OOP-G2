@@ -7,9 +7,9 @@ import Thread.Time;
 public class Game {
     private static boolean statusGame = false;
     private static Map map = Map.getMapInstance();
-    private Inventory inventory;
+    private static Inventory inventory;
     private static Time time;
-    private Deck deck;
+    private static Deck deck;
 
     public Game (){
         Game.time = Time.getTime();
@@ -56,6 +56,7 @@ public class Game {
             System.out.println("This is your reward");
             ASCIIart.piala();
             System.out.println("");
+            resetGame();
         } else if (map.zombieMenang()) {
             statusGame = false;
             System.out.println("Arghhhhhhhhhhhh");
@@ -63,6 +64,8 @@ public class Game {
             System.out.println("You lose the game");
             ASCIIart.tengkorak();
             System.out.println("");
+            resetGame();
+
         }
     }
     
@@ -73,8 +76,13 @@ public class Game {
         } else {
             Game.setGame();
         }
-        
-        
+    }
+
+    public static void resetGame(){
+        map.resetMap();
+        time.resetTimeData();
+        inventory.resetInventory();
+        deck.resetDeck();
     }
 
     

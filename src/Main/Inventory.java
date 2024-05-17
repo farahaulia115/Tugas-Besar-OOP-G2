@@ -15,13 +15,13 @@ public class Inventory {
         inventory.add(pabrik.createPlant("SunFlower"));
         inventory.add(pabrik.createPlant("TwinSunFlower"));
         inventory.add(pabrik.createPlant("TangleKelp"));
+        inventory.add(pabrik.createPlant("Squash"));
         inventory.add(pabrik.createPlant("Peashooter"));
         inventory.add(pabrik.createPlant("Repeater"));
         inventory.add(pabrik.createPlant("SnowPea"));
-        inventory.add(pabrik.createPlant("Squash"));
         inventory.add(pabrik.createPlant("Tallnut"));
-        inventory.add(pabrik.createPlant("Lilypad"));
         inventory.add(pabrik.createPlant("Wallnut"));
+        inventory.add(pabrik.createPlant("Lilypad"));
     }
 
     public ArrayList<Plant> getInventory(){
@@ -97,6 +97,21 @@ public class Inventory {
             System.out.println(i + ". " + inventory.get(i-1).getName());
             i++;
         }
+    }
+
+    public void resetInventory(){
+        inventory.clear();
+        PlantFactory pabrik = new PlantFactory();
+        inventory.add(pabrik.createPlant("SunFlower"));
+        inventory.add(pabrik.createPlant("TwinSunFlower"));
+        inventory.add(pabrik.createPlant("TangleKelp"));
+        inventory.add(pabrik.createPlant("Squash"));
+        inventory.add(pabrik.createPlant("Peashooter"));
+        inventory.add(pabrik.createPlant("Repeater"));
+        inventory.add(pabrik.createPlant("SnowPea"));
+        inventory.add(pabrik.createPlant("Tallnut"));
+        inventory.add(pabrik.createPlant("Wallnut"));
+        inventory.add(pabrik.createPlant("Lilypad"));
     }
 
 }

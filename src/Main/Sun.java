@@ -20,6 +20,10 @@ public class Sun {
         amount = sun;
     }
 
+    public static void resetSun(){
+        amount = 0;
+    }
+
    
 
 }
