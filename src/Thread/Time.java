@@ -2,7 +2,6 @@ package Thread;
 
 import Main.Game;
 import Main.Sun;
-import Map.Map;
 
 public class Time implements Runnable {
     private static Time instance;

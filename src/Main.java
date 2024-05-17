@@ -16,6 +16,10 @@ import Input.InputHandler;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+        String red = "\u001B[31m";       // Kode ANSI untuk warna merah
+        String reset = "\u001B[0m";     // Kode ANSI untuk mereset warna
+        String brown = "\u001B[33m";    // Kode ANSI untuk warna coklat
+        String lightgreen = "\u001B[92m"; // Kode ANSI untuk warna hijau muda
         boolean open = true; // tanda looping ketika game dibuka
         boolean gameInventory = false; // tanda untuk bagian pilih inventory, preparation sebelum game start
          // tanda untuk game berjalan
@@ -25,14 +29,14 @@ public class Main {
         
         while (open){
             System.out.println();
-            System.out.println("===================================");
-            System.out.println("Main Menu");
+            System.out.println(brown + "===================================" + reset);
+            System.out.println(red + "MAIN MENU" + reset);
             System.out.println("1. Start");
             System.out.println("2. Help");
             System.out.println("3. Plants List");
             System.out.println("4. Zombies List");
             System.out.println("5. Exit");
-            System.out.println("===================================");
+            System.out.println(brown + "===================================" + reset);
             int choose = InputHandler.getIntInput("Choose :");
             System.out.println();
             switch (choose) {
@@ -63,8 +67,8 @@ public class Main {
 
             while (gameInventory){
                 System.out.println();
-                System.out.println("===================================");
-                System.out.println("Inventory Menu");
+                System.out.println(brown + "===================================" + reset);
+                System.out.println(red + "INVENTORY MENU" + reset);
                 System.out.println("1. Show Deck");
                 System.out.println("2. Show Inventory");
                 System.out.println("3. Swap Deck");
@@ -73,7 +77,7 @@ public class Main {
                 System.out.println("6. Delete Deck");
                 System.out.println("7. Start Game");
                 System.out.println("8. Exit");
-                System.out.println("===================================");
+                System.out.println(brown + "===================================" + reset);
                 int choose2 = InputHandler.getIntInput("Choose :");
                 System.out.println();
                 switch (choose2) {
@@ -196,34 +200,29 @@ public class Main {
                     game.getDeck().showDeckStatus();
 
                     System.out.println();
-                    System.out.println("===================================");
-                    System.out.println("Game Menu");
-                    System.out.println("1. Show Map");
-                    System.out.println("2. Show Sun");
+                    System.out.println(brown + "===================================" + reset);
+                    System.out.println(red + "GAME MENU" + reset);
+                    System.out.println("1. Show Time");
                     System.out.println("3. Show Deck Status");
                     System.out.println("4. Plant");
                     System.out.println("5. Remove Plant");
                     System.out.println("6. Quit Game");
-                    System.out.println("7. Get time");
-                    System.out.println("===================================");
+                    System.out.println(brown + "===================================" + reset);
 
                     int choose3 = InputHandler.getIntInput("Choose :");
                     System.out.println();
 
                     switch (choose3) {
                         case 1:
-                            game.getMap().renderMap();
-                            // show map
+                            System.out.println("Day : " + game.getTime().getDay());
+                            System.out.println("Time : " + game.getTotalSecondsTime ());
+                            System.out.println("Phase : " + game.getTime().getCurrentPhase());
                             break;
                         case 2:
-                            System.out.println("Sun : " + Sun.getAmount());
-                            // show sun
-                            break;
-                        case 3:
                             game.getDeck().showDeckStatus();
                             // show deck status
                             break;
-                        case 4:
+                        case 3:
                             System.out.println("Choose plant to plant");
                             game.getDeck().showDeck();
                             int choose4 = InputHandler.getIntInput("Choose :");
@@ -246,7 +245,7 @@ public class Main {
                             }
                             
                             break;
-                        case 5:
+                        case 4:
                             int row2 = InputHandler.getIntInput("Choose row to remove plant");
                             int column2 = InputHandler.getIntInput("Choose column to remove plant");
                             try{
@@ -259,18 +258,16 @@ public class Main {
                             }
                             // remove plant
                             break;
-                        case 6:
+                        case 5:
                             Game.setStatusGame(false);
-                            break;
-                        case 7:
-                            System.out.println("Time : " + game.getTotalSecondsTime ());
                             break;
                         default:
                             System.out.println("Invalid input");
                             break;
-                        
                     }
+                    System.out.println(lightgreen + "===================================" + reset);
                     game.getMap().renderMap();
+                    System.out.println(lightgreen + "===================================" + reset);
 
                     
                 }
