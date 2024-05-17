@@ -45,9 +45,13 @@ public class Water extends Tile {
                 if (healthremain<100){
                     Lilypad lili = new Lilypad();
                     lili.setHealth(healthremain);
+                    diTanamLilypad = false;
                     tanam(lili);
                 }
-                else tanam(new Lilypad());
+                else {
+                    diTanamLilypad = false;
+                    tanam(new Lilypad());
+                }
             } catch (Exception e) {
             }
         }

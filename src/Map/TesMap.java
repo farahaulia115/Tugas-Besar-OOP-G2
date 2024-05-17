@@ -1,6 +1,8 @@
 package Map;
+import Plant.Lilypad;
 import Plant.Repeater;
 import Plant.Squash;
+import Plant.Wallnut;
 import Zombie.*;
 
 public class TesMap {
@@ -13,19 +15,17 @@ public class TesMap {
  //           System.out.println("tes2");
             map.getMapDetail()[0][2].tanam(new Repeater());
 //            System.out.println("tes3");
-            map.getMapDetail()[0][2].getZombieList().add(new PolevaultingZombie());
-            map.getMapDetail()[0][2].getZombieList().add(new PolevaultingZombie());
-            map.renderMap();
-
+            map.getMapDetail()[2][1].tanam(new Lilypad());
+            map.getMapDetail()[2][1].tanam(new Wallnut());
+            map.getMapDetail()[2][1].getPlant().setHealth(101);
+            map.getMapDetail()[2][1].gali();
 
         } catch (NotPlantableException e) {
            System.out.println(e.getMessage());
-        // } catch (NotShovelableException e) {
-        //     System.out.println(e.getMessage());
+        } catch (NotShovelableException e) {
+           System.out.println(e.getMessage());
         }
+        anothermap.renderMap();
 
-        if (map.equals(anothermap)){
-            System.out.println("yey");
-        }
     }
 }
