@@ -230,11 +230,10 @@ public class Main {
                             try {
                                 game.getDeck().pilihTanaman(choose4-1);
                                 System.out.println("Plant ready");
-                                boolean plant = false;
                                 int row = InputHandler.getIntInput("Choose row to plant");
                                 int column = InputHandler.getIntInput("Choose column to plant");
                                 try {
-                                    game.getDeck().tanam(choose4-1, row, column, plant);
+                                    game.getDeck().tanam(choose4-1, row, column);
                                     System.out.println("Plant " + game.getDeck().getDeck().get(choose4-1).getName() + " has been planted");
                                     Sun.decreaseSun(game.getDeck().getDeck().get(choose4-1).getCost());
                                 } catch (IllegalArgumentException e) {

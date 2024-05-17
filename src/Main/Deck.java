@@ -62,14 +62,14 @@ public class Deck {
         
     }
 
-    public void tanam(int i, int x, int y, boolean plant) throws IllegalArgumentException, IllegalStateException {
+    public void tanam(int i, int x, int y) throws IllegalArgumentException, IllegalStateException {
         if (x < 0 || x >= 6 || y < 1 || y >= 10) {
             throw new IllegalArgumentException("Index out of bounds");
         } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
             throw new IllegalStateException("There is already a plant in this plot");
         } else {
             Map.getMapInstance().tanamAt(x-1, y-1, deck.get(i));
-            plant =  true;
+            
         }
     }
     
