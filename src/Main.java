@@ -22,7 +22,6 @@ public class Main {
         String lightgreen = "\u001B[92m"; // Kode ANSI untuk warna hijau muda
         boolean open = true; // tanda looping ketika game dibuka
         boolean gameInventory = false; // tanda untuk bagian pilih inventory, preparation sebelum game start
-         // tanda untuk game berjalan
         Opening opening = new Opening();
         Game game = new Game();
         opening.printMvL();
