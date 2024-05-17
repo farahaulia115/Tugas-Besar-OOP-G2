@@ -16,6 +16,18 @@ public class FootballZombie implements Zombie{
     public FootballZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
     }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+    public int getMoveInterval() {
+        return moveInterval;
+    }
+    public void setMoveInterval(int moveInterval) {
+        this.moveInterval = moveInterval;
+    }
     @Override
     public String getName() {
         return name;

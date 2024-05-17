@@ -16,6 +16,18 @@ public class DuckytubeZombie implements Zombie {
     public DuckytubeZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
     }
+    public int getMoveInterval() {
+        return moveInterval;
+    }
+    public void setMoveInterval(int moveInterval) {
+        this.moveInterval = moveInterval;
+    }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
     @Override
     public void setHealth(int i) {
         health = i;

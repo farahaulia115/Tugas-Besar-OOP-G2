@@ -16,6 +16,18 @@ public class PolevaultingZombie implements Zombie {
     public PolevaultingZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
     }
+    public int getMoveInterval() {
+        return moveInterval;
+    }
+    public void setMoveInterval(int moveInterval) {
+        this.moveInterval = moveInterval;
+    }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
     @Override
     public String getName() {
         return name;

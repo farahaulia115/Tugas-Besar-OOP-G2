@@ -26,6 +26,18 @@ public class DolphinriderZombie implements Zombie, CanJump {
     public String getName() {
         return name;
     }
+    public int getMoveInterval() {
+        return moveInterval;
+    }
+    public void setMoveInterval(int moveInterval) {
+        this.moveInterval = moveInterval;
+    }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
 
     @Override
     public int getHealth() {

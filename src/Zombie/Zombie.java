@@ -10,4 +10,8 @@ public interface Zombie {
     void setPosition(int x, int y);
     void setTimeSpawn();
     void setHealth(int i);
+    void setMoveInterval(int moveInterval);
+    int getMoveInterval();
+    int getX();
+    int getY();
 }

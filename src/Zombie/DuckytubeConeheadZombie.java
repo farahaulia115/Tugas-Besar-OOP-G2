@@ -16,6 +16,12 @@ public class DuckytubeConeheadZombie implements Zombie {
     public DuckytubeConeheadZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
     }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
     @Override
     public String getName() {
         return name;
@@ -23,6 +29,12 @@ public class DuckytubeConeheadZombie implements Zombie {
     @Override
     public void setHealth(int i) {
         health = i;
+    }
+    public int getMoveInterval() {
+        return moveInterval;
+    }
+    public void setMoveInterval(int moveInterval) {
+        this.moveInterval = moveInterval;
     }
 
     @Override

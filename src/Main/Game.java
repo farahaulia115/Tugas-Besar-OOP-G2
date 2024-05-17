@@ -59,6 +59,36 @@ public class Game {
         if (map.jumlahZombie() == 0 && time.getTotalSeconds() > 160) {
             statusGame = false;
             System.out.println("Player Win");
+            System.out.println(" ________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ");
+            System.out.println("________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ");
+            System.out.println("___¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
+            System.out.println("_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ");
+            System.out.println("¶¶¶¶______¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_______¶¶¶¶");
+            System.out.println("¶¶¶_______¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶________¶¶¶");
+            System.out.println("¶¶________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶________¶¶¶");
+            System.out.println("¶¶¶_____¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶______¶¶¶");
+            System.out.println("¶¶¶____¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶____¶¶¶¶ ");
+            System.out.println("_¶¶¶___¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶____¶¶¶ ");
+            System.out.println("_¶¶¶¶___¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶__¶¶¶¶ ");
+            System.out.println("___¶¶¶¶__¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶¶");
+            System.out.println("____¶¶¶¶¶¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶¶¶¶¶¶");
+            System.out.println("____¶¶¶¶¶¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶¶¶¶¶¶");
+            System.out.println("______¶¶¶¶¶¶__¶¶¶¶¶¶¶¶¶¶¶¶¶¶___¶¶¶¶¶¶");
+            System.out.println("_________________¶¶¶¶¶¶¶¶");
+            System.out.println("___________________¶¶¶¶");
+            System.out.println("___________________¶¶¶¶");
+            System.out.println("___________________¶¶¶¶");
+            System.out.println("_______________¶¶¶¶¶¶¶¶¶¶¶¶");
+            System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ");
+            System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
+            System.out.println("____________¶¶¶____________¶¶¶");
+            System.out.println("____________¶¶¶____________¶¶¶");
+            System.out.println("____________¶¶¶____________¶¶¶");
+            System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
+            System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
+            System.out.println("__________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
+            System.out.println("_________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
+            System.out.println("");
         } else if (map.jumlahZombie() == 0 && time.getTotalSeconds() < 20 && time.getDay() != 1) {
             statusGame = false;
             System.out.println("Player Win");

@@ -15,6 +15,13 @@ public class BucketheadZombie implements Zombie {
     public BucketheadZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
     }
+    public int getMoveInterval() {
+        return moveInterval;
+    }
+    public void setMoveInterval(int moveInterval) {
+        this.moveInterval = moveInterval;
+    }
+    
     
     public int getX() {
         return x;
