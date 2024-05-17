@@ -86,10 +86,10 @@ public class Deck {
     public void showDeckStatus(){
         int i = 1;
         System.out.println("Deck Status");
-        System.out.println("No. Plant Name ReadyToPlant Cost");
+        System.out.println("Plant Name   ReadyToPlant   Cost");
         if (!deck.isEmpty()){
             for (Plant p: deck){
-                System.out.println(i + " ." + deck.get(i-1).getName() + " " + DeckThreat.getDeckThreatInstance(this).getDeckStatus().get(i-1).isReadyToPlant() + " " + deck.get(i-1).getCost());
+                System.out.println(i + " ." + deck.get(i-1).getName() + "  " + DeckThreat.getDeckThreatInstance(this).getDeckStatus().get(i-1).isReadyToPlant() + " " + deck.get(i-1).getCost());
                 i++;
             }
         } else {
