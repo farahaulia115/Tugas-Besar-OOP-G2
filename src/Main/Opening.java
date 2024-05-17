@@ -95,7 +95,7 @@ public class Opening {
         System.out.println("Health: " + normalZombie.getHealth());
         System.out.println("Damage: " + normalZombie.getDamage());
         System.out.println("Speed: " + normalZombie.getSpeed());
-        System.out.println("Aquatic: " + normalZombie.getAquatic());
+        System.out.println("Aquatic: " + normalZombie.isAquatic());
     }
     public void informasiConeheadZombie(){
         ConeheadZombie coneheadZombie = new ConeheadZombie();
@@ -103,7 +103,7 @@ public class Opening {
         System.out.println("Health: " + coneheadZombie.getHealth());
         System.out.println("Damage: " + coneheadZombie.getDamage());
         System.out.println("Speed: " + coneheadZombie.getSpeed());
-        System.out.println("Aquatic: " + coneheadZombie.getAquatic());
+        System.out.println("Aquatic: " + coneheadZombie.isAquatic());
     }
     public void informasiBucketheadZombie(){
         BucketheadZombie bucketheadZombie = new BucketheadZombie();
@@ -111,7 +111,7 @@ public class Opening {
         System.out.println("Health: " + bucketheadZombie.getHealth());
         System.out.println("Damage: " + bucketheadZombie.getDamage());
         System.out.println("Speed: " + bucketheadZombie.getSpeed());
-        System.out.println("Aquatic: " + bucketheadZombie.getAquatic());
+        System.out.println("Aquatic: " + bucketheadZombie.isAquatic());
     }
     public void informasiFootballZombie(){
         FootballZombie footballZombie = new FootballZombie();
@@ -119,7 +119,7 @@ public class Opening {
         System.out.println("Health: " + footballZombie.getHealth());
         System.out.println("Damage: " + footballZombie.getDamage());
         System.out.println("Speed: " + footballZombie.getSpeed());
-        System.out.println("Aquatic: " + footballZombie.getAquatic());
+        System.out.println("Aquatic: " + footballZombie.isAquatic());
     }
     public void informasiPolevaultingZombie(){
         PolevaultingZombie polevaultingZombie = new PolevaultingZombie();
@@ -127,7 +127,7 @@ public class Opening {
         System.out.println("Health: " + polevaultingZombie.getHealth());
         System.out.println("Damage: " + polevaultingZombie.getDamage());
         System.out.println("Speed: " + polevaultingZombie.getSpeed());
-        System.out.println("Aquatic: " + polevaultingZombie.getAquatic());
+        System.out.println("Aquatic: " + polevaultingZombie.isAquatic());
     }
     public void informasiScreendoorZombie(){
         ScreendoorZombie screendoorZombie = new ScreendoorZombie();
@@ -135,7 +135,7 @@ public class Opening {
         System.out.println("Health: " + screendoorZombie.getHealth());
         System.out.println("Damage: " + screendoorZombie.getDamage());
         System.out.println("Speed: " + screendoorZombie.getSpeed());
-        System.out.println("Aquatic: " + screendoorZombie.getAquatic());
+        System.out.println("Aquatic: " + screendoorZombie.isAquatic());
     }
     public void informasiWallnutZombie(){
         WallnutZombie wallnutZombie = new WallnutZombie();
@@ -143,7 +143,7 @@ public class Opening {
         System.out.println("Health: " + wallnutZombie.getHealth());
         System.out.println("Damage: " + wallnutZombie.getDamage());
         System.out.println("Speed: " + wallnutZombie.getSpeed());
-        System.out.println("Aquatic: " + wallnutZombie.getAquatic());
+        System.out.println("Aquatic: " + wallnutZombie.isAquatic());
     }
     public void informasiDolphinriderZombie(){
         DolphinriderZombie dolphinriderZombie = new DolphinriderZombie();
@@ -151,7 +151,7 @@ public class Opening {
         System.out.println("Health: " + dolphinriderZombie.getHealth());
         System.out.println("Damage: " + dolphinriderZombie.getDamage());
         System.out.println("Speed: " + dolphinriderZombie.getSpeed());
-        System.out.println("Aquatic: " + dolphinriderZombie.getAquatic());
+        System.out.println("Aquatic: " + dolphinriderZombie.isAquatic());
     }
     public void informasiDuckytubeConeheadZombie(){
         DuckytubeConeheadZombie duckytubeConeheadZombie = new DuckytubeConeheadZombie();
@@ -159,7 +159,7 @@ public class Opening {
         System.out.println("Health: " + duckytubeConeheadZombie.getHealth());
         System.out.println("Damage: " + duckytubeConeheadZombie.getDamage());
         System.out.println("Speed: " + duckytubeConeheadZombie.getSpeed());
-        System.out.println("Aquatic: " + duckytubeConeheadZombie.getAquatic());
+        System.out.println("Aquatic: " + duckytubeConeheadZombie.isAquatic());
     }
     public void informasiDuckytubeZombie(){
         DuckytubeZombie duckytubeZombie = new DuckytubeZombie();
@@ -167,7 +167,7 @@ public class Opening {
         System.out.println("Health: " + duckytubeZombie.getHealth());
         System.out.println("Damage: " + duckytubeZombie.getDamage());
         System.out.println("Speed: " + duckytubeZombie.getSpeed());
-        System.out.println("Aquatic: " + duckytubeZombie.getAquatic());
+        System.out.println("Aquatic: " + duckytubeZombie.isAquatic());
     }
 
     public void informasiSunFlower(){
@@ -178,7 +178,7 @@ public class Opening {
         System.out.println("Attack Damage: " + sunFlower.getAttackDamage());
         System.out.println("Attack Speed: " + sunFlower.getAttackSpeed());
         System.out.println("Cooldown: " + sunFlower.getCooldown());
-        System.out.println("Jumpable: " + sunFlower.getJumpable());
+        System.out.println("Jumpable: " + sunFlower.isJumpable());
     }
 
     public void informasiTwinSunFlower(){
@@ -189,7 +189,7 @@ public class Opening {
         System.out.println("Attack Damage: " + twinSunFlower.getAttackDamage());
         System.out.println("Attack Speed: " + twinSunFlower.getAttackSpeed());
         System.out.println("Cooldown: " + twinSunFlower.getCooldown());
-        System.out.println("Jumpable: " + twinSunFlower.getJumpable());
+        System.out.println("Jumpable: " + twinSunFlower.isJumpable());
     }
 
     public void informasiTangleKelp(){
@@ -200,7 +200,7 @@ public class Opening {
         System.out.println("Attack Damage: " + tangleKelp.getAttackDamage());
         System.out.println("Attack Speed: " + tangleKelp.getAttackSpeed());
         System.out.println("Cooldown: " + tangleKelp.getCooldown());
-        System.out.println("Jumpable: " + tangleKelp.getJumpable());
+        System.out.println("Jumpable: " + tangleKelp.isJumpable());
     }
 
     public void informasiPeashooter(){
@@ -211,7 +211,7 @@ public class Opening {
         System.out.println("Attack Damage: " + peashooter.getAttackDamage());
         System.out.println("Attack Speed: " + peashooter.getAttackSpeed());
         System.out.println("Cooldown: " + peashooter.getCooldown());
-        System.out.println("Jumpable: " + peashooter.getJumpable());
+        System.out.println("Jumpable: " + peashooter.isJumpable());
     }
 
     public void informasiRepeater(){
@@ -222,7 +222,7 @@ public class Opening {
         System.out.println("Attack Damage: " + repeater.getAttackDamage());
         System.out.println("Attack Speed: " + repeater.getAttackSpeed());
         System.out.println("Cooldown: " + repeater.getCooldown());
-        System.out.println("Jumpable: " + repeater.getJumpable());
+        System.out.println("Jumpable: " + repeater.isJumpable());
     }
 
     public void informasiSnowPea(){
@@ -233,7 +233,7 @@ public class Opening {
         System.out.println("Attack Damage: " + snowPea.getAttackDamage());
         System.out.println("Attack Speed: " + snowPea.getAttackSpeed());
         System.out.println("Cooldown: " + snowPea.getCooldown());
-        System.out.println("Jumpable: " + snowPea.getJumpable());
+        System.out.println("Jumpable: " + snowPea.isJumpable());
     }
 
     public void informasiSquash(){
@@ -244,7 +244,7 @@ public class Opening {
         System.out.println("Attack Damage: " + squash.getAttackDamage());
         System.out.println("Attack Speed: " + squash.getAttackSpeed());
         System.out.println("Cooldown: " + squash.getCooldown());
-        System.out.println("Jumpable: " + squash.getJumpable());
+        System.out.println("Jumpable: " + squash.isJumpable());
     }
 
     public void informasiTallnut(){
@@ -255,7 +255,7 @@ public class Opening {
         System.out.println("Attack Damage: " + tallnut.getAttackDamage());
         System.out.println("Attack Speed: " + tallnut.getAttackSpeed());
         System.out.println("Cooldown: " + tallnut.getCooldown());
-        System.out.println("Jumpable: " + tallnut.getJumpable());
+        System.out.println("Jumpable: " + tallnut.isJumpable());
     }
 
     public void informasiLilypad(){
@@ -266,7 +266,7 @@ public class Opening {
         System.out.println("Attack Damage: " + lilypad.getAttackDamage());
         System.out.println("Attack Speed: " + lilypad.getAttackSpeed());
         System.out.println("Cooldown: " + lilypad.getCooldown());
-        System.out.println("Jumpable: " + lilypad.getJumpable());
+        System.out.println("Jumpable: " + lilypad.isJumpable());
     }
 
     public void informasiWallnut(){
@@ -277,6 +277,6 @@ public class Opening {
         System.out.println("Attack Damage: " + wallnut.getAttackDamage());
         System.out.println("Attack Speed: " + wallnut.getAttackSpeed());
         System.out.println("Cooldown: " + wallnut.getCooldown());
-        System.out.println("Jumpable: " + wallnut.getJumpable());
+        System.out.println("Jumpable: " + wallnut.isJumpable());
     }
 }
