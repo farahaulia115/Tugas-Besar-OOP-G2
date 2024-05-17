@@ -1,5 +1,7 @@
 package Thread;
 import Map.*;
+import Plant.Attack;
+import Plant.ProduceSun;
 import Zombie.CanJump;
 import Zombie.Zombie;
 
@@ -8,12 +10,13 @@ public class Row1EntityThread implements Runnable{
         for (int i = 1;i<=10;i++){
             Tile tile = Map.getMapInstance().getMapDetail()[0][i];
             if (tile.isAdaTanaman()){
-                if (tile.getPlant().getHealth()==0){
-                    // try {
-                    //     tile.gali();
-                    // } catch (Exception e) {
-                    //     System.out.println(e.getMessage());
-                    // }
+                if (tile.getPlant().getHealth()>0){
+                    if (tile.getPlant() instanceof ProduceSun){
+
+                    }
+                    else if (tile.getPlant() instanceof Attack){
+                        
+                    }
                 }
             }
             if (tile.getZombieList().size()>0){     
@@ -48,7 +51,7 @@ public class Row1EntityThread implements Runnable{
                                 Map.getMapInstance().getMapDetail()[0][i-1].getZombieList().add(z);
                             }
                         }
-                        if (z.getTimeSpawn() != Time.getTime().getTotalSeconds() && (Time.getTime().getTotalSeconds() - z.getTimeSpawn())%5==0){
+                        if (z.getTimeSpawn() != Time.getTime().getTotalSeconds() && (Time.getTime().getTotalSeconds() - z.getTimeSpawn())%z.getMoveInterval()==0){
                             tile.getZombieList().remove(z);
                             Map.getMapInstance().getMapDetail()[0][i-1].getZombieList().add(z);
                         }

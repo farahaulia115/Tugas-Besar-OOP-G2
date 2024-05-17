@@ -42,7 +42,7 @@ public class Row4EntityThread implements Runnable{
                                 Map.getMapInstance().getMapDetail()[3][i-1].getZombieList().add(z);
                             }
                         }
-                        if (z.getTimeSpawn() != Time.getTime().getTotalSeconds() && (Time.getTime().getTotalSeconds() - z.getTimeSpawn())%5==0){
+                        if (z.getTimeSpawn() != Time.getTime().getTotalSeconds() && (Time.getTime().getTotalSeconds() - z.getTimeSpawn())%z.getMoveInterval()==0){
                             tile.getZombieList().remove(z);
                             Map.getMapInstance().getMapDetail()[3][i-1].getZombieList().add(z);
                         }
