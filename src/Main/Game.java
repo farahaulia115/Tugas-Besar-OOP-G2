@@ -2,12 +2,6 @@
 package Main;
 
 import Map.*;
-import Thread.Row1EntityThread;
-import Thread.Row2EntityThread;
-import Thread.Row3EntityThread;
-import Thread.Row4EntityThread;
-import Thread.Row5EntityThread;
-import Thread.Row6EntityThread;
 import Thread.Time; 
 
 public class Game {
@@ -18,7 +12,7 @@ public class Game {
     private Deck deck;
 
     public Game (){
-        this.time = Time.getTime();
+        Game.time = Time.getTime();
         inventory = new Inventory();
         deck = inventory.getDeck();
     }
@@ -56,45 +50,19 @@ public class Game {
 
     
     public static void isGameOver() {
-        if (map.jumlahZombie() == 0 && time.getTotalSeconds() > 160) {
+        if ((map.jumlahZombie() == 0 && time.getTotalSeconds() > 160)||(map.jumlahZombie() == 0 && time.getTotalSeconds() < 20 && time.getDay() != 1)) {
             statusGame = false;
-            System.out.println("Player Win");
-            System.out.println(" ________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ");
-            System.out.println("________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ");
-            System.out.println("___¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
-            System.out.println("_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ");
-            System.out.println("¶¶¶¶______¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_______¶¶¶¶");
-            System.out.println("¶¶¶_______¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶________¶¶¶");
-            System.out.println("¶¶________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶________¶¶¶");
-            System.out.println("¶¶¶_____¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶______¶¶¶");
-            System.out.println("¶¶¶____¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶____¶¶¶¶ ");
-            System.out.println("_¶¶¶___¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶____¶¶¶ ");
-            System.out.println("_¶¶¶¶___¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶__¶¶¶¶ ");
-            System.out.println("___¶¶¶¶__¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶¶");
-            System.out.println("____¶¶¶¶¶¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶¶¶¶¶¶");
-            System.out.println("____¶¶¶¶¶¶¶¶_¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_¶¶¶¶¶¶¶¶¶");
-            System.out.println("______¶¶¶¶¶¶__¶¶¶¶¶¶¶¶¶¶¶¶¶¶___¶¶¶¶¶¶");
-            System.out.println("_________________¶¶¶¶¶¶¶¶");
-            System.out.println("___________________¶¶¶¶");
-            System.out.println("___________________¶¶¶¶");
-            System.out.println("___________________¶¶¶¶");
-            System.out.println("_______________¶¶¶¶¶¶¶¶¶¶¶¶");
-            System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ");
-            System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
-            System.out.println("____________¶¶¶____________¶¶¶");
-            System.out.println("____________¶¶¶____________¶¶¶");
-            System.out.println("____________¶¶¶____________¶¶¶");
-            System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
-            System.out.println("____________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
-            System.out.println("__________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
-            System.out.println("_________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶");
+            System.out.println("Congratulation, you win the game");
+            System.out.println("This is your reward");
+            ASCIIart.piala();
             System.out.println("");
-        } else if (map.jumlahZombie() == 0 && time.getTotalSeconds() < 20 && time.getDay() != 1) {
-            statusGame = false;
-            System.out.println("Player Win");
         } else if (map.zombieMenang()) {
             statusGame = false;
-            System.out.println("Zombie Win");
+            System.out.println("Arghhhhhhhhhhhh");
+            System.out.println("Zombie entry to your house");
+            System.out.println("You lose the game");
+            ASCIIart.tengkorak();
+            System.out.println("");
         }
     }
     
