@@ -104,7 +104,9 @@ public class Peashooter implements Plant, Attack, Shooter {
     @Override
     public void startAttack(Tile tile) {
         if (!tile.getZombieList().isEmpty()) {
-            attack(tile.getZombieList().peek());
+            for (Zombie zombie : tile.getZombieList()) {
+                attack(zombie);
+            }
         }
     }
 
