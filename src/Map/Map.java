@@ -126,31 +126,31 @@ public class Map{
         System.out.println();
     }
 
-    public void PlantAttack() {
-        for (int i = 0; i <= 5; i++) {
-            for (int j = 1; j <= 9; i++) { 
-                Tile tile = mapdetail[i][j];
-                if (tile.isAdaTanaman() && tile.getPlant() instanceof Attack) {
-                    Attack attackingPlants = (Attack) tile.getPlant();
-                    if (!tile.getZombieList().isEmpty()) {
-                        for (Zombie z : tile.getZombieList()) {
-                            if (attackingPlants instanceof Shooter) {
-                                ((Shooter) attackingPlants).startAttack(tile);
-                            }
-                            if (attackingPlants instanceof SelfDestruct) {
-                                attackingPlants.attack(z);
-                                ((SelfDestruct) attackingPlants).selfDestruct(tile);
-                            }
-                            if (z.getHealth() <= 0) {
-                                tile.getZombieList().remove(z);
-                                removeZombieInMap();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    // public void PlantAttack() {
+    //     for (int i = 0; i <= 5; i++) {
+    //         for (int j = 1; j <= 9; i++) { 
+    //             Tile tile = mapdetail[i][j];
+    //             if (tile.isAdaTanaman() && tile.getPlant() instanceof Attack) {
+    //                 Attack attackingPlants = (Attack) tile.getPlant();
+    //                 if (!tile.getZombieList().isEmpty()) {
+    //                     for (Zombie z : tile.getZombieList()) {
+    //                         if (attackingPlants instanceof Shooter) {
+    //                             ((Shooter) attackingPlants).startAttack(tile);
+    //                         }
+    //                         if (attackingPlants instanceof SelfDestruct) {
+    //                             attackingPlants.attack(z);
+    //                             ((SelfDestruct) attackingPlants).selfDestruct(tile);
+    //                         }
+    //                         if (z.getHealth() <= 0) {
+    //                             tile.getZombieList().remove(z);
+    //                             removeZombieInMap();
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 
 
     public boolean zombieMenang(){
