@@ -1,7 +1,7 @@
 package Plant;
 
 import Main.Game;
-import Map.Tile;
+import Map.*;
 import Thread.Time;
 import Zombie.Zombie;
 
@@ -92,20 +92,22 @@ public class SnowPea implements Plant, Attack, Shooter {
     }
 
     @Override
-    public void attack(Zombie zombie) {
+    public void attack(Tile tile) {
         int timeNow = Time.getTime().getTotalSeconds();
         if (timeNow - lastAttack >= attackSpeed) {
-        zombie.setHealth(zombie.getHealth() - attackDamage);
-        lastAttack = timeNow;
+            for (Zombie zombie : tile.getZombieList()) {
+                zombie.setHealth(zombie.getHealth() - attackDamage);
+                if (zombie.getHealth() <= 0) {
+                    tile.getZombieList().remove(zombie);
+                    Map.getMapInstance().removeZombieInMap();
+                }
+            }
+            lastAttack = timeNow;
         }
     }
 
     @Override
     public void startAttack(Tile tile) {
-        if (!tile.getZombieList().isEmpty()) {
-            for (Zombie zombie : tile.getZombieList()) {
-                attack(zombie);
-            }
-        }
+        attack(tile);
     }
 }

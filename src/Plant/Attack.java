@@ -1,7 +1,7 @@
 package Plant;
-
-import Zombie.Zombie;
+import Map.*;
 
 public interface Attack {
-    void attack(Zombie z);
+    void attack(Tile tile);
+    void startAttack(Tile tile);
 } 

@@ -1,6 +1,4 @@
 package Plant;
-
-import Map.NotShovelableException;
 import Map.Tile;
 import Thread.Time;
 import Zombie.Zombie;
@@ -20,21 +18,22 @@ public class TangleKelp implements Plant, Attack, SelfDestruct {
     }
 
     @Override
-    public void attack(Zombie z) {
-        z.setHealth(z.getHealth()-getAttackDamage());
+    public void attack(Tile tile) {
+        for (Zombie zombie : tile.getZombieList()) {
+        zombie.setHealth(zombie.getHealth() - getAttackDamage());
+        }
     }
-    public void attack(Zombie z, Tile tile) {
-        attack(z);
-        selfDestruct(tile); 
+    
+    @Override
+    public void startAttack (Tile tile){
+        attack(tile);
+        selfDestruct(tile);
     }
 
     @Override
     public void selfDestruct(Tile tile) {
-        try {
-            tile.gali();
-        } catch (NotShovelableException e) {
-            e.printStackTrace();
-        }
+        tile.plantDie();
+        
     }
 
     @Override

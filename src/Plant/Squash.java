@@ -1,7 +1,7 @@
 package Plant;
 
 import Map.NotShovelableException;
-import Map.Tile;
+import Map.*;
 import Thread.Time;
 import Zombie.Zombie;
 
@@ -23,23 +23,22 @@ public class Squash implements Plant, Attack, SelfDestruct {
 
     
     @Override
-    public void attack(Zombie zombie) {
+    public void attack(Tile tile) {
+        for (Zombie zombie : tile.getZombieList()) {
         zombie.setHealth(zombie.getHealth() - getAttackDamage());
-        
+        }
     }
-
-    public void attack (Zombie zombie, Tile tile){
-        attack(zombie);
+    
+    @Override
+    public void startAttack (Tile tile){
+        attack(tile);
         selfDestruct(tile);
     }
 
     @Override
     public void selfDestruct(Tile tile) {
-        try {
-            tile.gali();
-        } catch (NotShovelableException e) {
-            e.printStackTrace();
-        }
+        tile.plantDie();
+        
     }
 
     @Override
