@@ -21,22 +21,24 @@ public class Main {
          // tanda untuk game berjalan
         Opening opening = new Opening();
         Game game = new Game();
-
-        opening.pvz();
+        opening.printMvL();
+        
         while (open){
             System.out.println();
+            System.out.println("===================================");
             System.out.println("Main Menu");
             System.out.println("1. Start");
             System.out.println("2. Help");
             System.out.println("3. Plants List");
             System.out.println("4. Zombies List");
             System.out.println("5. Exit");
+            System.out.println("===================================");
             int choose = InputHandler.getIntInput("Choose :");
             System.out.println();
             switch (choose) {
                 case 1:
                     gameInventory = true;
-                    System.out.println("Welcome to Plants vs Zombies");
+                    System.out.println("Welcome to Michael vs Lalapan");
                     System.out.println("Please select your plants deck");
                     break;
                 case 2:
@@ -61,6 +63,7 @@ public class Main {
 
             while (gameInventory){
                 System.out.println();
+                System.out.println("===================================");
                 System.out.println("Inventory Menu");
                 System.out.println("1. Show Deck");
                 System.out.println("2. Show Inventory");
@@ -70,6 +73,7 @@ public class Main {
                 System.out.println("6. Delete Deck");
                 System.out.println("7. Start Game");
                 System.out.println("8. Exit");
+                System.out.println("===================================");
                 int choose2 = InputHandler.getIntInput("Choose :");
                 System.out.println();
                 switch (choose2) {
@@ -124,7 +128,7 @@ public class Main {
                         System.out.print("Delete deck index : ");
                         int index = InputHandler.getIntInput();
                         try {
-                            game.getInventory().deletePlantFromDeck(index);
+                            game.getInventory().deletePlantFromDeck(index-1);
                             System.out.println("Delete deck success");
                         } catch (IllegalArgumentException e) {
                             System.out.println(e.getMessage());
@@ -134,12 +138,12 @@ public class Main {
                         break;
                     case 7:
                         // start game
-                        gameInventory = false;
-                        Game.setGame();
-                        
-                        Sun.increaseSun(25);
-                        //Concurrency concurrency = new Concurrency();
-
+                        try {
+                            game.startGame();
+                            gameInventory = false;
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
+                        }
 
                         break;
                     case 8:
@@ -156,6 +160,7 @@ public class Main {
                         deckThreat.start();
                         Thread timeThread = new Thread(game.getTime());
                         timeThread.start();
+
                         Thread spawnerThread = new Thread(new SpawnZombie());
                         Thread entityThread1 = new Thread(new Row1EntityThread());
                         Thread entityThread2 = new Thread(new Row2EntityThread());
@@ -191,6 +196,7 @@ public class Main {
                     game.getDeck().showDeckStatus();
 
                     System.out.println();
+                    System.out.println("===================================");
                     System.out.println("Game Menu");
                     System.out.println("1. Show Map");
                     System.out.println("2. Show Sun");
@@ -199,6 +205,7 @@ public class Main {
                     System.out.println("5. Remove Plant");
                     System.out.println("6. Quit Game");
                     System.out.println("7. Get time");
+                    System.out.println("===================================");
 
                     int choose3 = InputHandler.getIntInput("Choose :");
                     System.out.println();

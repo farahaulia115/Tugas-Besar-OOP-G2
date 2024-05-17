@@ -4,10 +4,27 @@ package Main;
  * Opening
  */
 public class Opening {
-    public void pvz(){
-        System.out.println("Plants vs Zombies");
-        // opening tulisan 
+    public void printMvL(){
+        System.out.println("███╗   ███╗██╗ ██████╗██╗  ██╗ █████╗ ███████╗██╗");
+        System.out.println("████╗ ████║██║██╔════╝██║  ██║██╔══██╗██╔════╝██║");
+        System.out.println("██╔████╔██║██║██║     ███████║███████║█████╗  ██║");
+        System.out.println("██║╚██╔╝██║██║██║     ██╔══██║██╔══██║██╔══╝  ██║");
+        System.out.println("██║ ╚═╝ ██║██║╚██████╗██║  ██║██║  ██║███████╗███████╗");
+        System.out.println("╚═╝     ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝");
+        System.out.println("                ██╗   ██╗███████╗");
+        System.out.println("                ██║   ██║██╔════╝");
+        System.out.println("                ██║   ██║███████╗");
+        System.out.println("                ╚██╗ ██╔╝╚════██║");
+        System.out.println("                 ╚████╔╝ ███████║");
+        System.out.println("                  ╚═══╝  ╚══════╝");
+        System.out.println("██╗      █████╗ ██╗      █████╗ ██████╗  █████╗ ███╗   ██╗");
+        System.out.println("██║     ██╔══██╗██║     ██╔══██╗██╔══██╗██╔══██╗████╗  ██║");
+        System.out.println("██║     ███████║██║     ███████║██████╔╝███████║██╔██╗ ██║");
+        System.out.println("██║     ██╔══██║██║     ██╔══██║██╔═══╝ ██╔══██║██║╚██╗██║");
+        System.out.println("███████╗██║  ██║███████╗██║  ██║██║     ██║  ██║██║ ╚████║");
+        System.out.println("╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝");
     }
+        
     public void help(){
         System.out.println("Help");
     }
@@ -23,4 +40,5 @@ public class Opening {
     // lanjutin informasi lainnya
     public void informasiSunFlower(){}
     // lanjutin informasi lainnya
+
 }

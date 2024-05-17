@@ -68,7 +68,7 @@ public class Deck {
         } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
             throw new IllegalStateException("There is already a plant in this plot");
         } else {
-            Map.getMapInstance().tanamAt(x, y, deck.get(i));
+            Map.getMapInstance().tanamAt(x-1, y-1, deck.get(i));
             plant =  true;
         }
     }
@@ -78,7 +78,7 @@ public class Deck {
         if (x < 0 || x >= 6 || y < 1 || y >= 10) {
             throw new IllegalArgumentException("Index out of bounds");
         } else {
-            Map.getMapInstance().getMapDetail()[x][y].gali();
+            Map.getMapInstance().getMapDetail()[x-1][y-1].gali();
         }
     }
     

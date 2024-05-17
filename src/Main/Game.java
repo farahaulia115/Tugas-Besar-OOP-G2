@@ -100,6 +100,11 @@ public class Game {
     
 
     public void startGame(){
+        if (deck.getDeck().size() != 6) {
+            throw new IllegalArgumentException("Deck must have 6 plants");
+        } else {
+            Game.setGame();
+        }
         
         
     }
