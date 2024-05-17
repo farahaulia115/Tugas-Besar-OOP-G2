@@ -1,6 +1,4 @@
 package Plant;
-
-import Main.Game;
 import Map.*;
 import Thread.Time;
 import Zombie.Zombie;

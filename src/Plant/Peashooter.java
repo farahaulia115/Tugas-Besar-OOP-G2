@@ -1,8 +1,4 @@
 package Plant;
-
-import java.util.ArrayList;
-
-import Main.Game;
 import Map.*;
 import Thread.Time;
 import Zombie.Zombie;
