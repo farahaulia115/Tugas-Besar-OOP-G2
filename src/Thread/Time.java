@@ -76,7 +76,7 @@ public class Time implements Runnable {
 
                 if (Time.getTime().getCurrentPhase().equalsIgnoreCase("Morning")) {
                     if (elapsedTime >= sunGenerationInterval) {
-                        Sun.increaseSun(25);
+                        Sun.increaseSun(50);
                         sunGenerationInterval = random.nextInt(6) + 5; // Menghasilkan angka acak baru antara 5 hingga 10 detik
                         elapsedTime = 0; // Reset waktu yang telah berlalu
                     }
