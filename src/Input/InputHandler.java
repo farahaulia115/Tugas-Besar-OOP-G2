@@ -6,6 +6,7 @@ public class InputHandler {
     private static Scanner scanner = new Scanner(System.in);
 
     public static int getIntInput(String prompt) {
+        
         int input = 0;
         boolean isValid = false;
         

@@ -3,6 +3,7 @@ import Map.*;
 import Plant.Attack;
 import Plant.ProduceSun;
 import Plant.SelfDestruct;
+import Plant.SnowPea;
 import Zombie.CanJump;
 import Zombie.Zombie;
 
@@ -16,6 +17,7 @@ public class Row1EntityThread implements Runnable{
                     if (tile.getPlant() instanceof Attack && tile.getPlant().getRange()==-1){
                         Attack pa = (Attack)tile.getPlant();
                         for(int y = i;y<=10;y++){
+                            if (tile.getPlant() instanceof SnowPea){}
                             Tile tileToAttack = Map.getMapInstance().getMapDetail()[0][y];
                             if (tileToAttack.getZombieList().size()>0){
                                 pa.startAttack(tileToAttack);
@@ -43,6 +45,7 @@ public class Row1EntityThread implements Runnable{
             if (tile.getZombieList().size()>0){     
                 if (tile.isAdaTanaman()){
                     for (Zombie z : tile.getZombieList()){
+                        z.checkSlowEffect();
                         if (z instanceof CanJump){
                             CanJump zj = (CanJump)z;
                             if (!zj.alreadyJumped()){
@@ -69,6 +72,7 @@ public class Row1EntityThread implements Runnable{
 
                 else{
                     for (Zombie z : tile.getZombieList()){
+                        z.checkSlowEffect();
                         if (z instanceof CanJump){
                             CanJump zj = (CanJump)z;
                             if (!zj.alreadyJumped()){

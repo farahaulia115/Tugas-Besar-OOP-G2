@@ -8,8 +8,8 @@ import Zombie.*;
 public class TesRun {
     public static void main(String[] args) {
         try {
-            Map.getMapInstance().getMapDetail()[0][9].tanam(new Tallnut());
-            Map.getMapInstance().getMapDetail()[0][1].tanam(new Repeater());
+            //Map.getMapInstance().getMapDetail()[0][9].tanam(new Tallnut());
+            Map.getMapInstance().getMapDetail()[0][1].tanam(new SnowPea());
             Map.getMapInstance().getMapDetail()[1][8].tanam(new Tallnut());
             Map.getMapInstance().getMapDetail()[2][1].tanam(new Lilypad());
             Map.getMapInstance().getMapDetail()[0][2].tanam(new Squash());

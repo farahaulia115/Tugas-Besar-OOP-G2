@@ -43,6 +43,7 @@ public class Row3EntityThread implements Runnable{
             if (tile.getZombieList().size()>0){     
                 if (tile.isAdaTanaman()){
                     for (Zombie z : tile.getZombieList()){
+                        z.checkSlowEffect();
                         if (z instanceof CanJump){
                             CanJump zj = (CanJump)z;
                             if (!zj.alreadyJumped()){
@@ -69,6 +70,7 @@ public class Row3EntityThread implements Runnable{
 
                 else{
                     for (Zombie z : tile.getZombieList()){
+                        z.checkSlowEffect();
                         if (z instanceof CanJump){
                             CanJump zj = (CanJump)z;
                             if (!zj.alreadyJumped()){
