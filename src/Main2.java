@@ -5,6 +5,7 @@ import Main.Game;
 import Main.Opening;
 import Main.SpawnZombie;
 import Main.Sun;
+import Map.NotPlantableException;
 import Map.NotShovelableException;
 import Thread.Row1EntityThread;
 import Thread.Row2EntityThread;
@@ -241,6 +242,9 @@ public class Main2 {
                                             Sun.decreaseSun(game.getDeck().getDeck().get(choose4 - 1).getCost());
                                         } catch (IllegalArgumentException | IllegalStateException e) {
                                             System.out.println(e.getMessage());
+                                        } catch (NotPlantableException e) {
+                                            // TODO Auto-generated catch block
+                                            e.printStackTrace();
                                         }
                                     } catch (IllegalArgumentException e) {
                                         System.out.println(e.getMessage());

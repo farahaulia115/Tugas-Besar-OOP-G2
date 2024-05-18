@@ -105,9 +105,5 @@ public class TwinSunFlower implements Plant, ProduceSun{
         }
     }
 
-    @Override
-    public void startProduction() {
-        produceSun();
-    }
 
 }

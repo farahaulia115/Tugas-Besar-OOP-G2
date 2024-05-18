@@ -106,8 +106,5 @@ public class SunFlower implements Plant, ProduceSun {
         }
     }
 
-    @Override
-    public void startProduction() {
-        produceSun();
-    }
+
 }
