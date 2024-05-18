@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Map.Map;
+import Map.NotPlantableException;
 import Map.NotShovelableException;
 import Plant.Plant;
 import Thread.Time;
@@ -62,7 +63,7 @@ public class Deck {
         
     }
 
-    public void tanam(int i, int x, int y) throws IllegalArgumentException, IllegalStateException {
+    public void tanam(int i, int x, int y) throws IllegalArgumentException, IllegalStateException, NotPlantableException {
         if (x < 0 || x >= 6 || y < 1 || y >= 10) {
             throw new IllegalArgumentException("Index out of bounds");
         } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {

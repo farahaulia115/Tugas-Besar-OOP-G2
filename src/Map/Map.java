@@ -72,12 +72,12 @@ public class Map{
         zombieInMap-=jumlah;
     }
     
-    public void tanamAt(int x, int y, Plant plant){
+    public void tanamAt(int x, int y, Plant plant) throws NotPlantableException{
         try{
             mapdetail[x][y].tanam(plant);
         }
         catch (NotPlantableException e){
-            System.out.println(e.getMessage());
+            throw new NotPlantableException();
         }
     }
 
