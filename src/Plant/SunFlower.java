@@ -1,10 +1,11 @@
 package Plant;
-import Main.*;
+
+import Main.Sun;
 import Thread.Time;
 
 public class SunFlower implements Plant, ProduceSun {
-    private static final int SUN_PRODUCTION_INTERVAL = 3000; 
-    private static final int SUN_PRODUCTION_AMOUNT = 25;
+    private int SUN_PRODUCTION_INTERVAL = 3; // Interval in seconds
+    private int SUN_PRODUCTION_AMOUNT = 25;
     private String name = "Sunflower";
     private int cost = 50;
     private int health = 100;
@@ -14,9 +15,11 @@ public class SunFlower implements Plant, ProduceSun {
     private int cooldown = 10;
     private boolean jumpable = true;
     private int timeCreated;
+    private int lastProductionTime;
 
     public SunFlower() {
         this.timeCreated = Time.getTime().getTotalSeconds();
+        this.lastProductionTime = Time.getTime().getTotalSeconds();
     }
 
     @Override
@@ -78,7 +81,7 @@ public class SunFlower implements Plant, ProduceSun {
     public int getAttackSpeed() {
         return attackSpeed;
     }
-    
+
     @Override
     public int getRange() {
         return range;
@@ -96,16 +99,15 @@ public class SunFlower implements Plant, ProduceSun {
 
     @Override
     public void produceSun() {
-        new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(SUN_PRODUCTION_INTERVAL);
-                    Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        int currentTime = Time.getTime().getTotalSeconds();
+        if (currentTime - lastProductionTime >= SUN_PRODUCTION_INTERVAL) {
+            Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
+            lastProductionTime = currentTime;
+        }
     }
 
+    @Override
+    public void startProduction() {
+        produceSun();
+    }
 }

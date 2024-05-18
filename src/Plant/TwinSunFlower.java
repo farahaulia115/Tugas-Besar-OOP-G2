@@ -3,8 +3,8 @@ import Main.*;
 import Thread.Time;
 
 public class TwinSunFlower implements Plant, ProduceSun{
-    private static final int SUN_PRODUCTION_INTERVAL = 3000; // Interval produksi Sun dalam detik
-    private static final int SUN_PRODUCTION_AMOUNT = 50;
+    private int SUN_PRODUCTION_INTERVAL = 3; // Interval produksi Sun dalam detik
+    private int SUN_PRODUCTION_AMOUNT = 50;
     private String name = "Twin Sunflower";
     private int cost = 150;
     private int health = 120;
@@ -14,9 +14,11 @@ public class TwinSunFlower implements Plant, ProduceSun{
     private int cooldown = 10;
     private int timeCreated;
     private boolean jumpable = true;
+    private int lastProductionTime;
 
     public TwinSunFlower() {
         this.timeCreated = Time.getTime().getTotalSeconds();
+        this.lastProductionTime = Time.getTime().getTotalSeconds();
     }
 
     @Override
@@ -96,16 +98,16 @@ public class TwinSunFlower implements Plant, ProduceSun{
 
     @Override
     public void produceSun() {
-        new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(SUN_PRODUCTION_INTERVAL);
-                    Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        int currentTime = Time.getTime().getTotalSeconds();
+        if (currentTime - lastProductionTime >= SUN_PRODUCTION_INTERVAL) {
+            Sun.increaseSun(SUN_PRODUCTION_AMOUNT);
+            lastProductionTime = currentTime;
+        }
+    }
+
+    @Override
+    public void startProduction() {
+        produceSun();
     }
 
 }
