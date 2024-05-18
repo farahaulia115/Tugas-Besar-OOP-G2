@@ -19,7 +19,7 @@ public class Main {
         String red = "\u001B[31m";       // Kode ANSI untuk warna merah
         String reset = "\u001B[0m";     // Kode ANSI untuk mereset warna
         String brown = "\u001B[33m";    // Kode ANSI untuk warna coklat
-        String grey = "\u001B[37m";     // Kode ANSI untuk warna abu-abu
+        String cyan = "\u001B[36m";     // Kode ANSI untuk warna cyan
         boolean open = true; // tanda looping ketika game dibuka
         boolean gameInventory = false; // tanda untuk bagian pilih inventory, preparation sebelum game start
         Opening opening = new Opening();
@@ -265,9 +265,9 @@ public class Main {
                             System.out.println("Invalid input");
                             break;
                     }
-                    System.out.println(grey + "===================================" + reset);
+                    System.out.println(cyan + "===================================" + reset);
                     game.getMap().renderMap3();
-                    System.out.println(grey + "===================================" + reset);
+                    System.out.println(cyan + "===================================" + reset);
 
                     
                 }
