@@ -15,7 +15,7 @@ import Thread.Row6EntityThread;
 import Input.InputHandler;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, NotShovelableException {
         String red = "\u001B[31m";       // Kode ANSI untuk warna merah
         String reset = "\u001B[0m";     // Kode ANSI untuk mereset warna
         String brown = "\u001B[33m";    // Kode ANSI untuk warna coklat
@@ -173,8 +173,8 @@ public class Main {
                         Thread entityThread5 = new Thread(new Row5EntityThread());
                         Thread entityThread6 = new Thread(new Row6EntityThread());
                         Thread.sleep(1000);
-                        spawnerThread.start();
-                        spawnerThread.join();
+                        // spawnerThread.start();
+                        // spawnerThread.join();
                         entityThread1.start();
                         entityThread2.start();
                         entityThread3.start();
@@ -229,10 +229,10 @@ public class Main {
                             try {
                                 game.getDeck().pilihTanaman(choose4-1);
                                 System.out.println("Plant ready");
-                                int row = InputHandler.getIntInput("Choose row to plant");
-                                int column = InputHandler.getIntInput("Choose column to plant");
+                                int row = InputHandler.getIntInput("Choose row to plant :");
+                                int column = InputHandler.getIntInput("Choose column to plant :");
                                 try {
-                                    game.getDeck().tanam(choose4-1, row, column);
+                                    game.getDeck().tanam(choose4-1, row-1, column-1);
                                     System.out.println("Plant " + game.getDeck().getDeck().get(choose4-1).getName() + " has been planted");
                                     Sun.decreaseSun(game.getDeck().getDeck().get(choose4-1).getCost());
                                 } catch (IllegalArgumentException e) {
@@ -246,10 +246,10 @@ public class Main {
                             
                             break;
                         case 4:
-                            int row2 = InputHandler.getIntInput("Choose row to remove plant");
-                            int column2 = InputHandler.getIntInput("Choose column to remove plant");
+                            int row2 = InputHandler.getIntInput("Choose row to remove plant :");
+                            int column2 = InputHandler.getIntInput("Choose column to remove plant :");
                             try{
-                                game.getDeck().gali(row2, column2);
+                                game.getDeck().gali(row2-1, column2-1);
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
                             }
@@ -260,13 +260,14 @@ public class Main {
                             break;
                         case 5:
                             Game.setStatusGame(false);
+                            Game.resetGame();   
                             break;
                         default:
                             System.out.println("Invalid input");
                             break;
                     }
                     System.out.println(cyan + "===================================" + reset);
-                    game.getMap().renderMap3();
+                    game.getMap().renderMap();
                     System.out.println(cyan + "===================================" + reset);
 
                     

@@ -68,8 +68,7 @@ public class Deck {
         } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
             throw new IllegalStateException("There is already a plant in this plot");
         } else {
-            Map.getMapInstance().tanamAt(x-1, y-1, deck.get(i));
-            
+            Map.getMapInstance().tanamAt(x, y, deck.get(i));
         }
     }
     

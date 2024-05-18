@@ -83,6 +83,7 @@ public class Game {
         time.resetTimeData();
         inventory.resetInventory();
         deck.resetDeck();
+        Sun.resetSun();
     }
 
     

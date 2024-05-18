@@ -68,10 +68,10 @@ public class Time implements Runnable {
 
     @Override
     public void run() {
-        // while (Game.getStatusGame()){
+        
             try {
-                // Thread.sleep(1000); // Menghentikan thread selama 1 detik
-                tick(); // Menambahkan waktu satu detik
+                
+                tick(); 
                 elapsedTime++;
 
                 if (Time.getTime().getCurrentPhase().equalsIgnoreCase("Pagi")) {
