@@ -173,8 +173,8 @@ public class Main {
                         Thread entityThread5 = new Thread(new Row5EntityThread());
                         Thread entityThread6 = new Thread(new Row6EntityThread());
                         Thread.sleep(1000);
-                        // spawnerThread.start();
-                        // spawnerThread.join();
+                        spawnerThread.start();
+                        spawnerThread.join();
                         entityThread1.start();
                         entityThread2.start();
                         entityThread3.start();
@@ -236,7 +236,7 @@ public class Main {
                                     System.out.println("Plant " + game.getDeck().getDeck().get(choose4-1).getName() + " has been planted");
                                     Sun.decreaseSun(game.getDeck().getDeck().get(choose4-1).getCost());
                                 } catch (IllegalArgumentException e) {
-                                    System.out.println(e.getMessage());
+                                    System.out.println(e.getMessage()); 
                                 } catch (IllegalStateException e) {
                                     System.out.println(e.getMessage());
                                 } catch (Exception e) {

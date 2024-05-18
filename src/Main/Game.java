@@ -50,7 +50,7 @@ public class Game {
 
     
     public static void isGameOver() {
-        if ((map.jumlahZombie() == 0 && time.getTotalSeconds() > 160)||(map.jumlahZombie() == 0 && time.getTotalSeconds() < 20 && time.getDay() != 1)) {
+        if ((map.jumlahZombie() == 0 && time.getTotalSeconds() > 10)||(map.jumlahZombie() == 0 && time.getTotalSeconds() < 20 && time.getDay() != 1)) {
             statusGame = false;
             System.out.println("Congratulation, you win the game");
             System.out.println("This is your reward");
