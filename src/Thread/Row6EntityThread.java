@@ -16,7 +16,7 @@ public class Row6EntityThread implements Runnable{
                     if (tile.getPlant() instanceof Attack && tile.getPlant().getRange()==-1){
                         Attack pa = (Attack)tile.getPlant();
                         for(int y = i;y<=10;y++){
-                            Tile tileToAttack = Map.getMapInstance().getMapDetail()[3][y];
+                            Tile tileToAttack = Map.getMapInstance().getMapDetail()[5][y];
                             if (tileToAttack.getZombieList().size()>0){
                                 pa.startAttack(tileToAttack);
                                 break;
@@ -27,7 +27,7 @@ public class Row6EntityThread implements Runnable{
                         Attack pa = (Attack)tile.getPlant();
                         SelfDestruct ps = (SelfDestruct)tile.getPlant();
                         if (i<10){
-                            Tile tileToAttack = Map.getMapInstance().getMapDetail()[3][i+1];
+                            Tile tileToAttack = Map.getMapInstance().getMapDetail()[5][i+1];
                             if (tileToAttack.getZombieList().size()>0){
                                 pa.attack(tileToAttack);
                                 ps.selfDestruct(tile);

@@ -267,7 +267,7 @@ public class Main {
                             break;
                     }
                     System.out.println(cyan + "===================================" + reset);
-                    game.getMap().renderMap();
+                    game.getMap().renderMap3();
                     System.out.println(cyan + "===================================" + reset);
 
                     
