@@ -1,16 +1,20 @@
 package Map;
 
-import Plant.Attack;
-import Plant.Shooter;
 import Plant.Plant;
 import Zombie.CanJump;
-import Plant.SelfDestruct;
 import Zombie.Zombie;
 
 public class Map{
     private static Map map;
     private Tile[][] mapdetail = new Tile[6][11];
     private int zombieInMap = 0;
+
+    private String green = "\u001B[32m";     // Kode ANSI untuk warna hijau
+    private String blue = "\u001B[34m";      // Kode ANSI untuk warna biru
+    private String pink = "\u001B[35m";      // Kode ANSI untuk warna pink
+    private String cream = "\u001B[33m";     // Kode ANSI untuk warna cream
+    private  String reset = "\u001B[0m";       // Kode ANSI untuk mereset warna
+
     
     private Map(){
         for (int i = 0;i<=1;i++){
@@ -100,6 +104,88 @@ public class Map{
         }
         System.out.println();
     }
+
+    public void renderMap3(){
+        for (int i = 0; i<=5;i++){
+            for (int j = 0; j<=10;j++){
+                if (i == 2 || i == 3){
+                    if (j == 0){
+                        System.out.printf(pink + "[" + reset);
+                    } else if (j == 10){
+                        System.out.printf(cream + "[" + reset);
+                    } else {
+                        System.out.printf(blue + "[" + reset);
+                    }
+                    
+                    if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size()>0){
+                        if (mapdetail[i][j].isAdaTanaman()){
+                            System.out.printf("P:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        if (mapdetail[i][j].getZombieList().size()>0){
+                            for (Zombie z : mapdetail[i][j].getZombieList()) {
+                                if (z instanceof CanJump){
+                                    if (!((CanJump)z).alreadyJumped()) System.out.printf("J");
+                                }
+                                System.out.printf("Z:" + z.getHealth() + " ");
+                            }      
+                        }
+                    }
+                    else{
+                        System.out.printf(" ");
+                    }
+
+                    if (j == 0){
+                        System.out.printf(pink + "]" + reset);
+                    } else if (j == 10){
+                        System.out.printf(cream + "]" + reset);
+                    } else {
+                        System.out.printf(blue + "]" + reset);
+                    }
+
+
+
+                } else {
+                    if (j == 0){
+                        System.out.printf(pink + "[" + reset);
+                    } else if (j == 10){
+                        System.out.printf(cream + "[" + reset);
+                    } else {
+                        System.out.printf(green + "[" + reset);
+                    }
+
+
+                    if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size()>0){
+                        if (mapdetail[i][j].isAdaTanaman()){
+                            System.out.printf("P:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        if (mapdetail[i][j].getZombieList().size()>0){
+                            for (Zombie z : mapdetail[i][j].getZombieList()) {
+                                if (z instanceof CanJump){
+                                    if (!((CanJump)z).alreadyJumped()) System.out.printf("J");
+                                }
+                                System.out.printf("Z:" + z.getHealth() + " ");
+                            }      
+                        }
+                    }
+                    else{
+                        System.out.printf(" ");
+                    }
+                    if (j == 0){
+                        System.out.printf(pink + "]" + reset);
+                    } else if (j == 10){
+                        System.out.printf(cream + "]" + reset);
+                    } else {
+                        System.out.printf(green + "]" + reset);
+                    }
+                }
+                
+                
+            }
+            System.out.println();
+        }
+    }
+
+
 
     public void renderMap2(){
         for (int i = 0; i<=5;i++){
