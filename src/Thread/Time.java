@@ -47,9 +47,9 @@ public class Time implements Runnable {
 
     public String getCurrentPhase() {
         if ((totalSeconds % 200) <= 100) {
-            return "Pagi";
+            return "Morning";
         } else {
-            return "Malam";
+            return "Night";
         }
     }
 
@@ -74,7 +74,7 @@ public class Time implements Runnable {
                 tick(); 
                 elapsedTime++;
 
-                if (Time.getTime().getCurrentPhase().equalsIgnoreCase("Pagi")) {
+                if (Time.getTime().getCurrentPhase().equalsIgnoreCase("Morning")) {
                     if (elapsedTime >= sunGenerationInterval) {
                         Sun.increaseSun(25);
                         sunGenerationInterval = random.nextInt(6) + 5; // Menghasilkan angka acak baru antara 5 hingga 10 detik
