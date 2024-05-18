@@ -239,6 +239,8 @@ public class Main {
                                     System.out.println(e.getMessage());
                                 } catch (IllegalStateException e) {
                                     System.out.println(e.getMessage());
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
                                 }
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
