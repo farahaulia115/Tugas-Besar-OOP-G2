@@ -214,15 +214,24 @@ public class Main {
 
                     switch (choose3) {
                         case 1:
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
                             System.out.println("Day : " + game.getTime().getDay());
                             System.out.println("Time : " + game.getTotalSecondsTime ());
                             System.out.println("Phase : " + game.getTime().getCurrentPhase());
                             break;
                         case 2:
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
                             game.getDeck().showDeckStatus();
                             // show deck status
                             break;
                         case 3:
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
                             System.out.println("Choose plant to plant");
                             game.getDeck().showDeck();
                             int choose4 = InputHandler.getIntInput("Choose :");
@@ -248,6 +257,9 @@ public class Main {
                             
                             break;
                         case 4:
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
                             int row2 = InputHandler.getIntInput("Choose row to remove plant :");
                             int column2 = InputHandler.getIntInput("Choose column to remove plant :");
                             try{
@@ -261,10 +273,16 @@ public class Main {
                             // remove plant
                             break;
                         case 5:
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
                             Game.setStatusGame(false);
                             Game.resetGame();   
                             break;
                         default:
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
                             System.out.println("Invalid input");
                             break;
                     }
