@@ -1,5 +1,4 @@
 package Zombie;
-import Map.*;
 import Thread.Time;
 
 public class DuckytubeZombie implements Zombie {
