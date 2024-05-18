@@ -13,7 +13,7 @@ public class Row1EntityThread implements Runnable{
             Tile nextTile = Map.getMapInstance().getMapDetail()[0][i-1];
             if (tile.isAdaTanaman()){
                 if (tile.getPlant().getHealth()>0){
-                    if (tile.getPlant() instanceof Attack){
+                    if (tile.getPlant() instanceof Attack && tile.getPlant().getRange()==-1){
                         Attack pa = (Attack)tile.getPlant();
                         for(int y = i;y<=10;y++){
                             Tile tileToAttack = Map.getMapInstance().getMapDetail()[0][y];
@@ -23,8 +23,20 @@ public class Row1EntityThread implements Runnable{
                             }
                         }
                     }
+                    else if (tile.getPlant() instanceof Attack && tile.getPlant() instanceof SelfDestruct){
+                        Attack pa = (Attack)tile.getPlant();
+                        SelfDestruct ps = (SelfDestruct)tile.getPlant();
+                        if (i<10){
+                            Tile tileToAttack = Map.getMapInstance().getMapDetail()[0][i+1];
+                            if (tileToAttack.getZombieList().size()>0){
+                                pa.attack(tileToAttack);
+                                ps.selfDestruct(tile);
+                            }
+                        }
+                    }
                     else if (tile.getPlant() instanceof ProduceSun){
-
+                        ProduceSun pps = (ProduceSun)tile.getPlant();
+                        pps.produceSun();
                     }
                 }
             }

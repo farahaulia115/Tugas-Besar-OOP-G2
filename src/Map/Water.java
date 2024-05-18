@@ -64,4 +64,8 @@ public class Water extends Tile {
         return diTanamLilypad;
     }
 
+    public void setDitanamLilypad(boolean b){
+        diTanamLilypad = b;
+    }
+
 }

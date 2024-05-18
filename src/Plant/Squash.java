@@ -35,6 +35,17 @@ public class Squash implements Plant, Attack, SelfDestruct {
     @Override
     public void selfDestruct(Tile tile) {
         tile.plantDie();
+        if (tile instanceof Water){
+            Water w = (Water)tile;
+            if (w.isDitanamLilypad()){
+                w.setDitanamLilypad(false);
+            }
+            try {
+                tile.tanam(new Lilypad());
+            } catch (Exception e) {
+
+            }
+        }
     }
 
     @Override

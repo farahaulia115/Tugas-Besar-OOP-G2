@@ -12,15 +12,18 @@ public class TesRun {
             Map.getMapInstance().getMapDetail()[0][1].tanam(new Repeater());
             Map.getMapInstance().getMapDetail()[1][8].tanam(new Tallnut());
             Map.getMapInstance().getMapDetail()[2][1].tanam(new Lilypad());
-            Map.getMapInstance().getMapDetail()[0][2].tanam(new SnowPea());
+            Map.getMapInstance().getMapDetail()[0][2].tanam(new Squash());
+            Map.getMapInstance().getMapDetail()[0][3].getZombieList().add(new PolevaultingZombie());
             Map.getMapInstance().getMapDetail()[3][6].tanam(new Lilypad());
             Map.getMapInstance().getMapDetail()[4][5].tanam(new Tallnut());
             Map.getMapInstance().getMapDetail()[5][4].tanam(new Tallnut());
+
             Map.getMapInstance().getMapDetail()[0][9].getZombieList().add(new DolphinriderZombie());
-            //Map.getMapInstance().getMapDetail()[3][8].tanam(new Lilypad());
-            //Map.getMapInstance().getMapDetail()[3][8].tanam(new Wallnut());
+            Map.getMapInstance().getMapDetail()[2][7].tanam(new TangleKelp());
+            //Map.getMapInstance().getMapDetail()[2][7].tanam(new Squash());
             Map.getMapInstance().getMapDetail()[2][9].getZombieList().add(new DolphinriderZombie());
-            Map.getMapInstance().getMapDetail()[2][7].gali();
+            //Map.getMapInstance().getMapDetail()[2][7].gali();
+            Map.getMapInstance().renderMap3();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
