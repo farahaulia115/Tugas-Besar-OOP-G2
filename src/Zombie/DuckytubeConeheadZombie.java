@@ -12,6 +12,9 @@ public class DuckytubeConeheadZombie implements Zombie {
     private int x;
     private int y;
     private int moveInterval = 5;
+    private boolean slowed = false;
+    private int timeSlowed;
+    private int slowDuration = 3;
 
     public DuckytubeConeheadZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
@@ -97,4 +100,22 @@ public class DuckytubeConeheadZombie implements Zombie {
     //         Map.getMapInstance().getMapDetail()[x][y].getZombieList().add(this);
     //     }
     // }
+    @Override
+    public void slowEffect() {
+        while (!slowed) {
+            speed = 2;
+            moveInterval = 10;
+            timeSlowed = Time.getTime().getTotalSeconds();
+            slowed = true;
+        }
+    }
+
+    @Override
+    public void checkSlowEffect() {
+        if (slowed && Time.getTime().getTotalSeconds() - timeSlowed >= slowDuration) {
+            speed = 1;
+            moveInterval = 5;
+            slowed = false; 
+        }
+    }
 }

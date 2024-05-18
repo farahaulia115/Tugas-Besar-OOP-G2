@@ -14,4 +14,6 @@ public interface Zombie {
     int getMoveInterval();
     int getX();
     int getY();
+    void slowEffect();
+    void checkSlowEffect();
 }

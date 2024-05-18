@@ -95,6 +95,7 @@ public class SnowPea implements Plant, Attack, Shooter {
         if (timeNow - lastAttack >= attackSpeed) {
             for (Zombie zombie : tile.getZombieList()) {
                 zombie.setHealth(zombie.getHealth() - attackDamage);
+                zombie.slowEffect();
                 if (zombie.getHealth() <= 0) {
                     tile.getZombieList().remove(zombie);
                     Map.getMapInstance().removeZombieInMap();

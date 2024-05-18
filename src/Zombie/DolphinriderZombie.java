@@ -12,7 +12,11 @@ public class DolphinriderZombie implements Zombie, CanJump {
     private int x;
     private int y;
     private boolean jumped;
+    private boolean slowed = false;
     private int moveInterval = 5;
+    private int timeSlowed;
+    private int slowDuration = 3;
+
 
     public DolphinriderZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
@@ -109,4 +113,22 @@ public class DolphinriderZombie implements Zombie, CanJump {
     //         Map.getMapInstance().getMapDetail()[x][y].getZombieList().add(this);
     //     }
     // }
+    @Override
+    public void slowEffect() {
+        while (!slowed) {
+            speed = 2;
+            moveInterval = 10;
+            timeSlowed = Time.getTime().getTotalSeconds();
+            slowed = true;
+        }
+    }
+
+    @Override
+    public void checkSlowEffect() {
+        if (slowed && Time.getTime().getTotalSeconds() - timeSlowed >= slowDuration) {
+            speed = 1;
+            moveInterval = 5;
+            slowed = false; 
+        }
+    }
 }
