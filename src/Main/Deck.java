@@ -55,7 +55,7 @@ public class Deck {
                     deckThreat.getDeckStatus().get(i).setReadyToPlant(false);
                     deckThreat.getDeckStatus().get(i).setLastTimeCreated(Time.getTime().getTotalSeconds());
                 } else {
-                    throw new IllegalStateException("Plant is not ready to plant, neet to wait " + (deckThreat.getDeckStatus().get(i).getLastTimeCreated() + 5 - Time.getTime().getTotalSeconds()) + " seconds");
+                    throw new IllegalStateException("Plant is not ready to plant, need to wait " + (deckThreat.getDeckStatus().get(i).getLastTimeCreated() + 5 - Time.getTime().getTotalSeconds()) + " seconds");
             }
             }
             
