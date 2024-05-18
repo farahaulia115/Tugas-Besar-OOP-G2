@@ -251,7 +251,7 @@ public class Main {
                                 } catch (Exception e) {
                                     System.out.println(e.getMessage());
                                 }
-                            } catch (IllegalArgumentException e) {
+                            } catch (Exception  e) {
                                 System.out.println(e.getMessage());
                             }
                             
