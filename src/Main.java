@@ -144,7 +144,7 @@ public class Main {
                         try {
                             game.startGame();
                             gameInventory = false;
-                            Sun.increaseSun(25);
+                            Sun.increaseSun(50);
                         } catch (IllegalArgumentException e) {
                             System.out.println(e.getMessage());
                         }
