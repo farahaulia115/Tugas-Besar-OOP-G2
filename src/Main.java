@@ -269,7 +269,7 @@ public class Main {
                             break;
                     }
                     System.out.println(cyan + "===================================" + reset);
-                    game.getMap().renderMap2();
+                    game.getMap().renderMap();
                     System.out.println(cyan + "===================================" + reset);
 
                     
