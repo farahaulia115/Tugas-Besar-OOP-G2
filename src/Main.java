@@ -239,6 +239,8 @@ public class Main {
                                     System.out.println(e.getMessage());
                                 } catch (IllegalStateException e) {
                                     System.out.println(e.getMessage());
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
                                 }
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
@@ -267,7 +269,7 @@ public class Main {
                             break;
                     }
                     System.out.println(cyan + "===================================" + reset);
-                    game.getMap().renderMap();
+                    game.getMap().renderMap2();
                     System.out.println(cyan + "===================================" + reset);
 
                     
