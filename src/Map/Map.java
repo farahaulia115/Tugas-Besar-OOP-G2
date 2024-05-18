@@ -71,6 +71,10 @@ public class Map{
     public void removeZombieInMap(int jumlah){
         zombieInMap-=jumlah;
     }
+
+    public void resetZombieInMap(){
+        zombieInMap = 0;
+    }
     
     public void tanamAt(int x, int y, Plant plant) throws NotPlantableException{
         try{
