@@ -42,7 +42,7 @@ public class Deck {
         
     }
 
-    public void pilihTanaman(int i){
+    public void pilihTanaman(int i) throws IllegalArgumentException, IllegalStateException{
         if (i < 0 || i >= deck.size()) {
             throw new IllegalArgumentException("Index out of bounds");
         } else {
