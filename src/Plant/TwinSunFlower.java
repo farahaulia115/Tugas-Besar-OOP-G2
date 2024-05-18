@@ -7,7 +7,7 @@ public class TwinSunFlower implements Plant, ProduceSun{
     private int SUN_PRODUCTION_AMOUNT = 50;
     private String name = "Twin Sunflower";
     private int cost = 125;
-    private int health = 120;
+    private int health = 200;
     private int attackDamage = 0;
     private int attackSpeed = 0;
     private int range = 0;
