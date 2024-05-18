@@ -286,6 +286,9 @@ public class Main {
                             System.out.println("Invalid input");
                             break;
                     }
+                    if (Game.getStatusGame() == false) {
+                        break;
+                    }
                     System.out.println(cyan + "====================================================================" + reset);
                     game.getMap().renderMap3();
                     System.out.println(cyan + "====================================================================" + reset);
