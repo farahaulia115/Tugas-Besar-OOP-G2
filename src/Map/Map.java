@@ -67,6 +67,10 @@ public class Map{
     public void removeZombieInMap(){
         zombieInMap--;
     }
+
+    public void removeZombieInMap(int jumlah){
+        zombieInMap-=jumlah;
+    }
     
     public void tanamAt(int x, int y, Plant plant){
         try{

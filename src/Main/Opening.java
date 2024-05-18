@@ -173,7 +173,7 @@ public class Opening {
     public void informasiDuckytubeZombie(){
         DuckytubeZombie duckytubeZombie = new DuckytubeZombie();
         System.out.println("Name: " + duckytubeZombie.getName());
-        Systen.out.println("Description: The Duckytube Zombie is a classic, slow-walking undead that roams common areas. It can walk in the pool, making it a bit more dangerous. Perfect for beginners, it's the typical zombie everyone knows!");
+        System.out.println("Description: The Duckytube Zombie is a classic, slow-walking undead that roams common areas. It can walk in the pool, making it a bit more dangerous. Perfect for beginners, it's the typical zombie everyone knows!");
         System.out.println("Health: " + duckytubeZombie.getHealth());
         System.out.println("Damage: " + duckytubeZombie.getDamage());
         System.out.println("Speed: " + duckytubeZombie.getSpeed());

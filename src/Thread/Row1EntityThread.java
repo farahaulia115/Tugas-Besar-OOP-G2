@@ -2,6 +2,7 @@ package Thread;
 import Map.*;
 import Plant.Attack;
 import Plant.ProduceSun;
+import Plant.SelfDestruct;
 import Zombie.CanJump;
 import Zombie.Zombie;
 
@@ -12,11 +13,18 @@ public class Row1EntityThread implements Runnable{
             Tile nextTile = Map.getMapInstance().getMapDetail()[0][i-1];
             if (tile.isAdaTanaman()){
                 if (tile.getPlant().getHealth()>0){
-                    if (tile.getPlant() instanceof ProduceSun){
-
+                    if (tile.getPlant() instanceof Attack){
+                        Attack pa = (Attack)tile.getPlant();
+                        for(int y = i;y<=10;y++){
+                            Tile tileToAttack = Map.getMapInstance().getMapDetail()[0][y];
+                            if (tileToAttack.getZombieList().size()>0){
+                                pa.startAttack(tileToAttack);
+                                break;
+                            }
+                        }
                     }
-                    else if (tile.getPlant() instanceof Attack){
-                        
+                    else if (tile.getPlant() instanceof ProduceSun){
+
                     }
                 }
             }

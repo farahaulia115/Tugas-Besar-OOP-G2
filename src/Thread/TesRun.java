@@ -9,13 +9,14 @@ public class TesRun {
     public static void main(String[] args) {
         try {
             Map.getMapInstance().getMapDetail()[0][9].tanam(new Tallnut());
+            Map.getMapInstance().getMapDetail()[0][1].tanam(new Repeater());
             Map.getMapInstance().getMapDetail()[1][8].tanam(new Tallnut());
-            Map.getMapInstance().getMapDetail()[2][7].tanam(new Lilypad());
-            Map.getMapInstance().getMapDetail()[2][7].tanam(new Tallnut());
+            Map.getMapInstance().getMapDetail()[2][1].tanam(new Lilypad());
+            Map.getMapInstance().getMapDetail()[0][2].tanam(new SnowPea());
             Map.getMapInstance().getMapDetail()[3][6].tanam(new Lilypad());
             Map.getMapInstance().getMapDetail()[4][5].tanam(new Tallnut());
             Map.getMapInstance().getMapDetail()[5][4].tanam(new Tallnut());
-            Map.getMapInstance().getMapDetail()[3][9].getZombieList().add(new DolphinriderZombie());
+            Map.getMapInstance().getMapDetail()[0][9].getZombieList().add(new DolphinriderZombie());
             //Map.getMapInstance().getMapDetail()[3][8].tanam(new Lilypad());
             //Map.getMapInstance().getMapDetail()[3][8].tanam(new Wallnut());
             Map.getMapInstance().getMapDetail()[2][9].getZombieList().add(new DolphinriderZombie());
@@ -39,6 +40,7 @@ public class TesRun {
 
                 Thread.sleep(1000); // Menghentikan thread selama 1 detik
                 timeThread.start();
+                timeThread.join();
                 System.out.println("Current time : " + Time.getTime().getTotalSeconds() + " (" + Time.getTime().getCurrentPhase() + ")");
 
                 spawnerThread.start();
