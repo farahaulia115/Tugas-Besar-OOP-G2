@@ -4,7 +4,7 @@ import Thread.Time;
 import Zombie.Zombie;
 
 public class TangleKelp implements Plant, Attack, SelfDestruct {
-    private String name = "TangleKelp";
+    private String name = "Tangle kelp";
     private int cost = 25;
     private int health = 100;
     private int attackDamage = 5000;
@@ -13,6 +13,7 @@ public class TangleKelp implements Plant, Attack, SelfDestruct {
     private int cooldown = 20;
     private boolean jumpable = true;
     private int timeCreated;
+
     public TangleKelp() {
         this.timeCreated = Time.getTime().getTotalSeconds();
     }
@@ -37,7 +38,6 @@ public class TangleKelp implements Plant, Attack, SelfDestruct {
     @Override
     public void selfDestruct(Tile tile) {
         tile.plantDie();
-        
     }
 
     @Override

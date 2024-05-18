@@ -4,7 +4,7 @@ import Thread.Time;
 import Zombie.Zombie;
 
 public class SnowPea implements Plant, Attack, Shooter {
-    private String name = "SnowPea";
+    private String name = "Snow pea";
     private int cost = 175;
     private int health = 100;
     private int attackDamage = 25;

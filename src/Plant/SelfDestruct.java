@@ -1,6 +1,6 @@
 package Plant;
 
-import Map.Tile;
+import Map.*;
 
 public interface SelfDestruct {
     void selfDestruct(Tile tile);

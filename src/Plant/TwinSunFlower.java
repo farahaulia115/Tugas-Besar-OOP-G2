@@ -5,7 +5,7 @@ import Thread.Time;
 public class TwinSunFlower implements Plant, ProduceSun{
     private static final int SUN_PRODUCTION_INTERVAL = 3000; // Interval produksi Sun dalam detik
     private static final int SUN_PRODUCTION_AMOUNT = 50;
-    private String name = "TwinSunflower";
+    private String name = "Twin Sunflower";
     private int cost = 150;
     private int health = 120;
     private int attackDamage = 0;

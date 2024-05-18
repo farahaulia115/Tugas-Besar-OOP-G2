@@ -3,7 +3,7 @@ package Plant;
 import Thread.Time;
 
 public class Wallnut implements Plant {
-    private String name = "Wallnut";
+    private String name = "Wall nut";
     private int cost = 50;
     private int health = 1000;
     private int attackDamage = 0;

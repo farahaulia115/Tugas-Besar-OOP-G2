@@ -40,7 +40,6 @@ public class Squash implements Plant, Attack, SelfDestruct {
     @Override
     public void selfDestruct(Tile tile) {
         tile.plantDie();
-        
     }
 
     @Override

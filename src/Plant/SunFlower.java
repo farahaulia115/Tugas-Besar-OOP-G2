@@ -3,9 +3,9 @@ import Main.*;
 import Thread.Time;
 
 public class SunFlower implements Plant, ProduceSun {
-    private static final int SUN_PRODUCTION_INTERVAL = 3000; // Interval produksi Sun dalam detik
+    private static final int SUN_PRODUCTION_INTERVAL = 3000; 
     private static final int SUN_PRODUCTION_AMOUNT = 25;
-    private String name = "SunFlower";
+    private String name = "Sunflower";
     private int cost = 50;
     private int health = 100;
     private int attackDamage = 0;
