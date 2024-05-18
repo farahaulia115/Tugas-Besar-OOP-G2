@@ -86,7 +86,7 @@ public class Time implements Runnable {
                     day++;
                     resetTime();
                 }
-                // Game.isGameOver();
+                Game.isGameOver();
             } catch (Exception e) {
                 Thread.currentThread().interrupt(); // Set the interrupt flag
             }
