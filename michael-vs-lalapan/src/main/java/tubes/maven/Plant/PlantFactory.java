@@ -1,5 +1,5 @@
 
-package Plant;
+package tubes.maven.Plant;
 
 public class PlantFactory {
 

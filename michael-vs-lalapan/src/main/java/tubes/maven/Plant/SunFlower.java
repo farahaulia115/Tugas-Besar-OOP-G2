@@ -1,7 +1,7 @@
-package Plant;
+package tubes.maven.Plant;
 
-import Player.Sun;
-import Thread.Time;
+import tubes.maven.Player.Sun;
+import tubes.maven.Thread.Time;
 
 public class SunFlower implements Plant, ProduceSun {
     private int SUN_PRODUCTION_INTERVAL = 3; // Interval in seconds

@@ -1,6 +1,6 @@
-package Plant;
-import Player.*;
-import Thread.Time;
+package tubes.maven.Plant;
+import tubes.maven.Player.*;
+import tubes.maven.Thread.Time;
 
 public class TwinSunFlower implements Plant, ProduceSun{
     private int SUN_PRODUCTION_INTERVAL = 3; // Interval produksi Sun dalam detik

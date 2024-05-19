@@ -1,13 +1,13 @@
-package Player;
+package tubes.maven.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Exception.NotPlantableException;
-import Exception.NotShovelableException;
-import Map.*;
-import Plant.*;
-import Thread.Time;
+import tubes.maven.Exception.NotPlantableException;
+import tubes.maven.Exception.NotShovelableException;
+import tubes.maven.Map.*;
+import tubes.maven.Plant.*;
+import tubes.maven.Thread.Time;
 
 public class Deck {
 

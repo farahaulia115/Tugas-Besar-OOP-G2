@@ -1,11 +1,11 @@
-package Player;
+package tubes.maven.Player;
 
 import java.util.Random;
 
-import Map.Map;
-import Thread.Time;
-import Zombie.Zombie;
-import Zombie.ZombieFactory;
+import tubes.maven.Map.Map;
+import tubes.maven.Thread.Time;
+import tubes.maven.Zombie.Zombie;
+import tubes.maven.Zombie.ZombieFactory;
 
 public class SpawnZombie implements Runnable {
 

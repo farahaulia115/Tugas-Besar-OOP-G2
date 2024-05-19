@@ -1,4 +1,4 @@
-package Zombie;
+package tubes.maven.Zombie;
 
 public interface Zombie {
     String getName();

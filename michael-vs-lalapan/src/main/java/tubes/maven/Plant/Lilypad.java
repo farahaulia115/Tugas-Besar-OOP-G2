@@ -1,5 +1,5 @@
-package Plant;
-import Thread.Time;
+package tubes.maven.Plant;
+import tubes.maven.Thread.Time;
 
 public class Lilypad implements Plant {
     private String name = "Lilypad";

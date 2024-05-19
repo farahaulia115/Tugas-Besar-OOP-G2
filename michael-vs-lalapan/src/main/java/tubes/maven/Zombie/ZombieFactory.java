@@ -1,4 +1,4 @@
-package Zombie;
+package tubes.maven.Zombie;
 
 
 public class ZombieFactory {

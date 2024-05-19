@@ -1,8 +1,8 @@
 
-package Player;
+package tubes.maven.Player;
 
-import Map.*;
-import Thread.Time; 
+import tubes.maven.Map.*;
+import tubes.maven.Thread.Time; 
 
 public class Game {
     private static boolean statusGame = false;

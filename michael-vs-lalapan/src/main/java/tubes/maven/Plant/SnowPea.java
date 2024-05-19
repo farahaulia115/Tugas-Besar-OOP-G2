@@ -1,7 +1,7 @@
-package Plant;
-import Map.*;
-import Thread.Time;
-import Zombie.Zombie;
+package tubes.maven.Plant;
+import tubes.maven.Map.*;
+import tubes.maven.Thread.Time;
+import tubes.maven.Zombie.Zombie;
 
 public class SnowPea implements Plant, Attack, Shooter {
     private String name = "Snow pea";

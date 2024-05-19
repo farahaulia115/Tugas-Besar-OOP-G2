@@ -1,6 +1,6 @@
-package Plant;
-import Map.*;
-import Thread.Time;
+package tubes.maven.Plant;
+import tubes.maven.Map.*;
+import tubes.maven.Thread.Time;
 
 public class Squash implements Plant, Attack, SelfDestruct {
     private String name = "Squash";

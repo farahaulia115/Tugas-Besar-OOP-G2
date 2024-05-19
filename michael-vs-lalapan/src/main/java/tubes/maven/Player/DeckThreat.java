@@ -1,8 +1,8 @@
-package Player;
+package tubes.maven.Player;
 
 import java.util.ArrayList;
 
-import Thread.Time;
+import tubes.maven.Thread.Time;
 
 public class DeckThreat implements Runnable{
     private static DeckThreat deckThreat;

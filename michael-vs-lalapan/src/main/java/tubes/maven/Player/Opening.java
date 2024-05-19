@@ -1,6 +1,6 @@
-package Player;
-import Zombie.*;
-import Plant.*;
+package tubes.maven.Player;
+import tubes.maven.Zombie.*;
+import tubes.maven.Plant.*;
 /**
  * Opening
  */
@@ -41,7 +41,6 @@ public class Opening {
         
     public void help(){
         System.out.println("Help");
-        System.out.println("====");
     }
 
     public void plantsList() {

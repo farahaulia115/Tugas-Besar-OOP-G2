@@ -1,9 +1,9 @@
-package Thread;
+package tubes.maven.Thread;
 
 import java.util.Random;
 
-import Player.Game;
-import Player.Sun;
+import tubes.maven.Player.Game;
+import tubes.maven.Player.Sun;
 
 public class Time implements Runnable {
     private static Time instance;

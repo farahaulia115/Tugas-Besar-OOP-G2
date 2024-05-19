@@ -1,4 +1,4 @@
-package Exception;
+package tubes.maven.Exception;
 
 public class NotShovelableException extends Exception {
     public NotShovelableException(){

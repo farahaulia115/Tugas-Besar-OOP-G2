@@ -1,5 +1,5 @@
-package Zombie;
-import Thread.Time;
+package tubes.maven.Zombie;
+import tubes.maven.Thread.Time;
 
 public class FootballZombie implements Zombie{
     private String name = "Football Zombie";

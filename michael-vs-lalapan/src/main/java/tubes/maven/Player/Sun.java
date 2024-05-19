@@ -1,5 +1,5 @@
 
-package Player;
+package tubes.maven.Player;
 public class Sun {
     private static int amount;
 

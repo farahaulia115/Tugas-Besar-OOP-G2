@@ -1,6 +1,6 @@
-package Plant;
+package tubes.maven.Plant;
 
-import Map.*;
+import tubes.maven.Map.*;
 
 public interface SelfDestruct {
     void selfDestruct(Tile tile);

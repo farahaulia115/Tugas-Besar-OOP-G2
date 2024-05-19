@@ -1,4 +1,4 @@
-package Player;
+package tubes.maven.Player;
 
 public class ASCIIart {
     public static void piala(){

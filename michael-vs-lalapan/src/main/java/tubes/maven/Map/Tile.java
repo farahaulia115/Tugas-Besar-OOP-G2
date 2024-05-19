@@ -1,11 +1,11 @@
-package Map;
-import Plant.*;
-import Zombie.*;
+package tubes.maven.Map;
+import tubes.maven.Plant.*;
+import tubes.maven.Zombie.*;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import Exception.NotPlantableException;
-import Exception.NotShovelableException;
+import tubes.maven.Exception.NotPlantableException;
+import tubes.maven.Exception.NotShovelableException;
 
 public class Tile {
     private Plant planted;
