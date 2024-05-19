@@ -5,17 +5,20 @@ import Main.Game;
 import Main.Opening;
 import Main.SpawnZombie;
 import Main.Sun;
+import Map.Map;
+import Plant.Tallnut;
 import Thread.Row1EntityThread;
 import Thread.Row2EntityThread;
 import Thread.Row3EntityThread;
 import Thread.Row4EntityThread;
 import Thread.Row5EntityThread;
 import Thread.Row6EntityThread;
+import Exception.NotPlantableException;
 import Exception.NotShovelableException;
 import Input.InputHandler;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException, NotShovelableException {
+    public static void main(String[] args) throws InterruptedException, NotShovelableException, NotPlantableException {
         String red = "\u001B[31m";       // Kode ANSI untuk warna merah
         String reset = "\u001B[0m";     // Kode ANSI untuk mereset warna
         String brown = "\u001B[33m";    // Kode ANSI untuk warna coklat
@@ -287,6 +290,35 @@ public class Main {
                             }
                             Game.setStatusGame(false);
                             Game.resetGame();   
+                            break;
+                        case 555555:
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
+                            Sun.increaseSun(10000);
+                            break;
+                        case 111111:
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
+                            for (int i = 0; i < 6; i++) {
+                                try {
+                                game.getMap().tanamAt(i, 0, new Tallnut());
+                                } catch (Exception e){
+                                    System.out.println(e.getMessage());
+                                }
+                            }
+                            break;
+                        case 131313:
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
+                            Map.getMapInstance().resetZombieInMap();
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 10; j++) {
+                                    Map.getMapInstance().getMapDetail()[i][j].getZombieList().clear();
+                                }
+                            }
                             break;
                         default:
                             if (Game.getStatusGame() == false) {
