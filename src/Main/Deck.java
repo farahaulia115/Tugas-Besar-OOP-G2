@@ -85,20 +85,26 @@ public class Deck {
     }
     
 
-    public void showDeckStatus(){
+    public void showDeckStatus() {
         int i = 1;
-        System.out.println("Deck Status");
-        System.out.println("Plant Name   ReadyToPlant   Cost");
-        if (!deck.isEmpty()){
-            for (Plant p: deck){
-                System.out.println(i + " ." + deck.get(i-1).getName() + "  " + DeckThreat.getDeckThreatInstance(this).getDeckStatus().get(i-1).isReadyToPlant() + " " + deck.get(i-1).getCost());
+        System.out.println("+----------------------+-------+--------+");
+        System.out.println("|      Deck Status     |       |        |");
+        System.out.println("+----------------------+-------+--------+");
+        System.out.println("| Plant Name           | Ready | Cost   |");
+        System.out.println("+----------------------+-------+--------+");
+        if (!deck.isEmpty()) {
+            for (Plant p : deck) {
+                System.out.println(String.format("| %-20s | %-5s | %-6d |", 
+                    deck.get(i-1).getName(), 
+                    DeckThreat.getDeckThreatInstance(this).getDeckStatus().get(i-1).isReadyToPlant(), 
+                    deck.get(i-1).getCost()));
                 i++;
             }
         } else {
-            System.out.println("Deck is empty");
+            System.out.println("|                Deck is empty                |");
         }
-    
-    }
+        System.out.println("+----------------------+-------+--------+");
+    }   
 
     public void resetDeck(){
         deck.clear();
