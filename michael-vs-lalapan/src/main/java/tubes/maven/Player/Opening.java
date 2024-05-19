@@ -41,6 +41,7 @@ public class Opening {
         
     public void help(){
         System.out.println("Help");
+        System.out.println("====");
     }
 
     public void plantsList() {
