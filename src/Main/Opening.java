@@ -92,7 +92,6 @@ public class Opening {
         System.out.println(yellow + "=".repeat(143) + reset);
         System.out.println();
         informasiNormalZombie();
-        System.out.println(red + "-".repeat(143) + reset);
         informasiConeheadZombie();
         System.out.println(red + "-".repeat(143) + reset);
         informasiBucketheadZombie();
