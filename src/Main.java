@@ -121,7 +121,7 @@ public class Main {
                         try {
                             game.getInventory().addPlantToDeck(i);
                             System.out.println("Add deck success");
-                        } catch (IllegalArgumentException e) {
+                        } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
                         
@@ -144,7 +144,7 @@ public class Main {
                         try {
                             game.startGame();
                             gameInventory = false;
-                            Sun.increaseSun(25);
+                            Sun.increaseSun(50);
                         } catch (IllegalArgumentException e) {
                             System.out.println(e.getMessage());
                         }
@@ -232,18 +232,17 @@ public class Main {
                             if (Game.getStatusGame() == false) {
                                 break;
                             }
-                            System.out.println("Choose plant to plant");
+                            
                             game.getDeck().showDeck();
-                            int choose4 = InputHandler.getIntInput("Choose :");
+                            
+                            int [] choose4 = InputHandler.getThreeIntInput("Choose plant to plant, row, and column to plant :");
                             try {
-                                game.getDeck().pilihTanaman(choose4-1);
+                                game.getDeck().pilihTanaman(choose4[0]-1);
                                 System.out.println("Plant ready");
-                                int row = InputHandler.getIntInput("Choose row to plant :");
-                                int column = InputHandler.getIntInput("Choose column to plant :");
                                 try {
-                                    game.getDeck().tanam(choose4-1, row-1, column-1);
-                                    System.out.println("Plant " + game.getDeck().getDeck().get(choose4-1).getName() + " has been planted");
-                                    Sun.decreaseSun(game.getDeck().getDeck().get(choose4-1).getCost());
+                                    game.getDeck().tanam(choose4[0]-1, choose4[1]-1, choose4[2]-1);
+                                    System.out.println("Plant " + game.getDeck().getDeck().get(choose4[0]-1).getName() + " has been planted");
+                                    Sun.decreaseSun(game.getDeck().getDeck().get(choose4[0]-1).getCost());
                                 } catch (IllegalArgumentException e) {
                                     System.out.println(e.getMessage()); 
                                 } catch (IllegalStateException e) {
@@ -260,16 +259,17 @@ public class Main {
                             if (Game.getStatusGame() == false) {
                                 break;
                             }
-                            int row2 = InputHandler.getIntInput("Choose row to remove plant :");
-                            int column2 = InputHandler.getIntInput("Choose column to remove plant :");
+                            int[] choose5 = InputHandler.getTwoIntInput("Choose row and column to remove plant :");
                             try{
-                                game.getDeck().gali(row2-1, column2-1);
+                                game.getDeck().gali(choose5[0]-1, choose5[1]-1);
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
                             }
                             catch (NotShovelableException e) {
                                 System.out.println(e.getMessage());
                             }
+                            
+                            
                             // remove plant
                             break;
                         case 5:

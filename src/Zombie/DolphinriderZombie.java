@@ -13,7 +13,7 @@ public class DolphinriderZombie implements Zombie, CanJump {
     private int y;
     private boolean jumped;
     private boolean slowed = false;
-    private int moveInterval = 5;
+    private int moveInterval = 10;
     private int timeSlowed;
     private int slowDuration = 3;
 
@@ -117,7 +117,7 @@ public class DolphinriderZombie implements Zombie, CanJump {
     public void slowEffect() {
         while (!slowed) {
             speed = 2;
-            moveInterval = 10;
+            moveInterval = 20;
             timeSlowed = Time.getTime().getTotalSeconds();
             slowed = true;
         }
@@ -127,7 +127,7 @@ public class DolphinriderZombie implements Zombie, CanJump {
     public void checkSlowEffect() {
         if (slowed && Time.getTime().getTotalSeconds() - timeSlowed >= slowDuration) {
             speed = 1;
-            moveInterval = 5;
+            moveInterval = 10;
             slowed = false; 
         }
     }
