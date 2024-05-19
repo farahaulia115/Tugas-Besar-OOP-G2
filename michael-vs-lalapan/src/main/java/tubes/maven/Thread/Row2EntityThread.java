@@ -1,11 +1,11 @@
-package tubes.maven.Thread;
-import tubes.maven.Map.*;
-import tubes.maven.Plant.Attack;
-import tubes.maven.Plant.ProduceSun;
-import tubes.maven.Plant.SelfDestruct;
-import tubes.maven.Plant.SnowPea;
-import tubes.maven.Zombie.CanJump;
-import tubes.maven.Zombie.Zombie;
+package Thread;
+import Map.*;
+import Plant.Attack;
+import Plant.ProduceSun;
+import Plant.SelfDestruct;
+import Plant.SnowPea;
+import Zombie.CanJump;
+import Zombie.Zombie;
 
 public class Row2EntityThread implements Runnable{
     public void run(){

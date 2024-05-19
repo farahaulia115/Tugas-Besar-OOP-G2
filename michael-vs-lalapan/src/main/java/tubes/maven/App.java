@@ -1,22 +1,22 @@
-package tubes.maven;
 
-import tubes.maven.Player.DeckThreat;
-import tubes.maven.Player.Game;
-import tubes.maven.Player.Opening;
-import tubes.maven.Player.SpawnZombie;
-import tubes.maven.Player.Sun;
-import tubes.maven.Map.Map;
-import tubes.maven.Plant.Lilypad;
-import tubes.maven.Plant.Tallnut;
-import tubes.maven.Thread.Row1EntityThread;
-import tubes.maven.Thread.Row2EntityThread;
-import tubes.maven.Thread.Row3EntityThread;
-import tubes.maven.Thread.Row4EntityThread;
-import tubes.maven.Thread.Row5EntityThread;
-import tubes.maven.Thread.Row6EntityThread;
-import tubes.maven.Exception.NotPlantableException;
-import tubes.maven.Exception.NotShovelableException;
-import tubes.maven.Input.InputHandler;
+
+import Player.DeckThreat;
+import Player.Game;
+import Player.Opening;
+import Player.SpawnZombie;
+import Player.Sun;
+import Map.Map;
+import Plant.Lilypad;
+import Plant.Tallnut;
+import Thread.Row1EntityThread;
+import Thread.Row2EntityThread;
+import Thread.Row3EntityThread;
+import Thread.Row4EntityThread;
+import Thread.Row5EntityThread;
+import Thread.Row6EntityThread;
+import Exception.NotPlantableException;
+import Exception.NotShovelableException;
+import Input.InputHandler;
 
 public class App {
     public static void main(String[] args) throws InterruptedException, NotShovelableException, NotPlantableException {

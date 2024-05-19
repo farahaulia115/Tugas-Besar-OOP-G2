@@ -1,4 +1,4 @@
-package tubes.maven.Zombie;
+package Zombie;
 public interface CanJump {
     public void jump();
     public boolean alreadyJumped();

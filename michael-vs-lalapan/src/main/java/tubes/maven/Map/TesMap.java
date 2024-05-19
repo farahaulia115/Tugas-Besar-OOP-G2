@@ -1,10 +1,10 @@
-package tubes.maven.Map;
-import tubes.maven.Exception.NotPlantableException;
-import tubes.maven.Exception.NotShovelableException;
-import tubes.maven.Plant.Lilypad;
-import tubes.maven.Plant.Repeater;
-import tubes.maven.Plant.Squash;
-import tubes.maven.Plant.Wallnut;
+package Map;
+import Exception.NotPlantableException;
+import Exception.NotShovelableException;
+import Plant.Lilypad;
+import Plant.Repeater;
+import Plant.Squash;
+import Plant.Wallnut;
 
 public class TesMap {
     public static void main(String[] args) {

@@ -1,5 +1,5 @@
-package tubes.maven.Plant;
-import tubes.maven.Map.Tile;
+package Plant;
+import Map.Tile;
 
 public interface Shooter {
     void startAttack(Tile tile);

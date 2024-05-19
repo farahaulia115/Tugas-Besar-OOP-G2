@@ -1,6 +1,6 @@
-package tubes.maven.Player;
+package Player;
 
-import tubes.maven.Plant.Plant;
+import Plant.Plant;
 
 public class StatusDeck {
     private boolean readyToPlant;

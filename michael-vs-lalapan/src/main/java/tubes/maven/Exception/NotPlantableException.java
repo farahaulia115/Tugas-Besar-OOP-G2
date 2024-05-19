@@ -1,4 +1,4 @@
-package tubes.maven.Exception;
+package Exception;
 
 public class NotPlantableException extends Exception {
     public NotPlantableException(){

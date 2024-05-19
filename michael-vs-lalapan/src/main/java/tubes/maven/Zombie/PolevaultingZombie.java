@@ -1,6 +1,6 @@
-package tubes.maven.Zombie;
-import tubes.maven.Map.*;
-import tubes.maven.Thread.Time;
+package Zombie;
+import Map.*;
+import Thread.Time;
 
 public class PolevaultingZombie implements Zombie {
     private String name = "Pole Vaulting Zombie";

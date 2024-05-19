@@ -1,6 +1,6 @@
-package tubes.maven.Player;
-import tubes.maven.Zombie.*;
-import tubes.maven.Plant.*;
+package Player;
+import Zombie.*;
+import Plant.*;
 /**
  * Opening
  */

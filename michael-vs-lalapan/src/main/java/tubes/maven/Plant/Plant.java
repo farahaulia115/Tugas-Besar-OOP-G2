@@ -1,4 +1,4 @@
-package tubes.maven.Plant;
+package Plant;
 
 public interface Plant {
     String getName();

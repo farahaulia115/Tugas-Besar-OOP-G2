@@ -1,6 +1,6 @@
-package tubes.maven.Map;
-import tubes.maven.Exception.NotPlantableException;
-import tubes.maven.Plant.*;
+package Map;
+import Exception.NotPlantableException;
+import Plant.*;
 public class Land extends Tile {
     @Override
     public void tanam(Plant plant) throws NotPlantableException{

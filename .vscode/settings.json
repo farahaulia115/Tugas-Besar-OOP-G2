@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "src",
+        "michael-vs-lalapan/src/main/java/tubes/maven"
+    ]
+}

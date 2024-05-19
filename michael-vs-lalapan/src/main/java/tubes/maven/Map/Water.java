@@ -1,7 +1,7 @@
-package tubes.maven.Map;
-import tubes.maven.Exception.NotPlantableException;
-import tubes.maven.Exception.NotShovelableException;
-import tubes.maven.Plant.*;
+package Map;
+import Exception.NotPlantableException;
+import Exception.NotShovelableException;
+import Plant.*;
 
 public class Water extends Tile {
     private boolean diTanamLilypad = false;

@@ -1,8 +1,8 @@
-package tubes.maven.Player;
+package Player;
 
 import java.util.ArrayList;
 
-import tubes.maven.Plant.*;
+import Plant.*;
 
 public class Inventory {
     private ArrayList<Plant> inventory;

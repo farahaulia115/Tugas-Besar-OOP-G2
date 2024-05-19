@@ -1,5 +1,5 @@
-package tubes.maven.Plant;
-import tubes.maven.Map.*;
+package Plant;
+import Map.*;
 
 public interface Attack {
     void attack(Tile tile);

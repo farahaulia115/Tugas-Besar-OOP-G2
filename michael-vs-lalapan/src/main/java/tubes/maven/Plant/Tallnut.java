@@ -1,6 +1,6 @@
-package tubes.maven.Plant;
+package Plant;
 
-import tubes.maven.Thread.Time;
+import Thread.Time;
 
 public class Tallnut implements Plant {
     private String name = "Tall nut";

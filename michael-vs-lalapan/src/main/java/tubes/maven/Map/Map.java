@@ -1,9 +1,9 @@
-package tubes.maven.Map;
+package Map;
 
-import tubes.maven.Exception.NotPlantableException;
-import tubes.maven.Plant.Plant;
-import tubes.maven.Zombie.CanJump;
-import tubes.maven.Zombie.Zombie;
+import Exception.NotPlantableException;
+import Plant.Plant;
+import Zombie.CanJump;
+import Zombie.Zombie;
 
 public class Map{
     private static Map map;
