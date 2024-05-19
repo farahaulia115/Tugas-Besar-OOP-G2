@@ -6,6 +6,7 @@ import Main.Opening;
 import Main.SpawnZombie;
 import Main.Sun;
 import Map.Map;
+import Plant.Lilypad;
 import Plant.Tallnut;
 import Thread.Row1EntityThread;
 import Thread.Row2EntityThread;
@@ -119,8 +120,9 @@ public class Main {
                         // swap inventory
                         break;
                     case 5:
-                        System.out.print("Add deck index : ");
                         game.getInventory().showInventory();
+                        System.out.println();
+                        System.out.print("Add deck index : ");
                         int i = InputHandler.getIntInput();
                         try {
                             game.getInventory().addPlantToDeck(i);
@@ -303,11 +305,17 @@ public class Main {
                             }
                             for (int i = 0; i < 6; i++) {
                                 try {
-                                game.getMap().tanamAt(i, 0, new Tallnut());
-                                } catch (Exception e){
+                                if (i == 2 || i == 3) {
+                                    game.getMap().tanamAt(i, 5, new Lilypad());
+                                    game.getMap().tanamAt(i, 5, new Tallnut());
+                                } else {
+                                    game.getMap().tanamAt(i, 5, new Tallnut());
+                                }
+                                } catch (Exception e) {
                                     System.out.println(e.getMessage());
                                 }
                             }
+                        
                             break;
                         case 131313:
                             if (Game.getStatusGame() == false) {
