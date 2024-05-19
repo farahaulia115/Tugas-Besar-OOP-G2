@@ -5,7 +5,6 @@ import Plant.Lilypad;
 import Plant.Repeater;
 import Plant.Squash;
 import Plant.Wallnut;
-import Zombie.*;
 
 public class TesMap {
     public static void main(String[] args) {

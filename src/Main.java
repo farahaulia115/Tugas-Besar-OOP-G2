@@ -133,7 +133,7 @@ public class Main {
                         try {
                             game.getInventory().deletePlantFromDeck(index-1);
                             System.out.println("Delete deck success");
-                        } catch (IllegalArgumentException e) {
+                        } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
                         
@@ -145,13 +145,14 @@ public class Main {
                             game.startGame();
                             gameInventory = false;
                             Sun.increaseSun(50);
-                        } catch (IllegalArgumentException e) {
+                        } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
 
                         break;
                     case 8:
                         gameInventory = false;
+                        Game.resetGame();
                         break;
                     default:
                         System.out.println("Invalid input");
