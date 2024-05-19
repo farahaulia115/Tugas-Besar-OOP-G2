@@ -28,6 +28,10 @@ public class DeckThreat implements Runnable{
         return deckThreat;
     }
 
+    public static void resetDeckThreat(){
+        deckThreat = null;
+    }
+
     @Override
     public void run() {
             for (StatusDeck statusDeck : deckStatus) {

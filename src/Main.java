@@ -167,7 +167,7 @@ public class Main {
                 Thread thread = new Thread(() -> {
                     try {
                         while (Game.getStatusGame()) {
-                        Thread deckThreat = new Thread(DeckThreat.getDeckThreatInstance(game.getDeck() ));
+                        Thread deckThreat = new Thread(DeckThreat.getDeckThreatInstance(game.getDeck()));
                         deckThreat.start();
                         Thread timeThread = new Thread(game.getTime());
                         timeThread.start();

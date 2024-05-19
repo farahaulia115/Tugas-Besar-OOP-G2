@@ -84,6 +84,7 @@ public class Game {
         inventory.resetInventory();
         deck.resetDeck();
         Sun.resetSun();
+        DeckThreat.resetDeckThreat();
     }
 
     
