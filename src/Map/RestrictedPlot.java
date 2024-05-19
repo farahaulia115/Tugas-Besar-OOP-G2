@@ -1,4 +1,6 @@
 package Map;
+import Exception.NotPlantableException;
+import Exception.NotShovelableException;
 import Plant.*;
 public class RestrictedPlot extends Tile{
 

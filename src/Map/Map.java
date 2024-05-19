@@ -1,5 +1,6 @@
 package Map;
 
+import Exception.NotPlantableException;
 import Plant.Plant;
 import Zombie.CanJump;
 import Zombie.Zombie;

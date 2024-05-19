@@ -1,4 +1,4 @@
-package Map;
+package Exception;
 
 public class NotPlantableException extends Exception {
     public NotPlantableException(){

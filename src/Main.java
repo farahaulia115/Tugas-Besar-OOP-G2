@@ -5,13 +5,13 @@ import Main.Game;
 import Main.Opening;
 import Main.SpawnZombie;
 import Main.Sun;
-import Map.NotShovelableException;
 import Thread.Row1EntityThread;
 import Thread.Row2EntityThread;
 import Thread.Row3EntityThread;
 import Thread.Row4EntityThread;
 import Thread.Row5EntityThread;
 import Thread.Row6EntityThread;
+import Exception.NotShovelableException;
 import Input.InputHandler;
 
 public class Main {

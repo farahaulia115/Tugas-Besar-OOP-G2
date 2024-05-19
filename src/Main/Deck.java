@@ -3,9 +3,9 @@ package Main;
 import java.util.ArrayList;
 import java.util.List;
 
+import Exception.NotPlantableException;
+import Exception.NotShovelableException;
 import Map.Map;
-import Map.NotPlantableException;
-import Map.NotShovelableException;
 import Plant.Plant;
 import Thread.Time;
 

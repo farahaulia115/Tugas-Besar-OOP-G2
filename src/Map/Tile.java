@@ -4,6 +4,9 @@ import Zombie.*;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import Exception.NotPlantableException;
+import Exception.NotShovelableException;
+
 public class Tile {
     private Plant planted;
     private boolean adaTanaman;

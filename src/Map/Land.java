@@ -1,4 +1,5 @@
 package Map;
+import Exception.NotPlantableException;
 import Plant.*;
 public class Land extends Tile {
     @Override

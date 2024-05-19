@@ -1,4 +1,4 @@
-package Map;
+package Exception;
 
 public class NotShovelableException extends Exception {
     public NotShovelableException(){
