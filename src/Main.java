@@ -121,7 +121,7 @@ public class Main {
                         try {
                             game.getInventory().addPlantToDeck(i);
                             System.out.println("Add deck success");
-                        } catch (IllegalArgumentException e) {
+                        } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
                         
