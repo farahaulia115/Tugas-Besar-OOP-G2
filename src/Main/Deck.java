@@ -68,8 +68,8 @@ public class Deck {
         DeckThreat deckThreat = DeckThreat.getDeckThreatInstance(this);
         if (x < 0 || x >= 6 || y < 1 || y >= 10) {
             throw new IllegalArgumentException("Index out of bounds");
-        } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
-            throw new IllegalStateException("There is already a plant in this plot");
+        // } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
+        //     throw new IllegalStateException("There is already a plant in this plot");
         } else {
             PlantFactory pabrik = new PlantFactory();
             Plant plant = pabrik.createPlant(deck.get(i).getName());
