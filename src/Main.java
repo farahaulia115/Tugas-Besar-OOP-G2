@@ -238,6 +238,9 @@ public class Main {
                             
                             int [] choose4 = InputHandler.getThreeIntInput("Choose plant to plant, row, and column to plant :");
                             try {
+                                if (Game.getStatusGame() == false) {
+                                    break;
+                                }
                                 game.getDeck().pilihTanaman(choose4[0]-1);
                                 System.out.println("Plant ready");
                                 try {
@@ -262,6 +265,9 @@ public class Main {
                             }
                             int[] choose5 = InputHandler.getTwoIntInput("Choose row and column to remove plant :");
                             try{
+                                if (Game.getStatusGame() == false) {
+                                    break;
+                                }
                                 game.getDeck().gali(choose5[0]-1, choose5[1]-1);
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
@@ -274,6 +280,7 @@ public class Main {
                             // remove plant
                             break;
                         case 5:
+                        
                             if (Game.getStatusGame() == false) {
                                 break;
                             }
