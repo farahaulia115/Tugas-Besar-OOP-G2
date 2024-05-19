@@ -6,11 +6,17 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "tubes.maven.App",
+            "projectName": "michael-vs-lalapan"
+        },
+        {
+            "type": "java",
             "name": "Launch Java Program",
             "request": "launch",
             "mainClass": ""
         },
-
         {
             "type": "java",
             "name": "Current File",

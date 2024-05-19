@@ -10,6 +10,11 @@ public class SpawnZombie implements Runnable {
 
     @Override
     public void run() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println("Thread SpawnZombie interrupted");
+        }
         // Check if the total seconds are within the desired range
         if (Time.getTime().getTotalSeconds() > 20 && Time.getTime().getTotalSeconds() <= 150) {
             double probabilityTile = 0.3;
