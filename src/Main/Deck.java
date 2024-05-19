@@ -7,6 +7,7 @@ import Exception.NotPlantableException;
 import Exception.NotShovelableException;
 import Map.Map;
 import Plant.Plant;
+import Plant.PlantFactory;
 import Thread.Time;
 
 public class Deck {
@@ -70,7 +71,9 @@ public class Deck {
         } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
             throw new IllegalStateException("There is already a plant in this plot");
         } else {
-            Map.getMapInstance().tanamAt(x, y, deck.get(i));
+            PlantFactory pabrik = new PlantFactory();
+            Map.getMapInstance().tanamAt(x, y,pabrik.createPlant(deck.get(i).getName()));
+            // Map.getMapInstance().tanamAt(x, y, new (deck.get(i)));
             deckThreat.getDeckStatus().get(i).setReadyToPlant(false);
         }
     }
