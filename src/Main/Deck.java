@@ -52,7 +52,7 @@ public class Deck {
                 
                 DeckThreat deckThreat = DeckThreat.getDeckThreatInstance(this);
                 if (deckThreat.getDeckStatus().get(i).isReadyToPlant()) {
-                    deckThreat.getDeckStatus().get(i).setReadyToPlant(false);
+                
                     deckThreat.getDeckStatus().get(i).setLastTimeCreated(Time.getTime().getTotalSeconds());
                 } else {
                     throw new IllegalStateException("Plant is not ready to plant, need to wait " + (deckThreat.getDeckStatus().get(i).getLastTimeCreated() + 5 - Time.getTime().getTotalSeconds()) + " seconds");
@@ -64,12 +64,14 @@ public class Deck {
     }
 
     public void tanam(int i, int x, int y) throws IllegalArgumentException, IllegalStateException, NotPlantableException {
+        DeckThreat deckThreat = DeckThreat.getDeckThreatInstance(this);
         if (x < 0 || x >= 6 || y < 1 || y >= 10) {
             throw new IllegalArgumentException("Index out of bounds");
         } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
             throw new IllegalStateException("There is already a plant in this plot");
         } else {
             Map.getMapInstance().tanamAt(x, y, deck.get(i));
+            deckThreat.getDeckStatus().get(i).setReadyToPlant(false);
         }
     }
     
