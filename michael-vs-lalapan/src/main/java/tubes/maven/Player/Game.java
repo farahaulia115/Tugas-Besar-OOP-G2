@@ -2,6 +2,7 @@
 package tubes.maven.Player;
 
 import tubes.maven.Map.*;
+import tubes.maven.Thread.DeckThreat;
 import tubes.maven.Thread.Time; 
 
 public class Game {

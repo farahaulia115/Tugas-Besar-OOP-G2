@@ -1,9 +1,8 @@
-package tubes.maven.Player;
+package tubes.maven.Thread;
 
 import java.util.Random;
 
 import tubes.maven.Map.Map;
-import tubes.maven.Thread.Time;
 import tubes.maven.Zombie.Zombie;
 import tubes.maven.Zombie.ZombieFactory;
 

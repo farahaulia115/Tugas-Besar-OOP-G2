@@ -7,6 +7,7 @@ import tubes.maven.Exception.NotPlantableException;
 import tubes.maven.Exception.NotShovelableException;
 import tubes.maven.Map.*;
 import tubes.maven.Plant.*;
+import tubes.maven.Thread.DeckThreat;
 import tubes.maven.Thread.Time;
 
 public class Deck {

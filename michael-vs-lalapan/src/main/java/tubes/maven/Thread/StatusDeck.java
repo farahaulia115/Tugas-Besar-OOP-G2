@@ -1,4 +1,4 @@
-package tubes.maven.Player;
+package tubes.maven.Thread;
 
 import tubes.maven.Plant.Plant;
 

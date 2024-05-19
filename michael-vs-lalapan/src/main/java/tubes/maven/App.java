@@ -1,9 +1,8 @@
 package tubes.maven;
 
-import tubes.maven.Player.DeckThreat;
+import tubes.maven.Thread.DeckThreat;
 import tubes.maven.Player.Game;
 import tubes.maven.Player.Opening;
-import tubes.maven.Player.SpawnZombie;
 import tubes.maven.Player.Sun;
 import tubes.maven.Map.Map;
 import tubes.maven.Plant.Lilypad;
@@ -14,6 +13,7 @@ import tubes.maven.Thread.Row3EntityThread;
 import tubes.maven.Thread.Row4EntityThread;
 import tubes.maven.Thread.Row5EntityThread;
 import tubes.maven.Thread.Row6EntityThread;
+import tubes.maven.Thread.SpawnZombie;
 import tubes.maven.Exception.NotPlantableException;
 import tubes.maven.Exception.NotShovelableException;
 import tubes.maven.Input.InputHandler;
