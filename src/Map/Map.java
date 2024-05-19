@@ -114,85 +114,51 @@ public class Map{
         System.out.println();
     }
 
-    public void renderMap3(){
-        for (int i = 0; i<=5;i++){
-            for (int j = 0; j<=10;j++){
-                if (i == 2 || i == 3){
-                    if (j == 0){
-                        System.out.printf(pink + "[" + reset);
-                    } else if (j == 10){
-                        System.out.printf(cream + "[" + reset);
-                    } else {
-                        System.out.printf(blue + "[" + reset);
-                    }
-                    
-                    if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size()>0){
-                        if (mapdetail[i][j].isAdaTanaman()){
-                            System.out.printf("P:" + mapdetail[i][j].getPlant().getHealth() + " ");
-                        }
-                        if (mapdetail[i][j].getZombieList().size()>0){
-                            for (Zombie z : mapdetail[i][j].getZombieList()) {
-                                if (z instanceof CanJump){
-                                    if (!((CanJump)z).alreadyJumped()) System.out.printf("J");
-                                }
-                                System.out.printf("Z:" + z.getHealth() + " ");
-                            }      
-                        }
-                    }
-                    else{
-                        System.out.printf(" ");
-                    }
-
-                    if (j == 0){
-                        System.out.printf(pink + "]" + reset);
-                    } else if (j == 10){
-                        System.out.printf(cream + "]" + reset);
-                    } else {
-                        System.out.printf(blue + "]" + reset);
-                    }
-
-
-
+    public void renderMap3() {
+        for (int i = 0; i <= 5; i++) {
+            for (int j = 0; j <= 10; j++) {
+                StringBuilder tileContent = new StringBuilder();
+                String colorStart, colorEnd;
+    
+                // Determine color based on row and column
+                if (i == 2 || i == 3) {
+                    colorStart = (j == 0) ? pink : (j == 10) ? cream : blue;
+                    colorEnd = colorStart;
                 } else {
-                    if (j == 0){
-                        System.out.printf(pink + "[" + reset);
-                    } else if (j == 10){
-                        System.out.printf(cream + "[" + reset);
-                    } else {
-                        System.out.printf(green + "[" + reset);
+                    colorStart = (j == 0) ? pink : (j == 10) ? cream : green;
+                    colorEnd = colorStart;
+                }
+    
+                // Append plant and zombie information
+                if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size() > 0) {
+                    if (mapdetail[i][j].isAdaTanaman()) {
+                        tileContent.append("P:").append(mapdetail[i][j].getPlant().getHealth()).append(" ");
                     }
-
-
-                    if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size()>0){
-                        if (mapdetail[i][j].isAdaTanaman()){
-                            System.out.printf("P:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                    if (mapdetail[i][j].getZombieList().size() > 0) {
+                        for (Zombie z : mapdetail[i][j].getZombieList()) {
+                            if (z instanceof CanJump && !((CanJump) z).alreadyJumped()) {
+                                tileContent.append("J");
+                            }
+                            tileContent.append("Z:").append(z.getHealth()).append(" ");
                         }
-                        if (mapdetail[i][j].getZombieList().size()>0){
-                            for (Zombie z : mapdetail[i][j].getZombieList()) {
-                                if (z instanceof CanJump){
-                                    if (!((CanJump)z).alreadyJumped()) System.out.printf("J");
-                                }
-                                System.out.printf("Z:" + z.getHealth() + " ");
-                            }      
-                        }
-                    }
-                    else{
-                        System.out.printf(" ");
-                    }
-                    if (j == 0){
-                        System.out.printf(pink + "]" + reset);
-                    } else if (j == 10){
-                        System.out.printf(cream + "]" + reset);
-                    } else {
-                        System.out.printf(green + "]" + reset);
                     }
                 }
-                
-                
+    
+                // Ensure the content fits within 11 characters (leaving 2 characters for the brackets)
+                String content = tileContent.toString();
+                if (content.length() > 11) {
+                    content = content.substring(0, 10) + "…"; // Truncate and add ellipsis if too long
+                }
+    
+                // Format the tile to ensure it has 11 characters, including the brackets
+                String tile = String.format("%s[%-11s]%s", colorStart, content, reset);
+    
+                // Print the tile
+                System.out.print(tile);
             }
             System.out.println();
         }
-    }
+    }    
 
 
 
