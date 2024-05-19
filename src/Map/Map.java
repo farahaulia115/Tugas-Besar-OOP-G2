@@ -78,12 +78,7 @@ public class Map{
     }
     
     public void tanamAt(int x, int y, Plant plant) throws NotPlantableException{
-        try{
             mapdetail[x][y].tanam(plant);
-        }
-        catch (NotPlantableException e){
-            throw new NotPlantableException();
-        }
     }
 
     public void renderMap(){
