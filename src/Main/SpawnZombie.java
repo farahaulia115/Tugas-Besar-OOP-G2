@@ -29,13 +29,7 @@ public class SpawnZombie implements Runnable {
                     System.out.println("Zombie " +  newZombie.getName() + " spawned at " + i + ", 10");
                     Map.getMapInstance().addZombieInMap();
                 }
-                // Add a delay of 1 second between each iteration
-                // try {
-                //     Thread.sleep(1000);
-                // } catch (InterruptedException e) {
-                //     // Handle the exception if the thread is interrupted
-                //     System.err.println("Thread was interrupted: " + e.getMessage());
-                // }
+                
             }
         }
     }
