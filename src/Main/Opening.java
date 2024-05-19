@@ -115,22 +115,19 @@ public class Opening {
 
     private void printCenteredBoxedTable(String... lines) {
         int consoleWidth = 143;  // Assume the console width is 143 characters
-        int maxLineLength = 0;
-        for (String line : lines) {
-            if (line.length() > maxLineLength) {
-                maxLineLength = line.length();
-            }
-        }
-    
-        int tableWidth = maxLineLength + 4; // Padding for the box borders
+        int fixedWidth = 80;     // Fixed width for the table content
+        int tableWidth = fixedWidth + 4; // Padding for the box borders
         int paddingSize = (consoleWidth - tableWidth) / 2;
         String padding = " ".repeat(paddingSize);
-    
-        String horizontalBorder = "+" + "-".repeat(tableWidth - 2) + "+";
-    
+        
+        String horizontalBorder = "+" + "-".repeat(fixedWidth) + "+";
+        
         System.out.println(padding + horizontalBorder);
         for (String line : lines) {
-            String formattedLine = "| " + line + " ".repeat(maxLineLength - line.length()) + " |";
+            if (line.length() > fixedWidth) {
+                line = line.substring(0, fixedWidth - 3) + "..."; // Truncate if the line is too long
+            }
+            String formattedLine = "| " + line + " ".repeat(fixedWidth - line.length()) + " |";
             System.out.println(padding + formattedLine);
         }
         System.out.println(padding + horizontalBorder);
