@@ -12,15 +12,15 @@ public class Inventory {
         this.inventory = new ArrayList<>();
         deck = new Deck();
         PlantFactory pabrik = new PlantFactory();
-        inventory.add(pabrik.createPlant("SunFlower"));
-        inventory.add(pabrik.createPlant("TwinSunFlower"));
-        inventory.add(pabrik.createPlant("TangleKelp"));
+        inventory.add(pabrik.createPlant("Sunflower"));
+        inventory.add(pabrik.createPlant("Twin Sunflower"));
+        inventory.add(pabrik.createPlant("Tangle kelp"));
         inventory.add(pabrik.createPlant("Squash"));
         inventory.add(pabrik.createPlant("Peashooter"));
         inventory.add(pabrik.createPlant("Repeater"));
-        inventory.add(pabrik.createPlant("SnowPea"));
-        inventory.add(pabrik.createPlant("Tallnut"));
-        inventory.add(pabrik.createPlant("Wallnut"));
+        inventory.add(pabrik.createPlant("Snow pea"));
+        inventory.add(pabrik.createPlant("Tall nut"));
+        inventory.add(pabrik.createPlant("Wall nut"));
         inventory.add(pabrik.createPlant("Lilypad"));
     }
 
@@ -108,15 +108,15 @@ public class Inventory {
     public void resetInventory(){
         inventory.clear();
         PlantFactory pabrik = new PlantFactory();
-        inventory.add(pabrik.createPlant("SunFlower"));
-        inventory.add(pabrik.createPlant("TwinSunFlower"));
-        inventory.add(pabrik.createPlant("TangleKelp"));
+        inventory.add(pabrik.createPlant("Sunflower"));
+        inventory.add(pabrik.createPlant("Twin Sunflower"));
+        inventory.add(pabrik.createPlant("Tangle kelp"));
         inventory.add(pabrik.createPlant("Squash"));
         inventory.add(pabrik.createPlant("Peashooter"));
         inventory.add(pabrik.createPlant("Repeater"));
-        inventory.add(pabrik.createPlant("SnowPea"));
-        inventory.add(pabrik.createPlant("Tallnut"));
-        inventory.add(pabrik.createPlant("Wallnut"));
+        inventory.add(pabrik.createPlant("Snow pea"));
+        inventory.add(pabrik.createPlant("Tall nut"));
+        inventory.add(pabrik.createPlant("Wall nut"));
         inventory.add(pabrik.createPlant("Lilypad"));
     }
 

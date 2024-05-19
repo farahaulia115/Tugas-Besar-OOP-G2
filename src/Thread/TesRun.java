@@ -20,7 +20,7 @@ public class TesRun {
 
             Map.getMapInstance().getMapDetail()[0][9].getZombieList().add(new DolphinriderZombie());
             Map.getMapInstance().getMapDetail()[2][7].tanam(new TangleKelp());
-            //Map.getMapInstance().getMapDetail()[2][7].tanam(new Squash());
+            Map.getMapInstance().getMapDetail()[2][1].tanam(new SnowPea());
             Map.getMapInstance().getMapDetail()[2][9].getZombieList().add(new DolphinriderZombie());
             //Map.getMapInstance().getMapDetail()[2][7].gali();
             Map.getMapInstance().renderMap3();

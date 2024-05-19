@@ -72,7 +72,8 @@ public class Deck {
             throw new IllegalStateException("There is already a plant in this plot");
         } else {
             PlantFactory pabrik = new PlantFactory();
-            Map.getMapInstance().tanamAt(x, y,pabrik.createPlant(deck.get(i).getName()));
+            Plant plant = pabrik.createPlant(deck.get(i).getName());
+            Map.getMapInstance().tanamAt(x, y, plant);
             // Map.getMapInstance().tanamAt(x, y, new (deck.get(i)));
             deckThreat.getDeckStatus().get(i).setReadyToPlant(false);
         }
