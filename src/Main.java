@@ -117,6 +117,7 @@ public class Main {
                         break;
                     case 5:
                         System.out.print("Add deck index : ");
+                        game.getInventory().showInventory();
                         int i = InputHandler.getIntInput();
                         try {
                             game.getInventory().addPlantToDeck(i);
