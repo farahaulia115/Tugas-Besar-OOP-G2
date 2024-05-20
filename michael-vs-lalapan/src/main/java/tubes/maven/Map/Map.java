@@ -226,3 +226,4 @@ public class Map{
     //                             ((SelfDestruct) attackingPlants).selfDestruct(tile);
     //                         }
     //                         if (z.getHealth() <= 0) {
+    }
