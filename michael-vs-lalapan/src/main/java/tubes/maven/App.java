@@ -275,7 +275,7 @@ public class App {
                                 game.getDeck().pilihTanaman(choose4[0]-1);
                                 System.out.println("Plant ready");
                                 try {
-                                    game.getDeck().tanam(choose4[0]-1, choose4[1]-1, choose4[2]-1);
+                                    game.getDeck().tanam(choose4[0]-1, choose4[1]-1, choose4[2]);
                                     System.out.println("Plant " + game.getDeck().getDeck().get(choose4[0]-1).getName() + " has been planted");
                                     Sun.decreaseSun(game.getDeck().getDeck().get(choose4[0]-1).getCost());
                                 } catch (IllegalArgumentException e) {
@@ -299,7 +299,7 @@ public class App {
                                 if (Game.getStatusGame() == false) {
                                     break;
                                 }
-                                game.getDeck().gali(choose5[0]-1, choose5[1]-1);
+                                game.getDeck().gali(choose5[0]-1, choose5[1]);
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
                             }
