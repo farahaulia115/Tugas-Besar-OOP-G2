@@ -88,10 +88,12 @@ public class Repeater implements Plant, Attack, Shooter{
         return jumpable;
     }
 
+    @Override
     public void setLastAttack(int lastAttack) {
         this.lastAttack = lastAttack;
     }
 
+    @Override
     public int getlastAttack() {
         return lastAttack;
     }
