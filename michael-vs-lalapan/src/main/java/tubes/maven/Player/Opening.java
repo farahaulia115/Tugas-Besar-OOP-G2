@@ -53,14 +53,14 @@ public class Opening {
             "3. List Zombies: See the different types of zombies.",
             "4. List Plants: See the different types of plants.",
             "",
-            "-----------------------------------------------------------------------------------------------------------------------------------------------",
+            "----------------------------------------------------------------------------------------------------------------------------------------------",
             "STARTING THE GAME",
             "1. Choose at least 6 plants for your deck.",
             "2. Use Sun, the in-game currency, to plant your chosen plants.",
             "3. Each plant has different attributes such as health, cost, and cooldown.",
             "4. Defend your garden from different types of zombies.",
             "",
-            "-----------------------------------------------------------------------------------------------------------------------------------------------",
+            "----------------------------------------------------------------------------------------------------------------------------------------------",
             "GAMEPLAY TIPS",
             "1. Always keep an eye on your Sun points and spend wisely.",
             "2. Place your SunFlowers at the back to keep them safe.",
@@ -68,7 +68,7 @@ public class Opening {
             "4. Utilize plants with special abilities, like SnowPea and Squash, to handle tougher zombies.",
             "5. Remember to use plants' cooldown wisely and manage your deck efficiently.",
             "",
-            "-----------------------------------------------------------------------------------------------------------------------------------------------",
+            "----------------------------------------------------------------------------------------------------------------------------------------------",
             "Good luck and have fun defending your garden!"
         };
         
