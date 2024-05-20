@@ -39,8 +39,60 @@ public class Opening {
         }
     }    
         
-    public void help(){
-        System.out.println("Help");
+    public void help() {
+        String border = "===============================================================================================================================================";
+        String padding = " ";
+        String[] lines = {
+            "WELCOME TO PLANT VS ZOMBIES",
+            "",
+            "This game is a strategy-based game where you need to defend your garden from waves of zombies using different types of plants.",
+            "",
+            "Main Menu:",
+            "1. Start: Begin a new game.",
+            "2. Help: Display this help information.",
+            "3. List Zombies: See the different types of zombies.",
+            "4. List Plants: See the different types of plants.",
+            "",
+            "-----------------------------------------------------------------------------------------------------------------------------------------------",
+            "STARTING THE GAME",
+            "1. Choose at least 6 plants for your deck.",
+            "2. Use Sun, the in-game currency, to plant your chosen plants.",
+            "3. Each plant has different attributes such as health, cost, and cooldown.",
+            "4. Defend your garden from different types of zombies.",
+            "",
+            "-----------------------------------------------------------------------------------------------------------------------------------------------",
+            "GAMEPLAY TIPS",
+            "1. Always keep an eye on your Sun points and spend wisely.",
+            "2. Place your SunFlowers at the back to keep them safe.",
+            "3. Use Peashooters and Repeaters to create a strong defense line.",
+            "4. Utilize plants with special abilities, like SnowPea and Squash, to handle tougher zombies.",
+            "5. Remember to use plants' cooldown wisely and manage your deck efficiently.",
+            "",
+            "-----------------------------------------------------------------------------------------------------------------------------------------------",
+            "Good luck and have fun defending your garden!"
+        };
+        
+        System.out.println(border);
+        for (String line : lines) {
+            int paddingLength = (border.length() - line.length()) / 2;
+            StringBuilder paddedLine = new StringBuilder();
+            
+            paddedLine.append("*");
+            for (int i = 0; i < paddingLength - 1; i++) {
+                paddedLine.append(padding);
+            }
+            paddedLine.append(line);
+            for (int i = 0; i < paddingLength - 1; i++) {
+                paddedLine.append(padding);
+            }
+            while (paddedLine.length() < border.length() - 1) {
+                paddedLine.append(padding);
+            }
+            paddedLine.append("*");
+            
+            System.out.println(paddedLine.toString());
+        }
+        System.out.println(border);
     }
 
     public void plantsList() {
