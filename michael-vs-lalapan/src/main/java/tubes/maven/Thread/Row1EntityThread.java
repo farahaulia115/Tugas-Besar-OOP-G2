@@ -3,6 +3,7 @@ import tubes.maven.Map.*;
 import tubes.maven.Plant.Attack;
 import tubes.maven.Plant.ProduceSun;
 import tubes.maven.Plant.SelfDestruct;
+import tubes.maven.Plant.Shooter;
 import tubes.maven.Zombie.CanJump;
 import tubes.maven.Zombie.Zombie;
 
@@ -24,6 +25,10 @@ public class Row1EntityThread implements Runnable{
                             if (tileToAttack.getZombieList().size()>0){
                                 pa.startAttack(tileToAttack);
                                 break;
+                            }
+                            else if (y==9 && tileToAttack.getZombieList().size()==0){
+                                Shooter sh = (Shooter)pa;
+                                sh.setfirstAttack(true);
                             }
                         }
                     }
