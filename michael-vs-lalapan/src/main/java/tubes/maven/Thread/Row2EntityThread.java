@@ -3,7 +3,6 @@ import tubes.maven.Map.*;
 import tubes.maven.Plant.Attack;
 import tubes.maven.Plant.ProduceSun;
 import tubes.maven.Plant.SelfDestruct;
-import tubes.maven.Plant.SnowPea;
 import tubes.maven.Zombie.CanJump;
 import tubes.maven.Zombie.Zombie;
 
@@ -12,11 +11,15 @@ public class Row2EntityThread implements Runnable{
         for (int i = 1;i<=10;i++){
             Tile tile = Map.getMapInstance().getMapDetail()[1][i];
             Tile nextTile = Map.getMapInstance().getMapDetail()[1][i-1];
+            Tile nextNextTile = null;
+            if (i>=2){
+                nextNextTile = Map.getMapInstance().getMapDetail()[1][i-2];
+            }
             if (tile.isAdaTanaman()){
                 if (tile.getPlant().getHealth()>0){
                     if (tile.getPlant() instanceof Attack && tile.getPlant().getRange()==-1){
                         Attack pa = (Attack)tile.getPlant();
-                        for(int y = i;y<=10;y++){
+                        for(int y = i;y<=9;y++){
                             Tile tileToAttack = Map.getMapInstance().getMapDetail()[1][y];
                             if (tileToAttack.getZombieList().size()>0){
                                 pa.startAttack(tileToAttack);
@@ -50,9 +53,11 @@ public class Row2EntityThread implements Runnable{
                             if (!zj.alreadyJumped()){
                                 zj.jump();
                                 if (tile.getPlant().isJumpable()){
-                                    tile.plantDie();
+                                    nextTile.plantDie();
+                                    z.setTimeSpawn();
+                                    tile.getZombieList().remove(z);
+                                    nextTile.getZombieList().add(z);
                                 }
-                                z.setTimeSpawn();
                             }
                         }
                         if (tile.isAdaTanaman()){
@@ -77,12 +82,14 @@ public class Row2EntityThread implements Runnable{
                             if (!zj.alreadyJumped()){
                                 if (nextTile.isAdaTanaman()){
                                     zj.jump();
-                                    if (nextTile.getPlant().isJumpable()){
-                                        nextTile.plantDie();
+                                    if (nextTile.getPlant().isJumpable() && i>=2){
+                                       nextNextTile.plantDie();
+                                       z.setTimeSpawn();
+                                       if (i>=2){
+                                           tile.getZombieList().remove(z);
+                                           nextNextTile.getZombieList().add(z);
+                                       }
                                     }
-                                    z.setTimeSpawn();
-                                    tile.getZombieList().remove(z);
-                                    nextTile.getZombieList().add(z);
                                 }
                             }
                         }
