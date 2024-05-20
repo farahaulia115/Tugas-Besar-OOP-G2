@@ -14,6 +14,9 @@ import tubes.maven.Thread.Row4EntityThread;
 import tubes.maven.Thread.Row5EntityThread;
 import tubes.maven.Thread.Row6EntityThread;
 import tubes.maven.Thread.SpawnZombie;
+
+import java.util.Scanner;
+
 import tubes.maven.Exception.NotPlantableException;
 import tubes.maven.Exception.NotShovelableException;
 import tubes.maven.Input.InputHandler;
@@ -58,7 +61,15 @@ public class App {
                     opening.zombiesList();
                     break;
                 case 5:
-                    System.exit(0);
+                    System.out.println("Are you sure? (y/n)");
+                    Scanner scanner = new Scanner(System.in);
+                    String confirm = scanner.nextLine().trim();
+                    if (confirm.equals("y")) {
+                        System.exit(0);
+                    }
+                    else {
+                        System.out.println("Exit cancelled, returning to Menu.");
+                    }
                     break;
                 default:
                     System.out.println("Invalid input");
@@ -157,9 +168,17 @@ public class App {
 
                         break;
                     case 8:
-                        gameInventory = false;
-                        Game.resetGame();
-                        break;
+                        System.out.println("Are you sure? (y/n)");
+                        Scanner scanner = new Scanner(System.in);
+                        String confirm = scanner.nextLine().trim();
+                        if (confirm.equals("y")) {
+                            gameInventory = false;
+                            Game.resetGame();
+                            break;
+                        }
+                        else {
+                            System.out.println("Exit cancelled, returning to Menu.");
+                        }
                     default:
                         System.out.println("Invalid input");
                         break;
@@ -292,13 +311,20 @@ public class App {
                             // remove plant
                             break;
                         case 5:
-                        
                             if (Game.getStatusGame() == false) {
                                 break;
                             }
-                            Game.setStatusGame(false);
-                            Game.resetGame();   
-                            break;
+                            System.out.println("Are you sure? (y/n)");
+                            Scanner scanner = new Scanner(System.in);
+                            String confirm = scanner.nextLine().trim();
+                            if (confirm.equals("y")) {
+                                Game.setStatusGame(false);
+                                Game.resetGame();   
+                                break;
+                            }
+                            else {
+                                System.out.println("Exit cancelled, returning to Menu.");
+                            }
                         case 555555:
                             if (Game.getStatusGame() == false) {
                                 break;

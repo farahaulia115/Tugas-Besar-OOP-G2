@@ -89,6 +89,16 @@ public class Peashooter implements Plant, Attack, Shooter {
     }
 
     @Override
+    public void setLastAttack(int lastAttack) {
+        this.lastAttack = lastAttack;
+    }
+
+    @Override
+    public int getlastAttack() {
+        return lastAttack;
+    }
+
+    @Override
     public void attack(Tile tile) {
         int timeNow = Time.getTime().getTotalSeconds();
         if (timeNow - lastAttack >= attackSpeed) {
