@@ -10,12 +10,14 @@ public class TesRun {
     public static void main(String[] args) {
         try {
             Map.getMapInstance().getMapDetail()[2][8].getZombieList().add(new DolphinriderZombie());
+            Map.getMapInstance().getMapDetail()[2][2].getZombieList().add(new DolphinriderZombie());
             Map.getMapInstance().getMapDetail()[3][8].getZombieList().add(new DolphinriderZombie());
             Map.getMapInstance().getMapDetail()[3][8].tanam(new Lilypad());
             Map.getMapInstance().getMapDetail()[3][8].tanam(new Wallnut());
             Map.getMapInstance().getMapDetail()[2][7].tanam(new Lilypad());
             Map.getMapInstance().getMapDetail()[2][7].tanam(new Tallnut());
-            
+            Map.getMapInstance().getMapDetail()[2][1].tanam(new Lilypad());
+            Map.getMapInstance().getMapDetail()[2][1].tanam(new Wallnut());
             Map.getMapInstance().renderMap();
             while (true){
                 Runnable t = Time.getTime();
