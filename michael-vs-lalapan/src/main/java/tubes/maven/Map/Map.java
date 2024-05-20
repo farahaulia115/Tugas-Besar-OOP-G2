@@ -1,9 +1,8 @@
 package tubes.maven.Map;
 
 import tubes.maven.Exception.NotPlantableException;
-import tubes.maven.Plant.Plant;
-import tubes.maven.Zombie.CanJump;
-import tubes.maven.Zombie.Zombie;
+import tubes.maven.Plant.*;
+import tubes.maven.Zombie.*;
 
 public class Map{
     private static Map map;
@@ -112,47 +111,76 @@ public class Map{
     public void renderMap3() {
         for (int i = 0; i <= 5; i++) {
             for (int j = 0; j <= 10; j++) {
-                StringBuilder tileContent = new StringBuilder();
-                String colorStart, colorEnd;
-    
-                // Determine color based on row and column
-                if (i == 2 || i == 3) {
-                    colorStart = (j == 0) ? pink : (j == 10) ? cream : blue;
-                    colorEnd = colorStart;
-                } else {
-                    colorStart = (j == 0) ? pink : (j == 10) ? cream : green;
-                    colorEnd = colorStart;
-                }
-    
-                // Append plant and zombie information
+                System.out.printf("[");
                 if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size() > 0) {
                     if (mapdetail[i][j].isAdaTanaman()) {
-                        tileContent.append("P:").append(mapdetail[i][j].getPlant().getHealth()).append(" ");
+                        if (mapdetail[i][j].getPlant() instanceof SunFlower) {
+                            System.out.printf("S:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        } 
+                        else if (mapdetail[i][j].getPlant() instanceof TwinSunFlower){
+                            System.out.printf("TS:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        else if (mapdetail[i][j].getPlant() instanceof Peashooter){
+                            System.out.printf("P:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        else if (mapdetail[i][j].getPlant() instanceof Repeater){
+                            System.out.printf("R:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        else if (mapdetail[i][j].getPlant() instanceof SnowPea){
+                            System.out.printf("SP:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        else if (mapdetail[i][j].getPlant() instanceof Squash){
+                            System.out.printf("Sq:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        else if (mapdetail[i][j].getPlant() instanceof Tallnut){
+                            System.out.printf("T:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        else if (mapdetail[i][j].getPlant() instanceof Lilypad){
+                            System.out.printf("L:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        else if (mapdetail[i][j].getPlant() instanceof Wallnut){
+                            System.out.printf("W:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
+                        else if (mapdetail[i][j].getPlant() instanceof TangleKelp){
+                            System.out.printf("TK:" + mapdetail[i][j].getPlant().getHealth() + " ");
+                        }
                     }
                     if (mapdetail[i][j].getZombieList().size() > 0) {
                         for (Zombie z : mapdetail[i][j].getZombieList()) {
                             if (z instanceof CanJump && !((CanJump) z).alreadyJumped()) {
-                                tileContent.append("J");
+                                System.out.printf("J");
                             }
-                            tileContent.append("Z:").append(z.getHealth()).append(" ");
+                            if (z instanceof NormalZombie) {
+                                System.out.printf("Z:" + z.getHealth() + " ");
+                            } else if (z instanceof ConeheadZombie) {
+                                System.out.printf("CZ:" + z.getHealth() + " ");
+                            } else if (z instanceof BucketheadZombie) {
+                                System.out.printf("BZ:" + z.getHealth() + " ");
+                            } else if (z instanceof FootballZombie) {
+                                System.out.printf("FZ:" + z.getHealth() + " ");
+                            } else if (z instanceof PolevaultingZombie) {
+                                System.out.printf("PZ:" + z.getHealth() + " ");
+                            } else if (z instanceof ScreendoorZombie) {
+                                System.out.printf("SZ:" + z.getHealth() + " ");
+                            } else if (z instanceof WallnutZombie) {
+                                System.out.printf("WZ:" + z.getHealth() + " ");
+                            } else if (z instanceof DolphinriderZombie) {
+                                System.out.printf("DoZ:" + z.getHealth() + " ");
+                            } else if (z instanceof DuckytubeConeheadZombie) {
+                                System.out.printf("DCZ:" + z.getHealth() + " ");
+                            } else if (z instanceof DuckytubeZombie) {
+                                System.out.printf("DZ:" + z.getHealth() + " ");
+                            }
                         }
                     }
+                } else {
+                    System.out.printf(" ");
                 }
-    
-                // Ensure the content fits within 11 characters (leaving 2 characters for the brackets)
-                String content = tileContent.toString();
-                if (content.length() > 11) {
-                    content = content.substring(0, 10) + "…"; // Truncate and add ellipsis if too long
-                }
-    
-                // Format the tile to ensure it has 11 characters, including the brackets
-                String tile = String.format("%s[%-11s]%s", colorStart, content, reset);
-    
-                // Print the tile
-                System.out.print(tile);
+                System.out.printf("]");
             }
             System.out.println();
         }
+        System.out.println();
     }    
 
 
@@ -198,33 +226,3 @@ public class Map{
     //                             ((SelfDestruct) attackingPlants).selfDestruct(tile);
     //                         }
     //                         if (z.getHealth() <= 0) {
-    //                             tile.getZombieList().remove(z);
-    //                             removeZombieInMap();
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
-
-    public boolean zombieMenang(){
-        for (int i = 0; i<=5;i++){
-            if (mapdetail[i][0].getZombieList().size() > 0){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void resetMap(){
-        Map.getMapInstance().resetZombieInMap();
-        for (int i = 0; i<=5;i++){
-            for (int j = 0; j<=10;j++){
-                mapdetail[i][j].getZombieList().clear();
-                mapdetail[i][j].plantDie();
-            }
-        }
-    }
-}
