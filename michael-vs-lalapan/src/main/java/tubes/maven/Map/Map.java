@@ -8,12 +8,7 @@ public class Map{
     private static Map map;
     private Tile[][] mapdetail = new Tile[6][11];
     private int zombieInMap = 0;
-
-    private String green = "\u001B[32m";     // Kode ANSI untuk warna hijau
-    private String blue = "\u001B[34m";      // Kode ANSI untuk warna biru
-    private String pink = "\u001B[35m";      // Kode ANSI untuk warna pink
-    private String cream = "\u001B[33m";     // Kode ANSI untuk warna cream
-    private  String reset = "\u001B[0m";       // Kode ANSI untuk mereset warna
+    
 
     
     private Map(){
@@ -116,23 +111,22 @@ public class Map{
         final String ANSI_GREEN = "\u001B[32m";
         final String ANSI_PINK = "\u001B[35m";
         final String ANSI_CREAM = "\u001B[33m";
+        final String ANSI_PURPLE = "\u001B[35m";
     
         // Print column headers
         System.out.print("   ");
-        System.out.printf(" ");
         for (int j = 0; j <= 10; j++) {
-            
             System.out.printf(ANSI_RED + "%2d  " + ANSI_RESET, j);
         }
         System.out.println();
     
         for (int i = 0; i < 6; i++) {
-            // Print row header starting from 0 to 5
+            // Print row header starting from 1 to 6
             System.out.printf(ANSI_RED + "%2d " + ANSI_RESET, i + 1);
     
             for (int j = 0; j <= 10; j++) {
                 // Select the appropriate color for the grid
-                if ((i == 2 || i == 3) && j > 0 && j < 10) {  // Note that i == 1 represents the second row, and i == 2 represents the third row
+                if ((i == 2 || i == 3) && j > 0 && j < 10) {
                     System.out.printf(ANSI_BLUE + "[" + ANSI_RESET);
                 } else if ((i == 0 || i == 1 || i == 4 || i == 5) && j > 0 && j < 10) {
                     System.out.printf(ANSI_GREEN + "[" + ANSI_RESET);
@@ -145,25 +139,25 @@ public class Map{
                 // Add plant information if present
                 if (mapdetail[i][j].isAdaTanaman()) {
                     if (mapdetail[i][j].getPlant() instanceof SunFlower) {
-                        System.out.printf("S:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "S:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     } else if (mapdetail[i][j].getPlant() instanceof TwinSunFlower) {
-                        System.out.printf("TS:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "TS:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     } else if (mapdetail[i][j].getPlant() instanceof Peashooter) {
-                        System.out.printf("P:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "P:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     } else if (mapdetail[i][j].getPlant() instanceof Repeater) {
-                        System.out.printf("R:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "R:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     } else if (mapdetail[i][j].getPlant() instanceof SnowPea) {
-                        System.out.printf("SP:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "SP:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     } else if (mapdetail[i][j].getPlant() instanceof Squash) {
-                        System.out.printf("Sq:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "Sq:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     } else if (mapdetail[i][j].getPlant() instanceof Tallnut) {
-                        System.out.printf("T:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "T:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     } else if (mapdetail[i][j].getPlant() instanceof Lilypad) {
-                        System.out.printf("L:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "L:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     } else if (mapdetail[i][j].getPlant() instanceof Wallnut) {
-                        System.out.printf("W:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "W:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     } else if (mapdetail[i][j].getPlant() instanceof TangleKelp) {
-                        System.out.printf("TK:%d ", mapdetail[i][j].getPlant().getHealth());
+                        System.out.printf(ANSI_PURPLE + "TK:%d " + ANSI_RESET, mapdetail[i][j].getPlant().getHealth());
                     }
                 }
     
@@ -171,36 +165,36 @@ public class Map{
                 if (mapdetail[i][j].getZombieList().size() > 0) {
                     for (Zombie z : mapdetail[i][j].getZombieList()) {
                         if (z instanceof CanJump && !((CanJump) z).alreadyJumped()) {
-                            System.out.printf("J");
+                            System.out.printf(ANSI_RED + "J" + ANSI_RESET);
                         }
                         if (z instanceof NormalZombie) {
-                            System.out.printf("Z:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "Z:%d " + ANSI_RESET, z.getHealth());
                         } else if (z instanceof ConeheadZombie) {
-                            System.out.printf("CZ:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "CZ:%d " + ANSI_RESET, z.getHealth());
                         } else if (z instanceof BucketheadZombie) {
-                            System.out.printf("BZ:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "BZ:%d " + ANSI_RESET, z.getHealth());
                         } else if (z instanceof FootballZombie) {
-                            System.out.printf("FZ:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "FZ:%d " + ANSI_RESET, z.getHealth());
                         } else if (z instanceof PolevaultingZombie) {
-                            System.out.printf("PZ:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "PZ:%d " + ANSI_RESET, z.getHealth());
                         } else if (z instanceof ScreendoorZombie) {
-                            System.out.printf("SZ:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "SZ:%d " + ANSI_RESET, z.getHealth());
                         } else if (z instanceof WallnutZombie) {
-                            System.out.printf("WZ:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "WZ:%d " + ANSI_RESET, z.getHealth());
                         } else if (z instanceof DolphinriderZombie) {
-                            System.out.printf("DoZ:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "DoZ:%d " + ANSI_RESET, z.getHealth());
                         } else if (z instanceof DuckytubeConeheadZombie) {
-                            System.out.printf("DCZ:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "DCZ:%d " + ANSI_RESET, z.getHealth());
                         } else if (z instanceof DuckytubeZombie) {
-                            System.out.printf("DZ:%d ", z.getHealth());
+                            System.out.printf(ANSI_RED + "DZ:%d " + ANSI_RESET, z.getHealth());
                         }
                     }
                 } else {
-                    System.out.printf("  ");
+                    System.out.printf("   ");
                 }
     
                 // Close the bracket for the grid
-                if ((i == 3 || i == 2) && j > 0 && j < 10) {  // Note that i == 1 represents the second row, and i == 2 represents the third row
+                if ((i == 2 || i == 3) && j > 0 && j < 10) {
                     System.out.printf(ANSI_BLUE + "]" + ANSI_RESET);
                 } else if ((i == 0 || i == 1 || i == 4 || i == 5) && j > 0 && j < 10) {
                     System.out.printf(ANSI_GREEN + "]" + ANSI_RESET);
@@ -214,6 +208,7 @@ public class Map{
         }
         System.out.println();
     }
+    
     
     
 
