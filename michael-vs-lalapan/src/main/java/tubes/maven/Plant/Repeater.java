@@ -14,6 +14,7 @@ public class Repeater implements Plant, Attack, Shooter{
     private boolean jumpable = true;
     private int timeCreated;
     private int lastAttack;
+    private boolean firstAttack;
 
     public Repeater() {
         this.timeCreated = Time.getTime().getTotalSeconds();
@@ -96,6 +97,16 @@ public class Repeater implements Plant, Attack, Shooter{
     @Override
     public int getlastAttack() {
         return lastAttack;
+    }
+
+    @Override
+    public void setfirstAttack(boolean firstAttack) {
+        this.firstAttack = firstAttack;
+    }
+
+    @Override
+    public boolean getfirstAttack() {
+        return firstAttack;
     }
     
     @Override
