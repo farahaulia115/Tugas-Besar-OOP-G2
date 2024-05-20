@@ -87,6 +87,14 @@ public class Repeater implements Plant, Attack, Shooter{
     public boolean isJumpable() {
         return jumpable;
     }
+
+    public void setLastAttack(int lastAttack) {
+        this.lastAttack = lastAttack;
+    }
+
+    public int getlastAttack() {
+        return lastAttack;
+    }
     
     @Override
     public void attack(Tile tile) {

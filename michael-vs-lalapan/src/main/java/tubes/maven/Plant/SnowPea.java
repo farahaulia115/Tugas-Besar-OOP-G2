@@ -89,6 +89,14 @@ public class SnowPea implements Plant, Attack, Shooter {
         return jumpable;
     }
 
+    public void setLastAttack(int lastAttack) {
+        this.lastAttack = lastAttack;
+    }
+
+    public int getlastAttack() {
+        return lastAttack;
+    }
+
     @Override
     public void attack(Tile tile) {
         int timeNow = Time.getTime().getTotalSeconds();
