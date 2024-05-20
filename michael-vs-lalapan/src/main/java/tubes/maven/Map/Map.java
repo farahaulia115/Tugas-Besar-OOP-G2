@@ -210,20 +210,22 @@ public class Map{
         System.out.println();
     }
 
-    // public void PlantAttack() {
-    //     for (int i = 0; i <= 5; i++) {
-    //         for (int j = 1; j <= 9; i++) { 
-    //             Tile tile = mapdetail[i][j];
-    //             if (tile.isAdaTanaman() && tile.getPlant() instanceof Attack) {
-    //                 Attack attackingPlants = (Attack) tile.getPlant();
-    //                 if (!tile.getZombieList().isEmpty()) {
-    //                     for (Zombie z : tile.getZombieList()) {
-    //                         if (attackingPlants instanceof Shooter) {
-    //                             ((Shooter) attackingPlants).startAttack(tile);
-    //                         }
-    //                         if (attackingPlants instanceof SelfDestruct) {
-    //                             attackingPlants.attack(z);
-    //                             ((SelfDestruct) attackingPlants).selfDestruct(tile);
-    //                         }
-    //                         if (z.getHealth() <= 0) {
+    public boolean zombieMenang(){
+        for (int i = 0; i<=5;i++){
+            if (mapdetail[i][0].getZombieList().size() > 0){
+                return true;
+            }
+        }
+        return false;
     }
+
+    public void resetMap(){
+        Map.getMapInstance().resetZombieInMap();
+        for (int i = 0; i<=5;i++){
+            for (int j = 0; j<=10;j++){
+                mapdetail[i][j].getZombieList().clear();
+                mapdetail[i][j].plantDie();
+            }
+        }
+    }
+}
