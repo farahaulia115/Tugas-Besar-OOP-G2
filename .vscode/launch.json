@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TesRun",
+            "request": "launch",
+            "mainClass": "tubes.maven.Thread.TesRun",
+            "projectName": "michael-vs-lalapan"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "tubes.maven.App",

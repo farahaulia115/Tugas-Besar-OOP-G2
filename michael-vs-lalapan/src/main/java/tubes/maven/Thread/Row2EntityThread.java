@@ -82,7 +82,12 @@ public class Row2EntityThread implements Runnable{
                             if (!zj.alreadyJumped()){
                                 if (nextTile.isAdaTanaman()){
                                     zj.jump();
-                                    if (nextTile.getPlant().isJumpable() && i>=2){
+
+                                    if (!nextTile.getPlant().isJumpable() && i>=2){
+                                        tile.getZombieList().remove(z);
+                                        nextTile.getZombieList().add(z);
+                                    }
+                                    else if (nextTile.getPlant().isJumpable() && i>=2){
                                        nextNextTile.plantDie();
                                        z.setTimeSpawn();
                                        if (i>=2){
