@@ -8,7 +8,7 @@ public class StatusDeck {
     private int interval;
 
     public StatusDeck(Plant p) {
-        readyToPlant = false;
+        readyToPlant = true;
         lastTimeCreated = 0;
         interval = p.getCooldown();
     }
