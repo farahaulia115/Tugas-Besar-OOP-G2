@@ -14,7 +14,7 @@ public class Peashooter implements Plant, Attack, Shooter {
     private boolean jumpable = true;
     private int timeCreated;
     private int lastAttack;
-    private boolean firstAttack;
+    private boolean firstAttack = true;
     public Peashooter() {
         this.timeCreated = Time.getTime().getTotalSeconds();
         this.lastAttack = Time.getTime().getTotalSeconds();
@@ -112,7 +112,10 @@ public class Peashooter implements Plant, Attack, Shooter {
     @Override
     public void attack(Tile tile) {
         int timeNow = Time.getTime().getTotalSeconds();
-        if (timeNow - lastAttack >= attackSpeed) {
+        if (firstAttack) {
+            firstAttack = false;
+        }
+        if (timeNow - lastAttack >= attackSpeed || timeNow == lastAttack) {
             for (Zombie zombie : tile.getZombieList()) {
                 zombie.setHealth(zombie.getHealth() - attackDamage);
                 if (zombie.getHealth() <= 0) {
