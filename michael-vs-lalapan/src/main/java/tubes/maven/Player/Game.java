@@ -7,7 +7,7 @@ import tubes.maven.Map.*;
 import tubes.maven.SaveManager.SaveLoadManager;
 import tubes.maven.State.GameState;
 import tubes.maven.State.MapState;
-import tubes.maven.Thread.DeckThreat;
+import tubes.maven.Thread.DeckThread;
 import tubes.maven.Thread.Time; 
 
 public class Game {
@@ -90,7 +90,7 @@ public class Game {
         inventory.resetInventory();
         deck.resetDeck();
         Sun.resetSun();
-        DeckThreat.resetDeckThreat();
+        DeckThread.resetDeckThreat();
     }
 
     public void saveGame(String fileName){

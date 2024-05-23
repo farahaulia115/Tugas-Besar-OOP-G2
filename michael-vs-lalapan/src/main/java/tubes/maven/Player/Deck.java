@@ -10,7 +10,7 @@ import tubes.maven.Plant.*;
 import tubes.maven.State.DeckState;
 import tubes.maven.State.PlantDeck;
 import tubes.maven.State.StatusDeckState;
-import tubes.maven.Thread.DeckThreat;
+import tubes.maven.Thread.DeckThread;
 import tubes.maven.Thread.StatusDeck;
 import tubes.maven.Thread.Time;
 
@@ -49,7 +49,7 @@ public class Deck {
 
     public DeckState getDeckState(){
         List<StatusDeckState> deckStatus = new ArrayList<>();
-        for (StatusDeck statusDeck : DeckThreat.getDeckThreatInstance(this).getDeckStatus()){
+        for (StatusDeck statusDeck : DeckThread.getDeckThreatInstance(this).getDeckStatus()){
             deckStatus.add(new StatusDeckState(statusDeck.isReadyToPlant(), statusDeck.getLastTimeCreated(), statusDeck.getInterval()));
         }
         return new DeckState(deckStatus);
@@ -63,7 +63,7 @@ public class Deck {
                 throw new IllegalArgumentException("Not enough sun to plant this plant");
             } else {
                 
-                DeckThreat deckThreat = DeckThreat.getDeckThreatInstance(this);
+                DeckThread deckThreat = DeckThread.getDeckThreatInstance(this);
                 if (deckThreat.getDeckStatus().get(i).isReadyToPlant()) {
                 
                     deckThreat.getDeckStatus().get(i).setLastTimeCreated(Time.getTime().getTotalSeconds());
@@ -93,19 +93,19 @@ public class Deck {
 
     public void setDeckState(DeckState deckState){
         
-        DeckThreat.getDeckThreatInstance(this).getDeckStatus().clear();
-        DeckThreat.resetDeckThreat();
-        DeckThreat.setDeckThreatInstance(DeckThreat.getDeckThreatInstance(this));
+        DeckThread.getDeckThreatInstance(this).getDeckStatus().clear();
+        DeckThread.resetDeckThreat();
+        DeckThread.setDeckThreatInstance(DeckThread.getDeckThreatInstance(this));
         
         for (int i = 0; i < deckState.getDeckStatus().size(); i++){
-            DeckThreat.getDeckThreatInstance(this).getDeckStatus().add(new StatusDeck(deckState.getDeckStatus().get(i).isReadyToPlant(), deckState.getDeckStatus().get(i).getLastTimeCreated(), deckState.getDeckStatus().get(i).getInterval()));
+            DeckThread.getDeckThreatInstance(this).getDeckStatus().add(new StatusDeck(deckState.getDeckStatus().get(i).isReadyToPlant(), deckState.getDeckStatus().get(i).getLastTimeCreated(), deckState.getDeckStatus().get(i).getInterval()));
         }
-        System.out.println(DeckThreat.getDeckThreatInstance(this).getDeckStatus().size());
+        System.out.println(DeckThread.getDeckThreatInstance(this).getDeckStatus().size());
         
     }
 
     public void tanam(int i, int x, int y) throws IllegalArgumentException, IllegalStateException, NotPlantableException {
-        DeckThreat deckThreat = DeckThreat.getDeckThreatInstance(this);
+        DeckThread deckThreat = DeckThread.getDeckThreatInstance(this);
         if (x < 0 || x >= 6 || y < 1 || y >= 10) {
             throw new IllegalArgumentException("Index out of bounds");
         // } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
@@ -140,7 +140,7 @@ public class Deck {
             for (Plant p : deck) {
                 System.out.println(String.format("| %-20s | %-5s | %-6d |", 
                     deck.get(i-1).getName(), 
-                    DeckThreat.getDeckThreatInstance(this).getDeckStatus().get(i-1).isReadyToPlant(), 
+                    DeckThread.getDeckThreatInstance(this).getDeckStatus().get(i-1).isReadyToPlant(), 
                     deck.get(i-1).getCost()));
                 i++;
             }

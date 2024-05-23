@@ -1,6 +1,6 @@
 package tubes.maven;
 
-import tubes.maven.Thread.DeckThreat;
+import tubes.maven.Thread.DeckThread;
 import tubes.maven.Player.Game;
 import tubes.maven.Player.Opening;
 import tubes.maven.Player.Sun;
@@ -236,7 +236,7 @@ public class App {
                         try {
                             while (Game.getStatusGame()) {
                             final Game finalGame = game;
-                            Thread deckThreat = new Thread(DeckThreat.getDeckThreatInstance(finalGame.getDeck()));
+                            Thread deckThreat = new Thread(DeckThread.getDeckThreatInstance(finalGame.getDeck()));
                             deckThreat.start();
                             Thread timeThread = new Thread(finalGame.getTime());
                             timeThread.start();

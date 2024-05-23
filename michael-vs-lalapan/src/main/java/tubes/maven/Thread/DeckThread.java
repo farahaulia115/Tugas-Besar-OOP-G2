@@ -6,31 +6,31 @@ import java.util.ArrayList;
 import tubes.maven.Player.Deck;
 
 
-public class DeckThreat implements Runnable{
-    private static DeckThreat deckThreat;
+public class DeckThread implements Runnable{
+    private static DeckThread deckThreat;
 
     private ArrayList<StatusDeck> deckStatus;
     
-    private DeckThreat(Deck deck){
+    private DeckThread(Deck deck){
         deckStatus = new ArrayList<StatusDeck>();
         for (int i = 0; i < deck.getDeck().size(); i++)  {
             deckStatus.add(new StatusDeck(deck.getDeck().get(i)));
         }
     }
 
-    public static void setDeckThreatInstance(DeckThreat deck){
+    public static void setDeckThreatInstance(DeckThread deck){
         deckThreat = deck;
     }
 
 
-    public static DeckThreat getDeckThreatInstance(Deck deck){
+    public static DeckThread getDeckThreatInstance(Deck deck){
         if (deckThreat == null) {
-            deckThreat = new DeckThreat(deck);
+            deckThreat = new DeckThread(deck);
         }
         return deckThreat;
     }
 
-    public static DeckThreat getDeckThreatInstance(){
+    public static DeckThread getDeckThreatInstance(){
         return deckThreat;
     }
 
