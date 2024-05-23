@@ -1,8 +1,6 @@
 package tubes.maven.State;
 import java.util.List;
 
-import tubes.maven.Plant.Plant;
-
 public class DeckState {
     private List<StatusDeckState> deckStatus;
     public DeckState() {

@@ -30,10 +30,6 @@ public class Deck {
         return deck.isEmpty();
     }
 
-    public boolean isSlotEmpty(int i){
-        return deck.get(i) == null;
-    }
-
     public void showDeck(){
         int i = 1;
         if (!deck.isEmpty()){
