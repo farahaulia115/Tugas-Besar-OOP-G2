@@ -15,6 +15,7 @@ import tubes.maven.Thread.Row5EntityThread;
 import tubes.maven.Thread.Row6EntityThread;
 import tubes.maven.Thread.SpawnZombie;
 
+import java.io.File;
 import java.util.Scanner;
 
 import tubes.maven.Exception.NotPlantableException;
@@ -69,10 +70,18 @@ public class App {
                         inputFile += ".json";
                     }
                     String filename = "savegames/" + inputFile;
+                    File file = new File(filename);
+                    if (!file.exists()) {
+                        System.out.println("File not found.");
+                        break;
+                    }
+                    
+
                     try {
+                        
+                        game.loadGame(filename);
                         gameInventory = true;
                         System.out.println("Game loaded...");
-                        game.loadGame(filename);
                         load = true;
                         
                     } catch (Exception e) {
