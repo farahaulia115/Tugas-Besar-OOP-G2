@@ -7,7 +7,7 @@ import tubes.maven.Player.Deck;
 
 
 public class DeckThread implements Runnable{
-    private static DeckThread deckThreat;
+    private static DeckThread deckThread;
 
     private ArrayList<StatusDeck> deckStatus;
     
@@ -18,24 +18,24 @@ public class DeckThread implements Runnable{
         }
     }
 
-    public static void setDeckThreatInstance(DeckThread deck){
-        deckThreat = deck;
+    public static void setDeckThreadInstance(DeckThread deck){
+        deckThread = deck;
     }
 
 
-    public static DeckThread getDeckThreatInstance(Deck deck){
-        if (deckThreat == null) {
-            deckThreat = new DeckThread(deck);
+    public static DeckThread getDeckThreadInstance(Deck deck){
+        if (deckThread == null) {
+            deckThread = new DeckThread(deck);
         }
-        return deckThreat;
+        return deckThread;
     }
 
-    public static DeckThread getDeckThreatInstance(){
-        return deckThreat;
+    public static DeckThread getDeckThreadInstance(){
+        return deckThread;
     }
 
-    public static void resetDeckThreat(){
-        deckThreat = null;
+    public static void resetDeckThread(){
+        deckThread = null;
     }
 
     @Override

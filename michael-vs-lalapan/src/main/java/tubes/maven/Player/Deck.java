@@ -49,7 +49,7 @@ public class Deck {
 
     public DeckState getDeckState(){
         List<StatusDeckState> deckStatus = new ArrayList<>();
-        for (StatusDeck statusDeck : DeckThread.getDeckThreatInstance(this).getDeckStatus()){
+        for (StatusDeck statusDeck : DeckThread.getDeckThreadInstance(this).getDeckStatus()){
             deckStatus.add(new StatusDeckState(statusDeck.isReadyToPlant(), statusDeck.getLastTimeCreated(), statusDeck.getInterval()));
         }
         return new DeckState(deckStatus);
@@ -63,12 +63,12 @@ public class Deck {
                 throw new IllegalArgumentException("Not enough sun to plant this plant");
             } else {
                 
-                DeckThread deckThreat = DeckThread.getDeckThreatInstance(this);
-                if (deckThreat.getDeckStatus().get(i).isReadyToPlant()) {
+                DeckThread deckThread = DeckThread.getDeckThreadInstance(this);
+                if (deckThread.getDeckStatus().get(i).isReadyToPlant()) {
                 
-                    deckThreat.getDeckStatus().get(i).setLastTimeCreated(Time.getTime().getTotalSeconds());
+                    deckThread.getDeckStatus().get(i).setLastTimeCreated(Time.getTime().getTotalSeconds());
                 } else {
-                    throw new IllegalStateException("Plant is not ready to plant, need to wait " + (deckThreat.getDeckStatus().get(i).getLastTimeCreated() + 5 - Time.getTime().getTotalSeconds()) + " seconds");
+                    throw new IllegalStateException("Plant is not ready to plant, need to wait " + (deckThread.getDeckStatus().get(i).getLastTimeCreated() + 5 - Time.getTime().getTotalSeconds()) + " seconds");
             }
             }
             
@@ -93,19 +93,19 @@ public class Deck {
 
     public void setDeckState(DeckState deckState){
         
-        DeckThread.getDeckThreatInstance(this).getDeckStatus().clear();
-        DeckThread.resetDeckThreat();
-        DeckThread.setDeckThreatInstance(DeckThread.getDeckThreatInstance(this));
+        DeckThread.getDeckThreadInstance(this).getDeckStatus().clear();
+        DeckThread.resetDeckThread();
+        DeckThread.setDeckThreadInstance(DeckThread.getDeckThreadInstance(this));
         
         for (int i = 0; i < deckState.getDeckStatus().size(); i++){
-            DeckThread.getDeckThreatInstance(this).getDeckStatus().add(new StatusDeck(deckState.getDeckStatus().get(i).isReadyToPlant(), deckState.getDeckStatus().get(i).getLastTimeCreated(), deckState.getDeckStatus().get(i).getInterval()));
+            DeckThread.getDeckThreadInstance(this).getDeckStatus().add(new StatusDeck(deckState.getDeckStatus().get(i).isReadyToPlant(), deckState.getDeckStatus().get(i).getLastTimeCreated(), deckState.getDeckStatus().get(i).getInterval()));
         }
-        System.out.println(DeckThread.getDeckThreatInstance(this).getDeckStatus().size());
+        System.out.println(DeckThread.getDeckThreadInstance(this).getDeckStatus().size());
         
     }
 
     public void tanam(int i, int x, int y) throws IllegalArgumentException, IllegalStateException, NotPlantableException {
-        DeckThread deckThreat = DeckThread.getDeckThreatInstance(this);
+        DeckThread deckThread = DeckThread.getDeckThreadInstance(this);
         if (x < 0 || x >= 6 || y < 1 || y >= 10) {
             throw new IllegalArgumentException("Index out of bounds");
         // } else if (Map.getMapInstance().getMapDetail()[x][y].isAdaTanaman()) {
@@ -115,7 +115,7 @@ public class Deck {
             Plant plant = pabrik.createPlant(deck.get(i).getName());
             Map.getMapInstance().tanamAt(x, y, plant);
             // Map.getMapInstance().tanamAt(x, y, new (deck.get(i)));
-            deckThreat.getDeckStatus().get(i).setReadyToPlant(false);
+            deckThread.getDeckStatus().get(i).setReadyToPlant(false);
         }
     }
     
@@ -140,7 +140,7 @@ public class Deck {
             for (Plant p : deck) {
                 System.out.println(String.format("| %-20s | %-5s | %-6d |", 
                     deck.get(i-1).getName(), 
-                    DeckThread.getDeckThreatInstance(this).getDeckStatus().get(i-1).isReadyToPlant(), 
+                    DeckThread.getDeckThreadInstance(this).getDeckStatus().get(i-1).isReadyToPlant(), 
                     deck.get(i-1).getCost()));
                 i++;
             }

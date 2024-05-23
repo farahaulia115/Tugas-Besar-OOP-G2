@@ -236,8 +236,8 @@ public class App {
                         try {
                             while (Game.getStatusGame()) {
                             final Game finalGame = game;
-                            Thread deckThreat = new Thread(DeckThread.getDeckThreatInstance(finalGame.getDeck()));
-                            deckThreat.start();
+                            Thread deckThread = new Thread(DeckThread.getDeckThreadInstance(finalGame.getDeck()));
+                            deckThread.start();
                             Thread timeThread = new Thread(finalGame.getTime());
                             timeThread.start();
 

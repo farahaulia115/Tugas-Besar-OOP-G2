@@ -90,7 +90,7 @@ public class Game {
         inventory.resetInventory();
         deck.resetDeck();
         Sun.resetSun();
-        DeckThread.resetDeckThreat();
+        DeckThread.resetDeckThread();
     }
 
     public void saveGame(String fileName){
