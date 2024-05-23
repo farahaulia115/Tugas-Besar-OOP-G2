@@ -30,6 +30,12 @@ public interface Zombie {
     int getMoveInterval();
     int getX();
     int getY();
+    void setSpeed(int speed);
+    void setAquatic(boolean aquatic);
+    void setX(int x);
+    void setY(int y);
+    void setDamage(int damage);
     void slowEffect();
     void checkSlowEffect();
+     
 }

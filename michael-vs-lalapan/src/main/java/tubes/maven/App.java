@@ -364,6 +364,9 @@ public class App {
                             System.out.println("Are you sure? (y/n)");
                             Scanner scanner = new Scanner(System.in);
                             String confirm = scanner.nextLine().trim();
+                            if (Game.getStatusGame() == false) {
+                                break;
+                            }
                             if (confirm.equals("y")) {
                                 Game.setStatusGame(false);
                                 Game.resetGame();   
