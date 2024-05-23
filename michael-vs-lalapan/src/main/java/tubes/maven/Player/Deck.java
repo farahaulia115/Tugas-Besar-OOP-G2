@@ -7,7 +7,11 @@ import tubes.maven.Exception.NotPlantableException;
 import tubes.maven.Exception.NotShovelableException;
 import tubes.maven.Map.*;
 import tubes.maven.Plant.*;
+import tubes.maven.State.DeckState;
+import tubes.maven.State.PlantDeck;
+import tubes.maven.State.StatusDeckState;
 import tubes.maven.Thread.DeckThreat;
+import tubes.maven.Thread.StatusDeck;
 import tubes.maven.Thread.Time;
 
 public class Deck {
@@ -43,6 +47,14 @@ public class Deck {
         
     }
 
+    public DeckState getDeckState(){
+        List<StatusDeckState> deckStatus = new ArrayList<>();
+        for (StatusDeck statusDeck : DeckThreat.getDeckThreatInstance(this).getDeckStatus()){
+            deckStatus.add(new StatusDeckState(statusDeck.isReadyToPlant(), statusDeck.getLastTimeCreated(), statusDeck.getInterval()));
+        }
+        return new DeckState(deckStatus);
+    }
+
     public void pilihTanaman(int i) throws IllegalArgumentException, IllegalStateException{
         if (i < 0 || i >= deck.size()) {
             throw new IllegalArgumentException("Index out of bounds");
@@ -61,6 +73,34 @@ public class Deck {
             }
             
         }
+        
+    }
+
+    public PlantDeck getPlantDeck(){
+        PlantDeck plantDeck = new PlantDeck();
+        for (Plant p : deck){
+            plantDeck.getPlantsInDeck().add(p);
+        }
+        return plantDeck;
+    }
+
+    public void setPlantDeck(PlantDeck plantDeck){
+        deck.clear();
+        for (Plant p : plantDeck.getPlantsInDeck()){
+            deck.add(p);
+        }
+    }
+
+    public void setDeckState(DeckState deckState){
+        
+        DeckThreat.getDeckThreatInstance(this).getDeckStatus().clear();
+        DeckThreat.resetDeckThreat();
+        DeckThreat.setDeckThreatInstance(DeckThreat.getDeckThreatInstance(this));
+        
+        for (int i = 0; i < deckState.getDeckStatus().size(); i++){
+            DeckThreat.getDeckThreatInstance(this).getDeckStatus().add(new StatusDeck(deckState.getDeckStatus().get(i).isReadyToPlant(), deckState.getDeckStatus().get(i).getLastTimeCreated(), deckState.getDeckStatus().get(i).getInterval()));
+        }
+        System.out.println(DeckThreat.getDeckThreatInstance(this).getDeckStatus().size());
         
     }
 

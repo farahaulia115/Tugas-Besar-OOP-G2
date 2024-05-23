@@ -1,6 +1,11 @@
 package tubes.maven.Plant;
-import tubes.maven.Thread.Time;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import tubes.maven.Thread.Time;
+@JsonTypeName("Lilypad")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Lilypad implements Plant {
     private String name = "Lilypad";
     private int cost = 25;
@@ -10,38 +15,69 @@ public class Lilypad implements Plant {
     private int range = 0;
     private int cooldown = 10;
     private boolean jumpable = true;
-    private int timeCreated;
+    private int plantTimeCreated = Time.getTime().getTotalSeconds();
+    
     public Lilypad() {
-        this.timeCreated = Time.getTime().getTotalSeconds();
+        // Konstruktor default
+    }
+
+    public Lilypad(String name, int cost, int health, int attackDamage, int attackSpeed, int range, int cooldown, boolean jumpable, int plantTimeCreated) {
+        this.name = name;
+        this.cost = cost;
+        this.health = health;
+        this.attackDamage = attackDamage;
+        this.attackSpeed = attackSpeed;
+        this.range = range;
+        this.cooldown = cooldown;
+        this.jumpable = jumpable;
+        this.plantTimeCreated = plantTimeCreated;
     }
 
     @Override
     public int getTimePlantCreated() {
-        return timeCreated;
+        return plantTimeCreated;
     }
+
+    public void setTimePlantCreated(int plantTimeCreated) {
+        this.plantTimeCreated = plantTimeCreated;
+    }
+
     @Override
     public void setName(String name) {
         this.name = name;
     }
+
     @Override
     public void setCost(int cost) {
         this.cost = cost;
     }
+
     @Override
     public void setHealth(int health) {
         this.health = health;
     }
+
     @Override
     public void setAttackDamage(int attackDamage) {
         this.attackDamage = attackDamage;
     }
+
+    public void setAttackSpeed(int attackSpeed) {
+        this.attackSpeed = attackSpeed;
+    }
+
     @Override
     public void setRange(int range) {
         this.range = range;
     }
+
     @Override
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
+    }
+
+    public void setJumpable(boolean jumpable) {
+        this.jumpable = jumpable;
     }
 
     @Override
@@ -83,5 +119,4 @@ public class Lilypad implements Plant {
     public boolean isJumpable() {
         return jumpable;
     }
-
 }

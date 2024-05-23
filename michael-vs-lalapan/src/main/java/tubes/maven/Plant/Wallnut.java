@@ -2,6 +2,11 @@ package tubes.maven.Plant;
 
 import tubes.maven.Thread.Time;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+@JsonTypeName("Wallnut")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Wallnut implements Plant {
     private String name = "Wall nut";
     private int cost = 50;
@@ -11,15 +16,44 @@ public class Wallnut implements Plant {
     private int range = 0;
     private int cooldown = 20;
     private boolean jumpable = true;
-    private int timeCreated;
+    private int plantTimeCreated = Time.getTime().getTotalSeconds();;
 
     public Wallnut (){
-        this.timeCreated = Time.getTime().getTotalSeconds();
+        // Konstruktor default
+    }
+    public Wallnut(String name, int cost, int health, int attackDamage, int attackSpeed, int range, int cooldown, boolean jumpable, int plantTimeCreated) {
+        this.name = name;
+        this.cost = cost;
+        this.health = health;
+        this.attackDamage = attackDamage;
+        this.attackSpeed = attackSpeed;
+        this.range = range;
+        this.cooldown = cooldown;
+        this.jumpable = jumpable;
+        this.plantTimeCreated = plantTimeCreated;
+    }
+
+    public int getplantTimeCreated() {
+        return plantTimeCreated;
+    }
+    
+
+    public void setAttackSpeed(int attackSpeed) {
+        this.attackSpeed = attackSpeed;
+    }
+    public void setplantTimeCreated(int plantTimeCreated) {
+        this.plantTimeCreated = plantTimeCreated;
+    }
+    public void setJumpable(boolean jumpable) {
+        this.jumpable = jumpable;
+    }
+    public void getRange(int range) {
+        this.range = range;
     }
 
     @Override
     public int getTimePlantCreated() {
-        return timeCreated;
+        return plantTimeCreated;
     }
 
     @Override

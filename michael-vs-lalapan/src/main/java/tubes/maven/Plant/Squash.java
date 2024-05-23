@@ -2,6 +2,10 @@ package tubes.maven.Plant;
 import tubes.maven.Map.*;
 import tubes.maven.Thread.Time;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+@JsonTypeName("Squash")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Squash implements Plant, Attack, SelfDestruct {
     private String name = "Squash";
     private int cost = 50;
@@ -11,11 +15,40 @@ public class Squash implements Plant, Attack, SelfDestruct {
     private int range = 1;
     private int cooldown = 20;
     private boolean jumpable = true;
-    private int timeCreated;
+    private int plantTimeCreated = Time.getTime().getTotalSeconds();;
     
     
     public Squash() {
-        this.timeCreated = Time.getTime().getTotalSeconds();
+        // Konstruktor default
+    }
+    public Squash(String name, int cost, int health, int attackDamage, int attackSpeed, int range, int cooldown, boolean jumpable, int timeCreated) {
+        this.name = name;
+        this.cost = cost;
+        this.health = health;
+        this.attackDamage = attackDamage;
+        this.attackSpeed = attackSpeed;
+        this.range = range;
+        this.cooldown = cooldown;
+        this.jumpable = jumpable;
+        this.plantTimeCreated = timeCreated;
+    }
+
+    public int getTimePlantCreated() {
+        return plantTimeCreated;
+    }
+    
+
+    public void setAttackSpeed(int attackSpeed) {
+        this.attackSpeed = attackSpeed;
+    }
+    public void setTimeCreated(int timeCreated) {
+        this.plantTimeCreated = timeCreated;
+    }
+    public void setJumpable(boolean jumpable) {
+        this.jumpable = jumpable;
+    }
+    public void getRange(int range) {
+        this.range = range;
     }
 
     
@@ -48,10 +81,7 @@ public class Squash implements Plant, Attack, SelfDestruct {
         }
     }
 
-    @Override
-    public int getTimePlantCreated() {
-        return timeCreated;
-    }
+    
     @Override
     public void setName(String name) {
         this.name = name;

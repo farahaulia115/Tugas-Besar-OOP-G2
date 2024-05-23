@@ -6,6 +6,11 @@ public class StatusDeck {
     private boolean readyToPlant;
     private int lastTimeCreated;
     private int interval;
+    public StatusDeck(boolean readyToPlant, int lastTimeCreated, int interval) {
+        this.readyToPlant = readyToPlant;
+        this.lastTimeCreated = lastTimeCreated;
+        this.interval = interval;
+    }
 
     public StatusDeck(Plant p) {
         readyToPlant = true;
@@ -31,5 +36,9 @@ public class StatusDeck {
 
     public void setLastTimeCreated(int totalSeconds) {
         lastTimeCreated = totalSeconds;
+    }
+
+    public void setInterval(int interval2) {
+        interval = interval2;
     }
 }

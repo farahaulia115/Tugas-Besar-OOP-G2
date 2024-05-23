@@ -4,6 +4,7 @@ import java.util.Random;
 
 import tubes.maven.Player.Game;
 import tubes.maven.Player.Sun;
+import tubes.maven.State.TimeState;
 
 public class Time implements Runnable {
     private static Time instance;
@@ -16,6 +17,14 @@ public class Time implements Runnable {
     private Time() {
         totalSeconds = 0;
         day = 1;
+    }
+    public TimeState getTimeState(){
+        return new TimeState(totalSeconds, day);
+    }
+
+    public void setTimeState(TimeState timeState){
+        totalSeconds = timeState.getTotalSeconds();
+        day = timeState.getDay();
     }
 
     public static Time getTime() {

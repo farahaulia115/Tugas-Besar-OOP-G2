@@ -20,6 +20,7 @@ import java.util.Scanner;
 import tubes.maven.Exception.NotPlantableException;
 import tubes.maven.Exception.NotShovelableException;
 import tubes.maven.Input.InputHandler;
+import tubes.maven.Input.StringHandler;
 
 public class App {
     public static void main(String[] args) throws InterruptedException, NotShovelableException, NotPlantableException {
@@ -29,6 +30,7 @@ public class App {
         String cyan = "\u001B[36m";     // Kode ANSI untuk warna cyan
         boolean open = true; // tanda looping ketika game dibuka
         boolean gameInventory = false; // tanda untuk bagian pilih inventory, preparation sebelum game start
+        boolean load = false; // tanda untuk load game
         Opening opening = new Opening();
         final Game game = new Game();
         opening.printMvL();
@@ -41,7 +43,8 @@ public class App {
             System.out.println("2. Help");
             System.out.println("3. Plants List");
             System.out.println("4. Zombies List");
-            System.out.println("5. Exit");
+            System.out.println("5. Load Game");
+            System.out.println("6. Exit");
             System.out.println(brown + "===============================================================================================================================================" + reset);
             int choose = InputHandler.getIntInput("Choose :");
             System.out.println();
@@ -61,6 +64,22 @@ public class App {
                     opening.zombiesList();
                     break;
                 case 5:
+                    String inputFile = StringHandler.getStringInput("Input file name : ");
+                    if (!inputFile.endsWith(".json")) {
+                        inputFile += ".json";
+                    }
+                    String filename = "savegames/" + inputFile;
+                    try {
+                        gameInventory = true;
+                        System.out.println("Game loaded...");
+                        game.loadGame(filename);
+                        load = true;
+                        
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 6:
                     System.out.println("Are you sure? (y/n)");
                     Scanner scanner = new Scanner(System.in);
                     String confirm = scanner.nextLine().trim();
@@ -80,6 +99,7 @@ public class App {
 
 
             while (gameInventory){
+                if (!load){
                 System.out.println();
                 System.out.println(brown + "===============================================================================================================================================" + reset);
                 System.out.println(red + "INVENTORY MENU" + reset);
@@ -179,9 +199,26 @@ public class App {
                         else {
                             System.out.println("Exit cancelled, returning to Menu.");
                         }
+                        break;
+                    
+                    case 242424:
+                        game.getInventory().addPlantToDeck(1);
+                        game.getInventory().addPlantToDeck(3);
+                        game.getInventory().addPlantToDeck(4);
+                        game.getInventory().addPlantToDeck(7);
+                        game.getInventory().addPlantToDeck(8);
+                        game.getInventory().addPlantToDeck(10);
+                        System.out.println("Deck has been filled");
+                        break;
                     default:
                         System.out.println("Invalid input");
                         break;
+                }
+                }
+                else {
+                    gameInventory = false;
+                    Game.setGame();
+                    load = false;
                 }
                 // Set the source level to 1.8 or above
                 Thread thread = new Thread(new Runnable() {
@@ -239,6 +276,7 @@ public class App {
                     System.out.println("3. Plant");
                     System.out.println("4. Remove Plant");
                     System.out.println("5. Quit Game");
+                    System.out.println("6. Save Game");
                     System.out.println(brown + "===============================================================================================================================================" + reset);
 
                     int choose3 = InputHandler.getIntInput("Choose :");
@@ -325,6 +363,24 @@ public class App {
                             else {
                                 System.out.println("Exit cancelled, returning to Menu.");
                             }
+                            break;
+                        case 6:
+                            if (!Game.getStatusGame()) {
+                                break;
+                            }
+                            String inputFile = StringHandler.getStringInput("Input file name : ");
+                            if (!inputFile.endsWith(".json")) {
+                                inputFile += ".json";
+                            }
+                            String filename = "savegames/" + inputFile;
+                            try {
+                                Game.setStatusGame(false);
+                                game.saveGame(filename);
+                                Game.resetGame();
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                            break;
                         case 555555:
                             if (Game.getStatusGame() == false) {
                                 break;
@@ -347,6 +403,7 @@ public class App {
                                     System.out.println(e.getMessage());
                                 }
                             }
+                            System.out.println("Tallnut has been planted on column 5");
                         
                             break;
                         case 131313:
@@ -359,6 +416,7 @@ public class App {
                                     Map.getMapInstance().getMapDetail()[i][j].getZombieList().clear();
                                 }
                             }
+                            System.out.println("All zombies has been removed from map");
                             break;
                         default:
                             if (Game.getStatusGame() == false) {

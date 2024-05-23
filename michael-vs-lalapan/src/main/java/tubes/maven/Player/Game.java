@@ -1,7 +1,12 @@
 
 package tubes.maven.Player;
 
+
+import java.io.IOException;
 import tubes.maven.Map.*;
+import tubes.maven.SaveManager.SaveLoadManager;
+import tubes.maven.State.GameState;
+import tubes.maven.State.MapState;
 import tubes.maven.Thread.DeckThreat;
 import tubes.maven.Thread.Time; 
 
@@ -87,6 +92,36 @@ public class Game {
         Sun.resetSun();
         DeckThreat.resetDeckThreat();
     }
+
+    public void saveGame(String fileName){
+        MapState mapState = map.getMapState();
+        GameState gameState = new GameState(mapState, Sun.getAmount(), time.getTimeState(), deck.getDeckState(), deck.getPlantDeck());
+        try {
+            SaveLoadManager.saveGameState(gameState, fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+   public void loadGame(String fileName) {
+    try {
+        GameState gameState = SaveLoadManager.loadGameState(fileName);
+        if (gameState != null) {
+            // Perbarui objek Game sesuai dengan data yang dibaca dari JSON
+            map.setMapState(gameState.getMapState());
+            Sun.setSun(gameState.getamountSun());
+            time.setTimeState(gameState.getTimeState());
+            deck.setDeckState(gameState.getDeckState());
+            deck.setPlantDeck(gameState.getPlantInDeck());
+        } else {
+            System.out.println("Failed to load game. GameState is null.");
+        }
+    } catch (IOException e) {
+        System.out.println("Failed to load game. IOException occurred: " + e.getMessage());
+    }
+}
+
 
     
 }

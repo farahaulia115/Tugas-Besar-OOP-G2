@@ -1,6 +1,7 @@
 package tubes.maven.Zombie;
 import tubes.maven.Thread.Time;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+@JsonTypeName("DuckytubeZombie")
 public class DuckytubeZombie implements Zombie {
     private String name = "Ducky Tube Zombie";
     private int health = 100;
@@ -18,6 +19,58 @@ public class DuckytubeZombie implements Zombie {
     public DuckytubeZombie() {
         this.timeSpawn = Time.getTime().getTotalSeconds();
     }
+
+    public DuckytubeZombie(String name, int health, int damage, int speed, boolean aquatic, int x, int y, int timeSpawn, int moveInterval, boolean slowed, int timeSlowed, int slowDuration) {
+        this.name = name;
+        this.health = health;
+        this.damage = damage;
+        this.speed = speed;
+        this.aquatic = aquatic;
+        this.x = x;
+        this.y = y;
+        this.timeSpawn = timeSpawn;
+        this.moveInterval = moveInterval;
+        this.slowed = slowed;
+        this.timeSlowed = timeSlowed;
+        this.slowDuration = slowDuration;
+    }
+
+    
+    public void setX(int x) {
+        this.x = x;
+    }
+    public void setY(int y) {
+        this.y = y;
+    }
+    public void setTimeSpawn(int timeSpawn) {
+        this.timeSpawn = timeSpawn;
+    }
+    public void setSlowed(boolean slowed) {
+        this.slowed = slowed;
+    }
+    public void setTimeSlowed(int timeSlowed) {
+        this.timeSlowed = timeSlowed;
+    }
+    public void setSlowDuration(int slowDuration) {
+        this.slowDuration = slowDuration;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setAquatic(boolean aquatic) {
+        this.aquatic = aquatic;
+    }
+
     public int getMoveInterval() {
         return moveInterval;
     }

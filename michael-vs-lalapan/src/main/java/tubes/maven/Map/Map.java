@@ -2,6 +2,7 @@ package tubes.maven.Map;
 
 import tubes.maven.Exception.NotPlantableException;
 import tubes.maven.Plant.*;
+import tubes.maven.State.MapState;
 import tubes.maven.Zombie.*;
 
 public class Map{
@@ -45,14 +46,11 @@ public class Map{
     }
 
     public int jumlahZombie(){
-        // int jumlah = 0;
-        // for (int i = 0; i<=5;i++){
-        //     for (int j = 1; j<=9;j++){
-        //         jumlah += mapdetail[i][j].getZombieList().size();
-        //     }
-        // }
-        // return jumlah;
         return zombieInMap;
+    }
+
+    public Tile getTile(int x, int y){
+        return mapdetail[x][y];
     }
 
     public void addZombieInMap(){
@@ -73,6 +71,10 @@ public class Map{
     
     public void tanamAt(int x, int y, Plant plant) throws NotPlantableException{
             mapdetail[x][y].tanam(plant);
+    }
+
+    public MapState getMapState(){
+        return new MapState(mapdetail, zombieInMap);
     }
 
     public void renderMap() {
@@ -180,31 +182,6 @@ public class Map{
         System.out.println();
     }
     
-    
-    public void renderMap2(){
-        for (int i = 0; i<=5;i++){
-            for (int j = 1; j<=9;j++){
-                System.out.printf("[");
-                if (mapdetail[i][j].isAdaTanaman() || mapdetail[i][j].getZombieList().size()>0){
-                    if (mapdetail[i][j].isAdaTanaman()){
-                        System.out.printf("P:" + mapdetail[i][j].getPlant().getHealth() + " ");
-                    }
-                    if (mapdetail[i][j].getZombieList().size()>0){
-                        for (Zombie z : mapdetail[i][j].getZombieList()) {
-                            System.out.printf("Z:" + z.getClass().getCanonicalName() + " ");
-                        }      
-                    }
-                }
-                else{
-                    System.out.printf(" ");
-                }
-                System.out.printf("]");
-                
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
 
     public boolean zombieMenang(){
         for (int i = 0; i<=5;i++){
@@ -223,5 +200,17 @@ public class Map{
                 mapdetail[i][j].plantDie();
             }
         }
+    }
+
+    public void setMapState(MapState mapState) {
+        Tile[][] tileStates = mapState.getMapDetails();
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 11; j++) {
+                mapdetail[i][j].setAdaTanaman(tileStates[i][j].isAdaTanaman());
+                mapdetail[i][j].setPlanted(tileStates[i][j].getPlant());
+                mapdetail[i][j].setZombieQueue(tileStates[i][j].getZombieList());
+            }
+        }
+        zombieInMap = mapState.getZombieInMap();
     }
 }

@@ -1,6 +1,11 @@
 package tubes.maven.Plant;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import tubes.maven.Player.*;
 import tubes.maven.Thread.Time;
+
+
+@JsonTypeName("Twinsunflower")
 
 public class TwinSunFlower implements Plant, ProduceSun{
     private int SUN_PRODUCTION_INTERVAL = 3; // Interval produksi Sun dalam detik
@@ -12,18 +17,45 @@ public class TwinSunFlower implements Plant, ProduceSun{
     private int attackSpeed = 0;
     private int range = 0;
     private int cooldown = 10;
-    private int timeCreated;
+    private int plantTimeCreated = Time.getTime().getTotalSeconds();;
     private boolean jumpable = true;
-    private int lastProductionTime;
+    private int lastProductionTime = Time.getTime().getTotalSeconds();;
 
     public TwinSunFlower() {
-        this.timeCreated = Time.getTime().getTotalSeconds();
-        this.lastProductionTime = Time.getTime().getTotalSeconds();
+        // Konstruktor default
+    }
+    public TwinSunFlower(String name, int cost, int health, int attackDamage, int attackSpeed, int range, int cooldown, boolean jumpable, int plantTimeCreated) {
+        this.name = name;
+        this.cost = cost;
+        this.health = health;
+        this.attackDamage = attackDamage;
+        this.attackSpeed = attackSpeed;
+        this.range = range;
+        this.cooldown = cooldown;
+        this.jumpable = jumpable;
+        this.plantTimeCreated = plantTimeCreated;
     }
 
+    public int getplantTimeCreated() {
+        return plantTimeCreated;
+    }
+    
+
+    public void setAttackSpeed(int attackSpeed) {
+        this.attackSpeed = attackSpeed;
+    }
+    public void setplantTimeCreated(int plantTimeCreated) {
+        this.plantTimeCreated = plantTimeCreated;
+    }
+    public void setJumpable(boolean jumpable) {
+        this.jumpable = jumpable;
+    }
+    public void getRange(int range) {
+        this.range = range;
+    }
     @Override
     public int getTimePlantCreated() {
-        return timeCreated;
+        return plantTimeCreated;
     }
     
     @Override

@@ -3,6 +3,10 @@ import tubes.maven.Map.*;
 import tubes.maven.Thread.Time;
 import tubes.maven.Zombie.Zombie;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+@JsonTypeName("Repeater")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Repeater implements Plant, Attack, Shooter{
     private String name = "Repeater";
     private int cost = 200;
@@ -12,17 +16,47 @@ public class Repeater implements Plant, Attack, Shooter{
     private int range = -1;
     private int cooldown = 10;
     private boolean jumpable = true;
-    private int timeCreated;
+    private int plantTimeCreated;
     private int lastAttack;
     private boolean firstAttack;
 
     public Repeater() {
-        this.timeCreated = Time.getTime().getTotalSeconds();
+        this.plantTimeCreated = Time.getTime().getTotalSeconds();
         this.lastAttack = Time.getTime().getTotalSeconds();
     }
+    public Repeater(String name, int cost, int health, int attackDamage, int attackSpeed, int range, int cooldown, boolean jumpable, int plantTimeCreated) {
+        this.name = name;
+        this.cost = cost;
+        this.health = health;
+        this.attackDamage = attackDamage;
+        this.attackSpeed = attackSpeed;
+        this.range = range;
+        this.cooldown = cooldown;
+        this.jumpable = jumpable;
+        this.plantTimeCreated = plantTimeCreated;
+    }
+
+    public int getplantTimeCreated() {
+        return plantTimeCreated;
+    }
+    
+
+    public void setAttackSpeed(int attackSpeed) {
+        this.attackSpeed = attackSpeed;
+    }
+    public void setplantTimeCreated(int plantTimeCreated) {
+        this.plantTimeCreated = plantTimeCreated;
+    }
+    public void setJumpable(boolean jumpable) {
+        this.jumpable = jumpable;
+    }
+    public void getRange(int range) {
+        this.range = range;
+    }
+
     @Override
     public int getTimePlantCreated() {
-        return timeCreated;
+        return plantTimeCreated;
     }
     @Override
     public void setName(String name) {
@@ -95,17 +129,17 @@ public class Repeater implements Plant, Attack, Shooter{
     }
 
     @Override
-    public int getlastAttack() {
+    public int getLastAttack() {
         return lastAttack;
     }
 
     @Override
-    public void setfirstAttack(boolean firstAttack) {
+    public void setFirstAttack(boolean firstAttack) {
         this.firstAttack = firstAttack;
     }
 
     @Override
-    public boolean getfirstAttack() {
+    public boolean getFirstAttack() {
         return firstAttack;
     }
     
@@ -131,5 +165,6 @@ public class Repeater implements Plant, Attack, Shooter{
     public void startAttack(Tile tile) {
         attack(tile);
     }
+
 
 }
