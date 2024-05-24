@@ -120,7 +120,7 @@ public class Deck {
         if (x < 0 || x >= 6 || y < 1 || y >= 10) {
             throw new IllegalArgumentException("Index out of bounds");
         } else {
-            Map.getMapInstance().getMapDetail()[x-1][y-1].gali();
+            Map.getMapInstance().getMapDetail()[x][y].gali();
         }
     }
     
