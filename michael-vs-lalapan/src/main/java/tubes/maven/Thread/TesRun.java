@@ -7,16 +7,38 @@ import tubes.maven.Zombie.*;
 public class TesRun {
     public static void main(String[] args) {
         try {
-            Map.getMapInstance().getMapDetail()[2][8].getZombieList().add(new DolphinriderZombie());
-            Map.getMapInstance().getMapDetail()[0][10].getZombieList().add(new FootballZombie());
+            //Map.getMapInstance().getMapDetail()[2][8].getZombieList().add(new DolphinriderZombie());
+            
             Map.getMapInstance().getMapDetail()[3][8].getZombieList().add(new DolphinriderZombie());
             Map.getMapInstance().getMapDetail()[3][8].tanam(new Lilypad());
             Map.getMapInstance().getMapDetail()[3][8].tanam(new Wallnut());
             Map.getMapInstance().getMapDetail()[2][7].tanam(new Lilypad());
             Map.getMapInstance().getMapDetail()[2][7].tanam(new Tallnut());
-            Map.getMapInstance().getMapDetail()[2][1].tanam(new Lilypad());
-            Map.getMapInstance().getMapDetail()[2][1].tanam(new Wallnut());
+            // Map.getMapInstance().getMapDetail()[2][1].tanam(new Lilypad());
+            // Map.getMapInstance().getMapDetail()[2][1].tanam(new Wallnut());
+
+            Map.getMapInstance().getMapDetail()[0][10].getZombieList().add(new FootballZombie());
             Map.getMapInstance().getMapDetail()[0][1].tanam(new SnowPea());
+
+            Map.getMapInstance().getMapDetail()[1][10].getZombieList().add(new FootballZombie());
+            Map.getMapInstance().getMapDetail()[1][1].tanam(new SnowPea());
+            
+            Map.getMapInstance().getMapDetail()[2][10].getZombieList().add(new FootballZombie());
+            Map.getMapInstance().getMapDetail()[2][1].tanam(new Lilypad());
+            Map.getMapInstance().getMapDetail()[2][1].tanam(new SnowPea());
+            
+            Map.getMapInstance().getMapDetail()[3][10].getZombieList().add(new FootballZombie());
+            Map.getMapInstance().getMapDetail()[3][1].tanam(new Lilypad());
+            Map.getMapInstance().getMapDetail()[3][1].tanam(new SnowPea());
+            
+            Map.getMapInstance().getMapDetail()[4][10].getZombieList().add(new FootballZombie());
+            Map.getMapInstance().getMapDetail()[4][1].tanam(new SnowPea());
+            
+            Map.getMapInstance().getMapDetail()[5][10].getZombieList().add(new FootballZombie());
+            Map.getMapInstance().getMapDetail()[5][1].tanam(new SnowPea());
+
+
+
             Map.getMapInstance().renderMap();
             while (true){
                 Runnable t = Time.getTime();
