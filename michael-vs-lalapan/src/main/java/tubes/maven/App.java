@@ -388,8 +388,8 @@ public class App {
                             }
                             String filename = "savegames/" + inputFile;
                             try {
-                                Game.setStatusGame(false);
                                 game.saveGame(filename);
+                                Game.setStatusGame(false);
                                 Game.resetGame();
                             } catch (Exception e) {
                                 System.out.println(e.getMessage());
