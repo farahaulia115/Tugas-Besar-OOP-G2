@@ -277,7 +277,6 @@ public class App {
                     System.out.println("Sun : " + Sun.getAmount());
                     game.getDeck().showDeckStatus();
 
-                    System.out.println();
                     System.out.println(brown + "===============================================================================================================================================" + reset);
                     System.out.println(red + "GAME MENU" + reset);
                     System.out.println("1. Show Time");
