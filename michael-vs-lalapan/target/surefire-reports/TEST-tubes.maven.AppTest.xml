@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tubes.maven.AppTest" time="0.011" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="tubes.maven.AppTest" time="0.012" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ID"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/user/Documents/FINALLLL/FINAL_FIX/Tugas-Besar-OOP-G2/michael-vs-lalapan/target/surefire/surefirebooter13612978471629307839.jar /Users/user/Documents/FINALLLL/FINAL_FIX/Tugas-Besar-OOP-G2/michael-vs-lalapan/target/surefire 2024-05-24T19-22-09_551-jvmRun1 surefire2677165252324999686tmp surefire_013490086390998137942tmp"/>
+    <property name="sun.java.command" value="/Users/user/Documents/FINALLLL/FINAL_FIX/Tugas-Besar-OOP-G2/michael-vs-lalapan/target/surefire/surefirebooter18011530098323740293.jar /Users/user/Documents/FINALLLL/FINAL_FIX/Tugas-Besar-OOP-G2/michael-vs-lalapan/target/surefire 2024-05-24T21-56-25_039-jvmRun1 surefire17934374404658650568tmp surefire_012199866158702666955tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/user/Documents/FINALLLL/FINAL_FIX/Tugas-Besar-OOP-G2/michael-vs-lalapan/target/test-classes:/Users/user/Documents/FINALLLL/FINAL_FIX/Tugas-Besar-OOP-G2/michael-vs-lalapan/target/classes:/Users/user/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/user/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/user/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.17.1/jackson-databind-2.17.1.jar:/Users/user/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.17.1/jackson-annotations-2.17.1.jar:/Users/user/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.17.1/jackson-core-2.17.1.jar:"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/user/Documents/FINALLLL/FINAL_FIX/Tugas-Besar-OOP-G2/michael-vs-lalapan/target/surefire/surefirebooter13612978471629307839.jar"/>
+    <property name="surefire.real.class.path" value="/Users/user/Documents/FINALLLL/FINAL_FIX/Tugas-Besar-OOP-G2/michael-vs-lalapan/target/surefire/surefirebooter18011530098323740293.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="22.0.1+8-16"/>
@@ -57,5 +57,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="tubes.maven.AppTest" time="0.002"/>
+  <testcase name="shouldAnswerWithTrue" classname="tubes.maven.AppTest" time="0.001"/>
 </testsuite>
