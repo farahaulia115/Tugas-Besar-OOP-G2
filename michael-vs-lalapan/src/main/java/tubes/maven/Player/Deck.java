@@ -96,7 +96,7 @@ public class Deck {
         for (int i = 0; i < deckState.getDeckStatus().size(); i++){
             DeckThread.getDeckThreadInstance(this).getDeckStatus().add(new StatusDeck(deckState.getDeckStatus().get(i).isReadyToPlant(), deckState.getDeckStatus().get(i).getLastTimeCreated(), deckState.getDeckStatus().get(i).getInterval()));
         }
-        System.out.println(DeckThread.getDeckThreadInstance(this).getDeckStatus().size());
+        
         
     }
 
