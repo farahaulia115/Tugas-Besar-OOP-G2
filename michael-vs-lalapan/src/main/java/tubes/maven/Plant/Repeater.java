@@ -18,7 +18,7 @@ public class Repeater implements Plant, Attack, Shooter{
     private boolean jumpable = true;
     private int plantTimeCreated;
     private int lastAttack;
-    private boolean firstAttack;
+    private boolean firstAttack = true;
 
     public Repeater() {
         this.plantTimeCreated = Time.getTime().getTotalSeconds();
@@ -148,6 +148,7 @@ public class Repeater implements Plant, Attack, Shooter{
         int timeNow = Time.getTime().getTotalSeconds();
         if (firstAttack) {
             firstAttack = false;
+            lastAttack = timeNow;
         }
         if (timeNow - lastAttack >= attackSpeed || timeNow == lastAttack) {
             for (Zombie zombie : tile.getZombieList()) {

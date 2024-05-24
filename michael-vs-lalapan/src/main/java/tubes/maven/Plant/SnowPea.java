@@ -20,7 +20,7 @@ public class SnowPea implements Plant, Attack, Shooter {
     private boolean jumpable = true;
     private int plantTimeCreated = Time.getTime().getTotalSeconds();
     private int lastAttack = Time.getTime().getTotalSeconds();
-    private boolean firstAttack;
+    private boolean firstAttack = true;
 
     public SnowPea() {
         // Konstruktor default
@@ -145,6 +145,7 @@ public class SnowPea implements Plant, Attack, Shooter {
         int timeNow = Time.getTime().getTotalSeconds();
         if (firstAttack) {
             firstAttack = false;
+            lastAttack = timeNow;
         }
         if (timeNow - lastAttack >= attackSpeed || timeNow == lastAttack) {
             for (Zombie zombie : tile.getZombieList()) {

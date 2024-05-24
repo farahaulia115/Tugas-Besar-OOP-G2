@@ -44,9 +44,11 @@ public class TesRun {
             Map.getMapInstance().addZombieInMap();
             Map.getMapInstance().getMapDetail()[5][1].tanam(new SnowPea());
 
-            Map.getMapInstance().getMapDetail()[2][8].getZombieList().add(new DuckytubeConeheadZombie());
+            //Map.getMapInstance().getMapDetail()[5][8].getZombieList().add(new NormalZombie());
             Map.getMapInstance().addZombieInMap();
-            Map.getMapInstance().getMapDetail()[2][8].tanam(new TangleKelp());
+            Map.getMapInstance().getMapDetail()[5][9].getZombieList().add(new PolevaultingZombie());
+            Map.getMapInstance().addZombieInMap();
+            Map.getMapInstance().getMapDetail()[5][8].tanam(new Peashooter());
 
 
             Map.getMapInstance().renderMap();

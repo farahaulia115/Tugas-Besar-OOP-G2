@@ -150,6 +150,7 @@ public class Peashooter implements Plant, Attack, Shooter {
         int timeNow = Time.getTime().getTotalSeconds();
         if (firstAttack) {
             firstAttack = false;
+            lastAttack = timeNow;
         }
         if (timeNow - lastAttack >= attackSpeed || timeNow == lastAttack) {
             for (Zombie zombie : tile.getZombieList()) {
