@@ -11,8 +11,8 @@ Tugas Besar OOP Kelompok 02
 
 ## Cara menjalankan
 1. Buka terminal di direktori tempat untuk menaruh file
-2. Clone github dengan mengetikkan command " clone https://github.com/farahaulia115/Tugas-Besar-OOP-G2 "
-3. Ketik cd michael-vs-lalapan/target/ untuk pindah ke direktori target
+2. Clone github dengan mengetikkan command " git clone https://github.com/farahaulia115/Tugas-Besar-OOP-G2 "
+3. Ketik cd Tugas-Besar-OOP-G2/michael-vs-lalapan/target/ untuk pindah ke direktori target
 4. Run program dengan java -jar michael-vs-lalapan.jar
 <img width="1181" alt="image" src="https://github.com/farahaulia115/Tugas-Besar-OOP-G2/assets/162091491/58d1a331-cac3-4e03-a7a2-921fd826ac80">
 
