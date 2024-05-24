@@ -38,7 +38,10 @@ public class Row5EntityThread implements Runnable{
                         SelfDestruct ps = (SelfDestruct)tile.getPlant();
                         if (i<10){
                             Tile tileToAttack = Map.getMapInstance().getMapDetail()[4][i+1];
-                            if (tileToAttack.getZombieList().size()>0){
+                            if (tile.getZombieList().size() >0){
+                                pa.startAttack(tile);
+                            }
+                            else if (tileToAttack.getZombieList().size()>0){
                                 pa.attack(tileToAttack);
                                 ps.selfDestruct(tile);
                             }
