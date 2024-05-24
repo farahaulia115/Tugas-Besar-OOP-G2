@@ -31,10 +31,10 @@ public class TesRun {
             Map.getMapInstance().getMapDetail()[2][1].tanam(new Lilypad());
             Map.getMapInstance().getMapDetail()[2][1].tanam(new SnowPea());
             
-            Map.getMapInstance().getMapDetail()[3][10].getZombieList().add(new FootballZombie());
+            Map.getMapInstance().getMapDetail()[1][10].getZombieList().add(new PolevaultingZombie());
             Map.getMapInstance().addZombieInMap();
-            Map.getMapInstance().getMapDetail()[3][1].tanam(new Lilypad());
-            Map.getMapInstance().getMapDetail()[3][1].tanam(new SnowPea());
+            Map.getMapInstance().getMapDetail()[1][8].tanam(new Tallnut());
+            Map.getMapInstance().getMapDetail()[1][9].tanam(new SnowPea());
             
             Map.getMapInstance().getMapDetail()[4][10].getZombieList().add(new FootballZombie());
             Map.getMapInstance().addZombieInMap();

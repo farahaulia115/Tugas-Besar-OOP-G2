@@ -1,0 +1,655 @@
+{
+  "mapState" : {
+    "mapDetails" : [ [ {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : {
+        "type" : "Sunflower",
+        "name" : "Sunflower",
+        "cost" : 50,
+        "health" : 100,
+        "attackDamage" : 0,
+        "attackSpeed" : 0,
+        "range" : 0,
+        "cooldown" : 10,
+        "jumpable" : true,
+        "timePlantCreated" : 14
+      },
+      "adaTanaman" : true,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "NormalZombie",
+        "name" : "Normal Zombie",
+        "health" : 125,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 98,
+        "x" : 0,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "FootballZombie",
+        "name" : "Football Zombie",
+        "health" : 300,
+        "damage" : 150,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 107,
+        "x" : 0,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "WallnutZombie",
+        "name" : "Wallnut Zombie",
+        "health" : 350,
+        "damage" : 75,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 149,
+        "x" : 0,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    } ], [ {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "FootballZombie",
+        "name" : "Football Zombie",
+        "health" : 300,
+        "damage" : 150,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 146,
+        "x" : 1,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "BucketheadZombie",
+        "name" : "Buckethead Zombie",
+        "health" : 300,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 152,
+        "x" : 1,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    } ], [ {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ {
+        "type" : "DuckytubeConeheadZombie",
+        "name" : "Ducky Tube Conehead Zombie",
+        "health" : 250,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : true,
+        "timeSpawn" : 98,
+        "x" : 2,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ {
+        "type" : "DolphinriderZombie",
+        "name" : "Dolphin Rider Zombie",
+        "health" : 175,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : true,
+        "timeSpawn" : 107,
+        "x" : 2,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "DuckytubeConeheadZombie",
+        "name" : "Ducky Tube Conehead Zombie",
+        "health" : 250,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : true,
+        "timeSpawn" : 155,
+        "x" : 2,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    } ], [ {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ {
+        "type" : "DuckytubeConeheadZombie",
+        "name" : "Ducky Tube Conehead Zombie",
+        "health" : 250,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : true,
+        "timeSpawn" : 101,
+        "x" : 3,
+        "y" : 10,
+        "moveInterval" : 10
+      }, {
+        "type" : "DuckytubeZombie",
+        "name" : "Ducky Tube Zombie",
+        "health" : 100,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : true,
+        "timeSpawn" : 104,
+        "x" : 3,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ {
+        "type" : "DuckytubeZombie",
+        "name" : "Ducky Tube Zombie",
+        "health" : 100,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : true,
+        "timeSpawn" : 125,
+        "x" : 3,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Water",
+      "plant" : null,
+      "adaTanaman" : false,
+      "ditanamLilypad" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "DuckytubeConeheadZombie",
+        "name" : "Ducky Tube Conehead Zombie",
+        "health" : 250,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : true,
+        "timeSpawn" : 152,
+        "x" : 3,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    } ], [ {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "PolevaultingZombie",
+        "name" : "Pole Vaulting Zombie",
+        "health" : 175,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 101,
+        "x" : 4,
+        "y" : 10,
+        "moveInterval" : 10
+      }, {
+        "type" : "NormalZombie",
+        "name" : "Normal Zombie",
+        "health" : 125,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 104,
+        "x" : 4,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "ScreendoorZombie",
+        "name" : "Screen Door Zombie",
+        "health" : 300,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 146,
+        "x" : 4,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    } ], [ {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "BucketheadZombie",
+        "name" : "Buckethead Zombie",
+        "health" : 300,
+        "damage" : 100,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 104,
+        "x" : 5,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "Land",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ ]
+    }, {
+      "type" : "RestrictedPlot",
+      "plant" : null,
+      "adaTanaman" : false,
+      "zombieList" : [ {
+        "type" : "FootballZombie",
+        "name" : "Football Zombie",
+        "health" : 300,
+        "damage" : 150,
+        "speed" : 1,
+        "aquatic" : false,
+        "timeSpawn" : 149,
+        "x" : 5,
+        "y" : 10,
+        "moveInterval" : 10
+      } ]
+    } ] ],
+    "zombieInMap" : 17
+  },
+  "amountSun" : 1425,
+  "timeState" : {
+    "totalSeconds" : 156,
+    "day" : 1
+  },
+  "deckState" : {
+    "deckStatus" : [ {
+      "readyToPlant" : true,
+      "lastTimeCreated" : 14,
+      "interval" : 10
+    }, {
+      "readyToPlant" : true,
+      "lastTimeCreated" : 0,
+      "interval" : 20
+    }, {
+      "readyToPlant" : true,
+      "lastTimeCreated" : 122,
+      "interval" : 20
+    }, {
+      "readyToPlant" : true,
+      "lastTimeCreated" : 0,
+      "interval" : 10
+    }, {
+      "readyToPlant" : true,
+      "lastTimeCreated" : 0,
+      "interval" : 20
+    }, {
+      "readyToPlant" : true,
+      "lastTimeCreated" : 0,
+      "interval" : 10
+    } ]
+  },
+  "plantInDeck" : {
+    "plantsInDeck" : [ {
+      "type" : "Sunflower",
+      "name" : "Sunflower",
+      "cost" : 50,
+      "health" : 100,
+      "attackDamage" : 0,
+      "attackSpeed" : 0,
+      "range" : 0,
+      "cooldown" : 10,
+      "jumpable" : true,
+      "timePlantCreated" : 0
+    }, {
+      "type" : "TangleKelp",
+      "name" : "Tangle kelp",
+      "cost" : 25,
+      "health" : 100,
+      "attackDamage" : 5000,
+      "attackSpeed" : 0,
+      "range" : 1,
+      "cooldown" : 20,
+      "jumpable" : true,
+      "timePlantCreated" : 0
+    }, {
+      "type" : "Squash",
+      "name" : "Squash",
+      "cost" : 50,
+      "health" : 100,
+      "attackDamage" : 5000,
+      "attackSpeed" : 0,
+      "range" : 1,
+      "cooldown" : 20,
+      "jumpable" : true,
+      "timePlantCreated" : 0
+    }, {
+      "type" : "SnowPea",
+      "name" : "Snow pea",
+      "cost" : 175,
+      "health" : 100,
+      "attackDamage" : 25,
+      "attackSpeed" : 4,
+      "range" : -1,
+      "cooldown" : 10,
+      "jumpable" : true,
+      "lastAttack" : 0,
+      "firstAttack" : false,
+      "timePlantCreated" : 0
+    }, {
+      "type" : "Tallnut",
+      "name" : "Tall nut",
+      "cost" : 125,
+      "health" : 2000,
+      "attackDamage" : 0,
+      "attackSpeed" : 0,
+      "range" : 0,
+      "cooldown" : 20,
+      "jumpable" : false,
+      "timePlantCreated" : 0
+    }, {
+      "type" : "Lilypad",
+      "name" : "Lilypad",
+      "cost" : 25,
+      "health" : 100,
+      "attackDamage" : 0,
+      "attackSpeed" : 0,
+      "range" : 0,
+      "cooldown" : 10,
+      "jumpable" : true,
+      "timePlantCreated" : 0
+    } ]
+  }
+}

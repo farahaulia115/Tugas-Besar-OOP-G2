@@ -3,7 +3,7 @@ import tubes.maven.Thread.Time;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonTypeName("PolevaultingZombie")
-public class PolevaultingZombie implements Zombie {
+public class PolevaultingZombie implements Zombie, CanJump {
     private String name = "Pole Vaulting Zombie";
     private int health = 175;
     private int damage = 100;
@@ -12,6 +12,7 @@ public class PolevaultingZombie implements Zombie {
     private int timeSpawn;
     private int x;
     private int y;
+    private boolean jumped = false;
     private int moveInterval = 10;
     private boolean slowed = false;
     private int timeSlowed;
@@ -143,5 +144,14 @@ public class PolevaultingZombie implements Zombie {
             moveInterval = 10;
             slowed = false; 
         }
+    }
+
+    public void jump() {
+        // implementasi jump
+        jumped = true;
+    }
+
+    public boolean alreadyJumped(){
+        return jumped;
     }
 }
