@@ -144,6 +144,7 @@ public class Opening {
         System.out.println(yellow + "=".repeat(143) + reset);
         System.out.println();
         informasiNormalZombie();
+        System.out.println(red + "-".repeat(143) + reset);
         informasiConeheadZombie();
         System.out.println(red + "-".repeat(143) + reset);
         informasiBucketheadZombie();
@@ -162,6 +163,7 @@ public class Opening {
         System.out.println(red + "-".repeat(143) + reset);
         informasiDuckytubeZombie();
         System.out.println(yellow + "=".repeat(143) + reset);
+        
     }    
 
     private void printCenteredBoxedTable(String... lines) {
@@ -205,13 +207,15 @@ public class Opening {
         String[] infoLines = {
             "Name:         " + coneheadZombie.getName(),
             "Description:  Tough with a cone on its head, harder to kill.",
-            "              It's a bit faster than the normal zombie, but",
-            "              still slow enough to be taken down easily.",
+            "              It's a bit faster than the normal zombie, but still",
+            "              slow enough to be taken down easily.",
             "Health:       " + coneheadZombie.getHealth(),
             "Damage:       " + coneheadZombie.getDamage(),
             "Speed:        " + coneheadZombie.getSpeed(),
             "Aquatic:      " + coneheadZombie.isAquatic()
         };
+
+        printCenteredBoxedTable(infoLines);
         
     }
     
