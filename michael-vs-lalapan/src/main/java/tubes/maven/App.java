@@ -241,7 +241,7 @@ public class App {
                             Thread timeThread = new Thread(finalGame.getTime());
                             timeThread.start();
 
-                            // Thread spawnerThread = new Thread(new SpawnZombie());
+                            Thread spawnerThread = new Thread(new SpawnZombie());
                             Thread entityThread1 = new Thread(new Row1EntityThread());
                             Thread entityThread2 = new Thread(new Row2EntityThread());
                             Thread entityThread3 = new Thread(new Row3EntityThread());
@@ -249,8 +249,8 @@ public class App {
                             Thread entityThread5 = new Thread(new Row5EntityThread());
                             Thread entityThread6 = new Thread(new Row6EntityThread());
                             Thread.sleep(1000);
-                            // spawnerThread.start();
-                            // spawnerThread.join();
+                            spawnerThread.start();
+                            spawnerThread.join();
                             entityThread1.start();
                             entityThread2.start();
                             entityThread3.start();
