@@ -353,6 +353,9 @@ public class App {
                             catch (NotShovelableException e) {
                                 System.out.println(e.getMessage());
                             }
+                            catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
                             
                             
                             // remove plant
