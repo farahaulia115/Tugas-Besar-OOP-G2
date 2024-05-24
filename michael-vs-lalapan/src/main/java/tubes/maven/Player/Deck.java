@@ -33,7 +33,7 @@ public class Deck {
     public void showDeck(){
         int i = 1;
         if (!deck.isEmpty()){
-            for (Plant p: deck){
+            for (Plant p : deck){
                 System.out.println(i + " ." + deck.get(i-1).getName());
                 i++;
             }
@@ -151,6 +151,4 @@ public class Deck {
     }
 
 
-
-// jangan lupa tanganin kalo deck kosong gak bisa maen game
 }

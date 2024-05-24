@@ -3,20 +3,18 @@ package tubes.maven.Zombie;
 
 public class ZombieFactory {
 
-    // LIST ZOMBIE 
-    // Normal Zombie
-    // Conehead Zombie
-    // Buckethead Zombie
-    // Dolphin Rider Zombie
-    // Ducky Tube Conehead Zombie
-    // Ducky Tube Zombie
-    // Football Zombie
-    // Pole Vaulting Zombie
-    // Screen Door Zombie
-    // Wallnut Zombie
-
-
-
+    //List of zombie types
+    //1. Normal Zombie
+    //2. Conehead Zombie
+    //3. Buckethead Zombie
+    //4. Football Zombie
+    //5. Polevaulting Zombie
+    //6. Screendoor Zombie
+    //7. Wallnut Zombie
+    //8. Dolphinrider Zombie
+    //9. Duckytube Conehead Zombie
+    //10. Duckytube Zombie
+    
     public Zombie createZombie(int type){
         switch (type) {
             case 1:
