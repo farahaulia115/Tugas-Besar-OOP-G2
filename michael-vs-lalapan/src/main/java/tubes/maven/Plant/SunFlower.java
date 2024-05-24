@@ -1,8 +1,13 @@
 package tubes.maven.Plant;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import tubes.maven.Player.Sun;
 import tubes.maven.Thread.Time;
 
+@JsonTypeName("SunFlower")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SunFlower implements Plant, ProduceSun {
     private int SUN_PRODUCTION_INTERVAL = 3; // Interval in seconds
     private int SUN_PRODUCTION_AMOUNT = 25;
@@ -14,17 +19,34 @@ public class SunFlower implements Plant, ProduceSun {
     private int range = 0;
     private int cooldown = 10;
     private boolean jumpable = true;
-    private int timeCreated;
+    private int plantTimeCreated;
     private int lastProductionTime;
 
     public SunFlower() {
-        this.timeCreated = Time.getTime().getTotalSeconds();
+        this.plantTimeCreated = Time.getTime().getTotalSeconds();
+        this.lastProductionTime = Time.getTime().getTotalSeconds();
+    }
+
+    public SunFlower(String name, int cost, int health, int attackDamage, int attackSpeed, int range, int cooldown, boolean jumpable, int plantTimeCreated) {
+        this.name = name;
+        this.cost = cost;
+        this.health = health;
+        this.attackDamage = attackDamage;
+        this.attackSpeed = attackSpeed;
+        this.range = range;
+        this.cooldown = cooldown;
+        this.jumpable = jumpable;
+        this.plantTimeCreated = plantTimeCreated;
         this.lastProductionTime = Time.getTime().getTotalSeconds();
     }
 
     @Override
     public int getTimePlantCreated() {
-        return timeCreated;
+        return plantTimeCreated;
+    }
+
+    public void setTimePlantCreated(int plantTimeCreated) {
+        this.plantTimeCreated = plantTimeCreated;
     }
 
     @Override
@@ -55,6 +77,15 @@ public class SunFlower implements Plant, ProduceSun {
     @Override
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
+    }
+
+    public void setAttackSpeed(int attackSpeed) {
+        this.attackSpeed = attackSpeed;
+    }
+
+ 
+    public void setJumpable(boolean jumpable) {
+        this.jumpable = jumpable;
     }
 
     @Override
@@ -105,6 +136,4 @@ public class SunFlower implements Plant, ProduceSun {
             lastProductionTime = currentTime;
         }
     }
-
-
 }

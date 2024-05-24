@@ -28,7 +28,7 @@ public class Row3EntityThread implements Runnable{
                             }   
                             else if (y==9 && tileToAttack.getZombieList().size()==0){
                                 Shooter sh = (Shooter)pa;
-                                sh.setfirstAttack(true);
+                                sh.setFirstAttack(true);
                             }
                         }
                     }

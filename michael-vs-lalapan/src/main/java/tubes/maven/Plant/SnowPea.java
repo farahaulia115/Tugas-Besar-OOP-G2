@@ -1,8 +1,14 @@
 package tubes.maven.Plant;
+
 import tubes.maven.Map.*;
 import tubes.maven.Thread.Time;
 import tubes.maven.Zombie.Zombie;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+@JsonTypeName("SnowPea")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SnowPea implements Plant, Attack, Shooter {
     private String name = "Snow pea";
     private int cost = 175;
@@ -12,17 +18,42 @@ public class SnowPea implements Plant, Attack, Shooter {
     private int range = -1;
     private int cooldown = 10;
     private boolean jumpable = true;
-    private int timeCreated;
-    private int lastAttack;
+    private int plantTimeCreated = Time.getTime().getTotalSeconds();
+    private int lastAttack = Time.getTime().getTotalSeconds();
     private boolean firstAttack;
 
     public SnowPea() {
-        this.timeCreated = Time.getTime().getTotalSeconds();
-        this.lastAttack = Time.getTime().getTotalSeconds();
+        // Konstruktor default
     }
+    public SnowPea(String name, int cost, int health, int attackDamage, int attackSpeed, int range, int cooldown, boolean jumpable, int plantTimeCreated, int timeNow, int lastAttack, boolean firstAttack) {
+        this.name = name;
+        this.cost = cost;
+        this.health = health;
+        this.attackDamage = attackDamage;
+        this.attackSpeed = attackSpeed;
+        this.range = range;
+        this.cooldown = cooldown;
+        this.jumpable = jumpable;
+        this.plantTimeCreated = plantTimeCreated;
+        this.lastAttack = lastAttack;
+        this.firstAttack = firstAttack;
+
+    }
+    public SnowPea(String name, int cost, int health, int attackDamage, int attackSpeed, int range, int cooldown, boolean jumpable, int plantTimeCreated) {
+        this.name = name;
+        this.cost = cost;
+        this.health = health;
+        this.attackDamage = attackDamage;
+        this.attackSpeed = attackSpeed;
+        this.range = range;
+        this.cooldown = cooldown;
+        this.jumpable = jumpable;
+        this.plantTimeCreated = plantTimeCreated;
+    }
+    
     @Override
     public int getTimePlantCreated() {
-        return timeCreated;
+        return plantTimeCreated;
     }
 
     @Override
@@ -95,18 +126,17 @@ public class SnowPea implements Plant, Attack, Shooter {
         this.lastAttack = lastAttack;
     }
 
-    @Override
-    public int getlastAttack() {
+    public int getLastAttack() {
         return lastAttack;
     }
 
-    @Override
-    public void setfirstAttack(boolean firstAttack) {
+
+    public void setFirstAttack(boolean firstAttack) {
         this.firstAttack = firstAttack;
     }
 
-    @Override
-    public boolean getfirstAttack() {
+
+    public boolean getFirstAttack() {
         return firstAttack;
     }
 
@@ -133,4 +163,5 @@ public class SnowPea implements Plant, Attack, Shooter {
     public void startAttack(Tile tile) {
         attack(tile);
     }
+
 }

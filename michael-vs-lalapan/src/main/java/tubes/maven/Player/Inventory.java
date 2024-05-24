@@ -79,7 +79,7 @@ public class Inventory {
     }
 
     public void addPlantToDeck (int i){
-        if (i < 0 || i > inventory.size()) {
+        if (i <= 0 || i > inventory.size()) {
             throw new IllegalArgumentException("Index out of bounds");
         }
         else if (deck.getDeck().size() >= 6){

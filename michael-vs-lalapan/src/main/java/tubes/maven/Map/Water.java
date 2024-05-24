@@ -1,8 +1,11 @@
 package tubes.maven.Map;
+
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import tubes.maven.Exception.NotPlantableException;
 import tubes.maven.Exception.NotShovelableException;
 import tubes.maven.Plant.*;
 
+@JsonTypeName("Water")
 public class Water extends Tile {
     private boolean diTanamLilypad = false;
     public Water(){
@@ -69,5 +72,6 @@ public class Water extends Tile {
     public void setDitanamLilypad(boolean b){
         diTanamLilypad = b;
     }
+    
 
 }
